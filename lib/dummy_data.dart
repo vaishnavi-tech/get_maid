@@ -30,6 +30,5 @@ const DUMMY_CATEGORIES = const [
     title: 'washing clothes',
     color: Colors.yellow,
   ),
-
 ];
 
