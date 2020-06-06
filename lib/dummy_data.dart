@@ -29,6 +29,14 @@ const DUMMY_CATEGORIES = const [
     id: 'c6',
     title: 'washing clothes',
     color: Colors.yellow,
-  ),
+  ), Category(
+    id:'c7',
+    title: 'One day service',
+    color: Colors.grey,
+  ),Category(
+    id:'c8',
+    title: 'Daily work ',
+    color: Colors.cyan,
+  )
 ];
 
