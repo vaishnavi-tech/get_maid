@@ -1,5 +1,6 @@
 import 'dart:math';
-import 'settings.json';
+//import 'settings.json';
+import 'package:get_maid/dummy_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
