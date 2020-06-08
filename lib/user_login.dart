@@ -1,13 +1,14 @@
 import 'dart:math';
 //import 'settings.json';
-import 'package:get_maid/dummy_data.dart';
+//import 'package:get_maid/dummy_data.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 enum AuthMode { Signup , Login}
 
 class AuthScreen extends StatelessWidget {
-  static const routename = '/auth';
+  static const String routename = '/auth';
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +22,11 @@ class AuthScreen extends StatelessWidget {
                gradient: LinearGradient(
                  colors:[
                    Color.fromRGBO(215, 117, 255, 1).withOpacity(0.5),
-                   Color.fromRGBO(255, 188, 117, 1).withopacity(0.9),
+                   Color.fromRGBO(255, 188, 117, 1).withOpacity(0.9),
                  ],
                  begin: Alignment.topLeft,
                  end: Alignment.bottomRight,
-                 stops:  [o ,1],
+                 stops:  [0,1],
                ),
              ),
            ),
@@ -41,7 +42,7 @@ class AuthScreen extends StatelessWidget {
                      child: Container(
                        margin: EdgeInsets.only(bottom: 20.0),
                        padding:
-                       EdgeInsects.symmetric(vertical: 8,0 , horizontal: 94.0),
+                       EdgeInsets.symmetric(vertical: 8.0, horizontal: 94.0),
                        transform: Matrix4.rotationZ(-8 * pi/180)
                        ..translate(-10.0),
                        decoration: BoxDecoration(
@@ -58,7 +59,8 @@ class AuthScreen extends StatelessWidget {
                        child: Text(
                          'Get_Maid',
                          style: TextStyle(
-                           color: Theme.of(context).accentTextTheme.title.color.red,
+                           //color: Theme.of(context).accentTextTheme.title.color.red,
+                           color: Colors.black,
                            fontSize: 45,
                            fontFamily: 'Anton',
                            fontWeight: FontWeight.bold,
@@ -68,7 +70,7 @@ class AuthScreen extends StatelessWidget {
 
                    ),
                    Flexible(
-                     flex: devicesize.width > 600 ? 2 :1,
+                     flex: devicesize.width > 600 ? 2 : 1,
                      child: AuthCard(),
                    ),
                  ],
@@ -81,16 +83,18 @@ class AuthScreen extends StatelessWidget {
   }
 }
 
+
+  // ignore: must_be_immutable
   class AuthCard extends StatefulWidget {
-  const AuthCard({
-    key key,
+  const  AuthCard({
+    Key key,
   }) : super(key:key);
 
   @override
-    _AuthCardstate createState() => _AuthCardStae();
-  }
-  class _AuthCardState extends State<AuthCard>{
-  final GlobalKey<formstate>_formkey = GlobalKey();
+   State _AuthCardState createState() => ();
+  
+  abstract class _AuthCardState extends Future<State<AuthCard>> {
+  final GlobalKey<formState>_formkey = GlobalKey();
   AuthMode _authMode = AuthMode.Login;
   Map<String , String> _authdata = {
     'email': '',
@@ -104,8 +108,8 @@ class AuthScreen extends StatelessWidget {
       //Invalid;
       return;
     }
-    _formkey.currentState.save();
-    setState(() {
+    var save = _formkey.currentState.save();
+     void setState;()() {
       _isLoading = true;
     });
     if(_authMode == AuthMode.Login) {
@@ -113,14 +117,14 @@ class AuthScreen extends StatelessWidget {
     }else{
       //Sign user up
     }
-    setState(() {
+     void setState;(() {
       _isLoading = false;
     });
   }
   void _switchAuthMode(){
     if(_authMode == AuthMode.Login){
       setState(() {
-        _authMode = AuthMode.Signup;
+        _authMode = AuthMode.signup;
       });
     }else{
       setState(() {
@@ -128,4 +132,12 @@ class AuthScreen extends StatelessWidget {
       });
     }
   }
+
+void setState(Null Function() param0) {
+}
   }
+  //class formState {
+}
+
+//class formState {
+}
