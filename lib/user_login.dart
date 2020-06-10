@@ -1,131 +1,137 @@
 import 'dart:math';
-//import 'settings.json';
-//import 'package:get_maid/dummy_data.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
+//import 'package:get_maid/settings.json';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 enum AuthMode { Signup , Login}
 
 class AuthScreen extends StatelessWidget {
-  static const String routename = '/auth';
+  static const routename = '/auth';
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-     final devicesize = MediaQuery.of(context).size;
-     return Scaffold(
-       body: Stack(
-         children: <Widget>[
-           Container(
-             decoration: BoxDecoration(
-               gradient: LinearGradient(
-                 colors:[
-                   Color.fromRGBO(215, 117, 255, 1).withOpacity(0.5),
-                   Color.fromRGBO(255, 188, 117, 1).withOpacity(0.9),
-                 ],
-                 begin: Alignment.topLeft,
-                 end: Alignment.bottomRight,
-                 stops:  [0,1],
-               ),
-             ),
-           ),
-           SingleChildScrollView(
-             child: Container(
-               height: devicesize.height,
-               width: devicesize.width,
-               child: Column(
-                 mainAxisAlignment: MainAxisAlignment.center,
-                 crossAxisAlignment: CrossAxisAlignment.center,
-                 children: <Widget>[
-                   Flexible(
-                     child: Container(
-                       margin: EdgeInsets.only(bottom: 20.0),
-                       padding:
-                       EdgeInsets.symmetric(vertical: 8.0, horizontal: 94.0),
-                       transform: Matrix4.rotationZ(-8 * pi/180)
-                       ..translate(-10.0),
-                       decoration: BoxDecoration(
-                         borderRadius: BorderRadius.circular(20),
-                         color: Colors.deepPurple.shade800,
-                         boxShadow: [
-                           BoxShadow(
-                             blurRadius: 8,
-                             color: Colors.blueGrey,
-                             offset: Offset(0 , 2),
-                           )
-                         ]
-                       ),
-                       child: Text(
-                         'Get_Maid',
-                         style: TextStyle(
-                           //color: Theme.of(context).accentTextTheme.title.color.red,
-                           color: Colors.black,
-                           fontSize: 45,
-                           fontFamily: 'Anton',
-                           fontWeight: FontWeight.bold,
-                         ),
-                       ),
-                     ),
-                   ),
-                   Flexible(
-                     flex: devicesize.width > 600 ? 2 : 1,
-                     child: AuthCard(),
-                   ),
-                 ],
-               ),
-             ),
-           )
-         ],
-       )
-     )
+    final devicesize = MediaQuery.of(context).size;
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors:[
+                  Color.fromRGBO(215, 117, 255, 1).withOpacity(0.5),
+                  Color.fromRGBO(255, 188, 117, 1).withOpacity(0.9),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                stops:  [0 ,1],
+              ),
+            ),
+          ),
+          SingleChildScrollView(
+            child: Container(
+              height: devicesize.height,
+              width: devicesize.width,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Flexible(
+                    child: Container(
+                      margin: EdgeInsets.only(bottom: 20.0),
+                      padding:
+                      EdgeInsets.symmetric(vertical: 8.0 , horizontal: 94.0),
+                      transform: Matrix4.rotationZ(-8 * pi/180)
+                        ..translate(-10.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.deepPurple.shade800,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 8,
+                            color: Colors.blueGrey,
+                            offset: Offset(0 , 2),
+                          )
+                        ],
+                      ),
+                      child: Text(
+                        'Get_Maid',
+                        style: TextStyle(
+                          //color: Theme.of(context).accentTextTheme.title.color.red,
+                          fontSize: 45,
+                          fontFamily: 'Anton',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    flex: devicesize.width > 600 ? 2 :1,
+                    child: AuthCard(),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
-// ignore: must_be_immutable
-  class AuthCard extends StatefulWidget {
-    const AuthCard({
-      Key key,
-    }) : super(key: key);
 
-    @override
-     _AuthCardState createState() => _AuthCardState();
-  }
-  class AuthCard extends State<AuthCard>{
-  final GlobalKey<FormState>_formKey =GlobalKey();
+
+class AuthCard extends StatefulWidget {
+  const AuthCard({
+    Key key,
+  }) : super(key: key);
+
+  @override
+    _AuthCardState createState() => _AuthCardState();
+}
+
+
+class _AuthCardState extends State<AuthCard>{
+  final GlobalKey<FormState> _formKey = GlobalKey();
   AuthMode _authMode = AuthMode.Login;
-  Map<String , String> _authData = {
-  'email':'',
-    'password' : '',
+  Map<String, String> _authData = {
+    'email': '',
+    'password':'',
   };
-  bool isLoading = false;
+  var _isLoading = false;
   final _passwordController = TextEditingController();
-  void _submit(){
-    if(!_formKey.currentState.validate()){
-      //Invalid!
+
+  void _submit() {
+    if (!_formKey.currentState.validate()) {
+      //Invalid;
       return;
     }
     _formKey.currentState.save();
-    setState((){
+    setState(() {
       _isLoading = true;
     });
-    if (_authMode == AuthMode.Login){
-      //Log User In
+    if(_authMode == AuthMode.Login) {
+      //Log user in
     }else{
-      //Sign User Up
+      //Sign user up
     }
-    setState((){
-      _isLOading = false;
+    setState(() {
+      _isLoading = false;
     });
   }
   void _switchAuthMode(){
     if(_authMode == AuthMode.Login){
-      setState((){
+      setState(() {
+        _authMode = AuthMode.Signup;
+      });
+    }else{
+      setState(() {
         _authMode = AuthMode.Login;
       });
     }
   }
+
   @override
-    Widget build(BuildContext context){
+  Widget build(BuildContext context){
     final deviceSize = MediaQuery.of(context).size;
     return Card(
       shape: RoundedRectangleBorder(
@@ -146,6 +152,7 @@ class AuthScreen extends StatelessWidget {
                 TextFormField(
                   decoration: InputDecoration(labelText: 'E-mail'),
                   keyboardType: TextInputType.emailAddress,
+                  // ignore: missing_return
                   validator: (value) {
                     if (value.isEmpty || !value.contains('@')) {
                       return 'Invalid email!';
@@ -160,9 +167,13 @@ class AuthScreen extends StatelessWidget {
                   obscureText: true,
                   controller: _passwordController,
                   validator: (value){
-                    if(value,isEmpty || value.length <5){
+                    // ignore: missing_return
+                    if(value.isEmpty || value.length <5){
+
                       return 'Password is too Short!';
                     }
+                  },
+                  onSaved: (value){
                     _authData['password'] = value;
                   },
                 ),
@@ -172,24 +183,45 @@ class AuthScreen extends StatelessWidget {
                     decoration: InputDecoration(labelText: 'Confirm Password'),
                     obscureText: true,
                     validator: _authMode == AuthMode.Signup
-                      ?(value){
+                        ?(value){
                       if (value != _passwordController.text){
-                        return 'Passwords do not match!'
+                        return "Passwords do not match!";
                       }
                     }
-                    : null,
+                        : null,
                   ),
                 SizedBox(
                   height: 20,
                 ),
-                if(isLoading)
+                if(_isLoading)
                   CircularProgressIndicator()
                 else
+                  RaisedButton(
+                    child:
+                    Text(_authMode == AuthMode.Login ? 'LOGIN' : 'SIGNUP'),
+                    onPressed: _submit,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(35),
+                    ),
+                    padding:
+                    EdgeInsets.symmetric(horizontal: 30.0, vertical:8.0),
+                    color: Theme.of(context).primaryColor,
+                    textColor: Theme.of(context).primaryTextTheme.button.color,
+                  ),//RaisedButton
+                FlatButton(
+                  child: Text(
+                      '${_authMode == AuthMode.Login ? "SIGNUP" : "LOGIN"} INSTEAD'),
+                  onPressed: _switchAuthMode,
+                  padding: EdgeInsets.symmetric(horizontal: 30.0 , vertical: 4.0),
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  textColor: Theme.of(context).primaryColor,
+                ),
               ],
             ),
           ),
         ),
       ),
-    )
+    );
+
   }
-  }
+}
