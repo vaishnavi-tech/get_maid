@@ -4,6 +4,8 @@ import 'package:get_maid/dummy_data.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get_maid/categories_screen.dart';
+import 'package:get_maid/category_maids_screen.dart';
+import 'package:get_maid/tabs_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,7 +32,12 @@ class MyApp extends StatelessWidget {
           )
         ),
       ),
-      home: CategoriesScreen(),
+      //home: CategoriesScreen(),
+      initialRoute: '/',
+         routes: {
+        '/': (ctx) => TabsScreen(),
+        CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(),
+    },
     );
   }
 }
