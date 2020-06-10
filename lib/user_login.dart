@@ -67,7 +67,6 @@ class AuthScreen extends StatelessWidget {
                          ),
                        ),
                      ),
-
                    ),
                    Flexible(
                      flex: devicesize.width > 600 ? 2 : 1,
@@ -82,62 +81,115 @@ class AuthScreen extends StatelessWidget {
      )
   }
 }
-
-
-  // ignore: must_be_immutable
+// ignore: must_be_immutable
   class AuthCard extends StatefulWidget {
-  const  AuthCard({
-    Key key,
-  }) : super(key:key);
+    const AuthCard({
+      Key key,
+    }) : super(key: key);
 
-  @override
-   State _AuthCardState createState() => ();
-  
-  abstract class _AuthCardState extends Future<State<AuthCard>> {
-  final GlobalKey<formState>_formkey = GlobalKey();
+    @override
+     _AuthCardState createState() => _AuthCardState();
+  }
+  class AuthCard extends State<AuthCard>{
+  final GlobalKey<FormState>_formKey =GlobalKey();
   AuthMode _authMode = AuthMode.Login;
-  Map<String , String> _authdata = {
-    'email': '',
-    'password':'',
+  Map<String , String> _authData = {
+  'email':'',
+    'password' : '',
   };
-  var _isLoading = false;
+  bool isLoading = false;
   final _passwordController = TextEditingController();
-
-  void _submit() {
-    if (!_formkey.currentState.validate()) {
-      //Invalid;
+  void _submit(){
+    if(!_formKey.currentState.validate()){
+      //Invalid!
       return;
     }
-    var save = _formkey.currentState.save();
-     void setState;()() {
+    _formKey.currentState.save();
+    setState((){
       _isLoading = true;
     });
-    if(_authMode == AuthMode.Login) {
-      //Log user in
+    if (_authMode == AuthMode.Login){
+      //Log User In
     }else{
-      //Sign user up
+      //Sign User Up
     }
-     void setState;(() {
-      _isLoading = false;
+    setState((){
+      _isLOading = false;
     });
   }
   void _switchAuthMode(){
     if(_authMode == AuthMode.Login){
-      setState(() {
-        _authMode = AuthMode.signup;
-      });
-    }else{
-      setState(() {
+      setState((){
         _authMode = AuthMode.Login;
       });
     }
   }
-
-void setState(Null Function() param0) {
-}
+  @override
+    Widget build(BuildContext context){
+    final deviceSize = MediaQuery.of(context).size;
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      elevation: 8.0,
+      child: Container(
+        height: _authMode == AuthMode.Signup ? 320 : 260,
+        constraints:
+        BoxConstraints(minHeight: _authMode == AuthMode.Signup ? 320 : 260),
+        width: deviceSize.width * 0.75,
+        padding: EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'E-mail'),
+                  keyboardType: TextInputType.emailAddress,
+                  validator: (value) {
+                    if (value.isEmpty || !value.contains('@')) {
+                      return 'Invalid email!';
+                    }
+                  },
+                  onSaved: (value) {
+                    _authData['email'] = value;
+                  },
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Password'),
+                  obscureText: true,
+                  controller: _passwordController,
+                  validator: (value){
+                    if(value,isEmpty || value.length <5){
+                      return 'Password is too Short!';
+                    }
+                    _authData['password'] = value;
+                  },
+                ),
+                if(_authMode == AuthMode.Signup)
+                  TextFormField(
+                    enabled: _authMode == AuthMode.Signup,
+                    decoration: InputDecoration(labelText: 'Confirm Password'),
+                    obscureText: true,
+                    validator: _authMode == AuthMode.Signup
+                      ?(value){
+                      if (value != _passwordController.text){
+                        return 'Passwords do not match!'
+                      }
+                    }
+                    : null,
+                  ),
+                SizedBox(
+                  height: 20,
+                ),
+                if(isLoading)
+                  CircularProgressIndicator()
+                else
+              ],
+            ),
+          ),
+        ),
+      ),
+    )
   }
-  //class formState {
-}
-
-//class formState {
-}
+  }
