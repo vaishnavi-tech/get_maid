@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get_maid/help_screen.dart';
+import 'package:get_maid/settings_screen.dart';
+import './settings_screen.dart';
+
 
 class MainDrawer extends StatelessWidget {
- Widget buildListTile( String title,IconData icon) {
+ Widget buildListTile( String title, IconData icon, Function tapHandler) {
 
    return ListTile(
      leading: Icon(
@@ -16,9 +20,7 @@ class MainDrawer extends StatelessWidget {
          fontWeight: FontWeight.bold,
        ),
      ),
-     onTap: () {
-       //...
-     },
+     onTap: tapHandler,
    );
  }
 
@@ -43,12 +45,21 @@ class MainDrawer extends StatelessWidget {
          ),
           SizedBox(height: 20,
           ),
-          buildListTile('Settings', Icons.settings),
-          buildListTile('App Info', Icons.info_outline),
-          buildListTile('Help and Feedback', Icons.help_outline),
-          buildListTile('Log Out', Icons.power_settings_new),
-
-        ],
+          buildListTile(
+              'Settings',
+              Icons.settings,
+              () {
+              Navigator.of(context).pushReplacementNamed(SettingsScreen.routeName);
+              }
+              ),
+          buildListTile(
+              'Help and Feedback',
+              Icons.help_outline,
+              () {
+               Navigator.of(context).pushReplacementNamed(HelpScreen.routeName);
+              }
+              ),
+            ],
       ),
     );
   }

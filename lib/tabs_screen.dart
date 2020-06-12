@@ -38,7 +38,7 @@ class _TabsScreenState extends State<TabsScreen> {
   });
   }
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)  {
     return  Scaffold(
          appBar: AppBar(
           title: Text(_pages[_selectPageIndex]['title']),
