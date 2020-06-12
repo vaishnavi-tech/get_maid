@@ -166,7 +166,7 @@ class _AuthCardState extends State<AuthCard>{
                   decoration: InputDecoration(labelText: 'Password'),
                   obscureText: true,
                   controller: _passwordController,
-                  validator: (value){
+                  validator: ( value ){
                     // ignore: missing_return
                     if(value.isEmpty || value.length <5){
 
@@ -185,7 +185,7 @@ class _AuthCardState extends State<AuthCard>{
                     validator: _authMode == AuthMode.Signup
                         ?(value){
                       if (value != _passwordController.text){
-                        return "Passwords do not match!";
+                        return ('Passwords do not match!');
                       }
                     }
                         : null,
