@@ -13,12 +13,21 @@ class CategoryMaidsScreen  extends StatelessWidget {
     final categoryId = routeArgs['id'];
     return Scaffold(
          appBar: AppBar(
+           backgroundColor: Colors.cyan,
             title: Text(categoryTitle),
      ),
-       body: Center(
-           child: Text(
-          'list of maids',
-         ),
+       body: Column(
+         children: <Widget>[
+           Card(
+             color: Colors.purpleAccent,
+             child: Container(
+               width: 80,
+               //margin : FontWeight.bold,
+               child: Text('list of maids' ),),
+             elevation : 5,
+           )
+         ],
+
        ),
       );
     }
