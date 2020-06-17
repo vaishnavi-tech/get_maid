@@ -52,14 +52,14 @@ class CategoriesScreen extends StatelessWidget {
     ),
     Maidlist(
         id: 'c8',
-        title: 'One Day Household Service',
+        title: 'One Day Service',
         //minimum_salary: 3000,
         //maximum_salary: 30000,
         person_involved: 'Depends on the Maid'
     ),
     Maidlist(
         id: 'c9',
-        title: 'Daily Household Worker',
+        title: ' Household Worker',
         //minimum_salary: 3000,
         //maximum_salary: 30000,
         person_involved: 'Depends on the Maid'
@@ -73,79 +73,105 @@ class CategoriesScreen extends StatelessWidget {
     ),
 
   ];
-
+  // ScrollController _controller = new ScrollController();
+   //@override
+   //Widget build(BuildContext context){
+    // return new ListView(
+     //  physics: const
+      // AlwaysScrollableScrollPhysics(), //new
+      // controller: _controller,
+      // children: <Widget>[
+         // Scaffold(
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Get Maid App'),
-      ),
-      body : Column
-        (children: <Widget>[
-        Card(
-          //child: SingleChildScrollView()
-          child: Container(
+  Widget build(BuildContext context){
+     return Scaffold(
+         appBar: AppBar(
+          title: Text('Get Maid App'),
+         ),
+       body : Column
+           (
+             children: <Widget>[
+         Card(
+            //child: SingleChildScrollView()
+            child: Container(
             width: double.infinity,
-            child: Card(
+              height: 35,
+             child: Card(
               shadowColor: Colors.blueGrey,
-              color: Colors.purpleAccent,
-              child: Text('Service provided by maids', style:TextStyle(fontWeight: FontWeight.w200 ,
-                  fontFamily: 'RobotoCondensed' , color: Colors.deepPurpleAccent ,
-                  )
-              )
-            ),
-          ),
-        ),
-        Container(
-          height: 500,
-        child: ListView (children: maidlist.map((ml) {
-          return Card(
-            child:Row
-            (children: <Widget>[
-                  Container(
-                    margin : EdgeInsets.symmetric(vertical :15 , horizontal: 15),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1.5,
-
-                      ),
-                    ) ,
-                    padding: EdgeInsets.all(15),
-                    child:Text(ml.title , style:TextStyle(color:Colors.green , fontWeight: FontWeight.w200)),
+                  color: Colors.purpleAccent,
+               child: Text('Service provided by maids', style:TextStyle(fontWeight: FontWeight.w400 ,
+                         fontFamily: 'RobotoCondensed' , color: Colors.deepPurpleAccent ,
+                                  )
+                        )
+                 ),
                   ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-              Text('Number Of Persons Involved ',
-                style: TextStyle(fontWeight: FontWeight.w200 ,
-                  fontFamily: 'RobotoCondensed',
-                    color: Colors.purpleAccent),
-              ),
+                    ),
+                Container(
+                    height: 600,
+                    child: ListView
+                        (children: maidlist.map((ml) {
+                       return Card(
+                          child:Row
+                      (children: <Widget>[
+                     Container(
+                         margin : EdgeInsets.symmetric(vertical :15 , horizontal: 15),
+                          decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black,
+                   width: 1.5,
 
-              Text('In Work ',
-                style: TextStyle(fontWeight: FontWeight.w100 ,
-                  fontFamily: 'RobotoCondensed',
-                    color: Colors.purpleAccent),
-              ),
-              Text(ml.person_involved ,
-                style:TextStyle(fontWeight:FontWeight.w200 ,
-                    color: Colors.black),
-              ),
-              //Text(ml.minimum_salary.toString(),),
-              //Text('To'),
-             //Text(ml.maximum_salary.toString(),),
-            ],),
-         
-                ],
-              ),
-          );
-        }).toList(),))
-      ],),
+                        ),
+                 )  ,
+                            padding: EdgeInsets.all(15),
+                              child:Text(ml.title , style:TextStyle(color:Colors.lightGreen ,
+                          fontWeight: FontWeight.bold ,
+                              )
+                          ),
+                     ),
+                  Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                           children: <Widget>[
+                        Text('Number Of Persons Involved ',
+                          style: TextStyle(fontWeight: FontWeight.w400 ,
+                         fontFamily: 'RobotoCondensed',
+                          color: Colors.purple),
+                        ),
+
+                Text('In Work ',
+                      style: TextStyle(fontWeight: FontWeight.w400 ,
+                          fontFamily: 'RobotoCondensed',
+                         color: Colors.purple),
+                      ),
+                        Text(ml.person_involved ,
+                                    style:TextStyle(fontWeight:FontWeight.w200 ,
+                                    color: Colors.black),
+                            ),
+    //Text(ml.minimum_salary.toString(),),
+    //Text('To'),
+    //Text(ml.maximum_salary.toString(),),
+    ],),
+
+    ],
+    ),
     );
+    }).toList(),))
+    ],),
+
+    );
+
+
   }
-}
+
+
+   }
+  //@override
+  // ignore: override_on_non_overriding_member
+  //Widget make (BuildContext context) {
+    //return Scaffold(
+     //);
+
+
 
 container({Text child}) {
 }
