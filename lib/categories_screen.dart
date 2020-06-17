@@ -73,6 +73,15 @@ class CategoriesScreen extends StatelessWidget {
         color : Colors.lightBlueAccent,
         fontSize : FontWeight.bold
     ),
+    Maidlist(
+        id: 'c10',
+        title: 'nursing',
+        minimum_salary: 3000,
+        maximum_salary: 30000,
+        color : Colors.red,
+        fontSize : FontWeight.bold
+    ),
+
   ];
 
   @override
