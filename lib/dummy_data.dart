@@ -7,15 +7,15 @@ class Maidlist{
   // ignore: non_constant_identifier_names
  final  String title;
   // ignore: non_constant_identifier_names
- /// String City;
+ // String City;
   // ignore: non_constant_identifier_names
   //String State;
   // ignore: non_constant_identifier_names
-  //String person_involved;
+  String person_involved;
   // ignore: non_constant_identifier_names
-  final double minimum_salary;
+  //final double minimum_salary;
   // ignore: non_constant_identifier_names
-   final  double maximum_salary;
+   //final  double maximum_salary;
 
 
   Maidlist({
@@ -27,11 +27,11 @@ class Maidlist{
     // ignore: non_constant_identifier_names
     //this.State,
     // ignore: non_constant_identifier_names
-    //this.person,
+    @required this.person_involved,
     // ignore: non_constant_identifier_names
-    @required this.minimum_salary,
+   // @required this.minimum_salary,
     // ignore: non_constant_identifier_names
-    @required this.maximum_salary, color, FontWeight fontSize
+    //@required this.maximum_salary, color, FontWeight fontSize
   } );
 
 
