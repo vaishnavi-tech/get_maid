@@ -88,26 +88,51 @@ class CategoriesScreen extends StatelessWidget {
             width: double.infinity,
             child: Card(
               shadowColor: Colors.blueGrey,
-              color: Colors.cyanAccent,
+              color: Colors.purpleAccent,
               child: Text('Service provided by maids', style:TextStyle(fontWeight: FontWeight.w200 ,
                   fontFamily: 'RobotoCondensed' , color: Colors.deepPurpleAccent ,
-                  backgroundColor: Colors.pinkAccent)),),),
+                  )
+              )
+            ),
+          ),
         ),
-        Card(
+        Container(
+          height: 500,
         child: ListView (children: maidlist.map((ml) {
-          return Container(
-            height: 300,
+          return Card(
             child:Row
             (children: <Widget>[
                   Container(
-                    child:Text(ml.title),
+                    margin : EdgeInsets.symmetric(vertical :15 , horizontal: 15),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 1.5,
+
+                      ),
+                    ) ,
+                    padding: EdgeInsets.all(15),
+                    child:Text(ml.title , style:TextStyle(color:Colors.green , fontWeight: FontWeight.w200)),
                   ),
-            Column(children: <Widget>[
-              Text('Number Of Persons Involved ', style: TextStyle(fontWeight: FontWeight.w200 ,
-                  fontFamily: 'RobotoCondensed', color: Colors.purpleAccent),),
-              Text('In Work ', style: TextStyle(fontWeight: FontWeight.w100 ,
-                  fontFamily: 'RobotoCondensed', color: Colors.purpleAccent),),
-              Text(ml.person_involved , style:TextStyle(fontWeight:FontWeight.w200 , color: Colors.black),),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+              Text('Number Of Persons Involved ',
+                style: TextStyle(fontWeight: FontWeight.w200 ,
+                  fontFamily: 'RobotoCondensed',
+                    color: Colors.purpleAccent),
+              ),
+
+              Text('In Work ',
+                style: TextStyle(fontWeight: FontWeight.w100 ,
+                  fontFamily: 'RobotoCondensed',
+                    color: Colors.purpleAccent),
+              ),
+              Text(ml.person_involved ,
+                style:TextStyle(fontWeight:FontWeight.w200 ,
+                    color: Colors.black),
+              ),
               //Text(ml.minimum_salary.toString(),),
               //Text('To'),
              //Text(ml.maximum_salary.toString(),),
