@@ -7,59 +7,59 @@ class CategoriesScreen extends StatelessWidget {
 
     Maidlist(id: 'c1',
         title: 'Gardener',
-        //minimum_salary: 3000,
-       // maximum_salary: 20000,
-       person_involved: 'Depends on the Maid'
+       //minimum_salary: 3000,
+        //maximum_salary: 20000,
+        person_involved: 'Depends on the Maid',
     ),
     Maidlist(id: 'c2',
         title: 'Babysitter',
         //minimum_salary: 5000,
         //maximum_salary: 25000,
-        person_involved: 'Depends on the Maid'
+        person_involved: 'Depends on the Maid',
     ),
     Maidlist(
         id: 'c3',
         title: 'Cook',
-       // minimum_salary: 4000,
+        //minimum_salary: 4000,
         //maximum_salary: 50000,
-        person_involved: 'Depends on the Maid'
+        person_involved: 'Depends on the Maid',
     ),
     Maidlist(id: 'c4',
         title: 'Home Cleaner',
         //minimum_salary: 2500,
-      //  maximum_salary: 25000,
-        person_involved: 'Depends on the Maid'
+        //maximum_salary: 25000,
+        person_involved: 'Depends on the Maid',
     ),
     Maidlist(id: 'c5',
         title: 'Elder Caretaker',
         //minimum_salary: 6000,
-       // maximum_salary: 200000,
-        person_involved: 'Depends on the Maid'
+        //maximum_salary: 200000,
+        person_involved: 'Depends on the Maid',
     ),
     Maidlist(
         id: 'c6',
         title: 'Driver',
         //minimum_salary: 3000,
         //maximum_salary: 30000,
-        person_involved: 'Depends on the Maid'
+        person_involved: 'Depends on the Maid',
     ),
     Maidlist(
         id: 'c7',
         title: 'Laundry',
         //minimum_salary: 3000,
         //maximum_salary: 30000,
-        person_involved: 'Depends on the Maid'
+        person_involved: 'Depends on the Maid',
     ),
     Maidlist(
         id: 'c8',
-        title: 'One Day Service',
+        title: 'One Day Household Service',
         //minimum_salary: 3000,
         //maximum_salary: 30000,
         person_involved: 'Depends on the Maid'
     ),
     Maidlist(
         id: 'c9',
-        title: ' Household Worker',
+        title: 'Daily Household Worker',
         //minimum_salary: 3000,
         //maximum_salary: 30000,
         person_involved: 'Depends on the Maid'
@@ -73,105 +73,43 @@ class CategoriesScreen extends StatelessWidget {
     ),
 
   ];
-  // ScrollController _controller = new ScrollController();
-   //@override
-   //Widget build(BuildContext context){
-    // return new ListView(
-     //  physics: const
-      // AlwaysScrollableScrollPhysics(), //new
-      // controller: _controller,
-      // children: <Widget>[
-         // Scaffold(
+
   @override
-  Widget build(BuildContext context){
-     return Scaffold(
-         appBar: AppBar(
-          title: Text('Get Maid App'),
-         ),
-       body : Column
-           (
-             children: <Widget>[
-         Card(
-            //child: SingleChildScrollView()
-            child: Container(
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Get Maid App'),
+      ),
+      body: Column(children: <Widget>[
+        Card(
+
+          child: Container(
             width: double.infinity,
-              height: 35,
-             child: Card(
+            child: Card(
               shadowColor: Colors.blueGrey,
-                  color: Colors.purpleAccent,
-               child: Text('Service provided by maids', style:TextStyle(fontWeight: FontWeight.w400 ,
-                         fontFamily: 'RobotoCondensed' , color: Colors.deepPurpleAccent ,
-                                  )
-                        )
-                 ),
+              color: Colors.cyanAccent,
+              child: Text('Service provided by maids'),),),
+        ),
+        Card(
+        child: Column(children: maidlist.map((ml) {
+          return Card(
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    child:Text(ml.title),
                   ),
-                    ),
-                Container(
-                    height: 600,
-                    child: ListView
-                        (children: maidlist.map((ml) {
-                       return Card(
-                          child:Row
-                      (children: <Widget>[
-                     Container(
-                         margin : EdgeInsets.symmetric(vertical :15 , horizontal: 15),
-                          decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.black,
-                   width: 1.5,
+            Column( children: <Widget>[
+            Text('Range of salary is'),
+            Text(ml.minimum_salary.toString(),),
+            Text('to'),
+            Text(ml.maximum_salary.toStrinG(),),
+            ],),
 
-                        ),
-                 )  ,
-                            padding: EdgeInsets.all(15),
-                              child:Text(ml.title , style:TextStyle(color:Colors.lightGreen ,
-                          fontWeight: FontWeight.bold ,
-                              )
-                          ),
-                     ),
-                  Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                           children: <Widget>[
-                        Text('Number Of Persons Involved ',
-                          style: TextStyle(fontWeight: FontWeight.w400 ,
-                         fontFamily: 'RobotoCondensed',
-                          color: Colors.purple),
-                        ),
-
-                Text('In Work ',
-                      style: TextStyle(fontWeight: FontWeight.w400 ,
-                          fontFamily: 'RobotoCondensed',
-                         color: Colors.purple),
-                      ),
-                        Text(ml.person_involved ,
-                                    style:TextStyle(fontWeight:FontWeight.w200 ,
-                                    color: Colors.black),
-                            ),
-    //Text(ml.minimum_salary.toString(),),
-    //Text('To'),
-    //Text(ml.maximum_salary.toString(),),
-    ],),
-
-    ],
-    ),
+                ],
+              ),
+          );
+        }).toList(),))
+      ],),
     );
-    }).toList(),))
-    ],),
-
-    );
-
-
   }
-
-
-   }
-  //@override
-  // ignore: override_on_non_overriding_member
-  //Widget make (BuildContext context) {
-    //return Scaffold(
-     //);
-
-
-
-container({Text child}) {
 }

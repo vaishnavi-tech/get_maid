@@ -59,7 +59,7 @@ class AuthScreen extends StatelessWidget {
                         style: TextStyle(
                           //color: Theme.of(context).accentTextTheme.title.color.red,
                           fontSize: 45,
-                          fontFamily: 'RobotoCondensed',
+                          fontFamily: 'Anton',
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -100,7 +100,7 @@ class _AuthCardState extends State<AuthCard>{
   var _isLoading = false;
   final _passwordController = TextEditingController();
 
-  void _submit() {
+  Future<void> _submit() async {
     if (!_formKey.currentState.validate()) {
       //Invalid;
       return;
