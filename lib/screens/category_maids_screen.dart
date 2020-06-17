@@ -16,7 +16,7 @@ class CategoryMaidsScreen  extends StatelessWidget {
            backgroundColor: Colors.cyan,
             title: Text(categoryTitle),
      ),
-       body: Column(
+       body:  Column(
          children: <Widget>[
            Card(
              color: Colors.purpleAccent,
@@ -29,6 +29,6 @@ class CategoryMaidsScreen  extends StatelessWidget {
          ],
 
        ),
-      );
+    );
     }
    }

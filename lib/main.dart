@@ -1,9 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:get_maid/category_maids_screen.dart';
-import 'package:get_maid/help_screen.dart';
-import 'package:get_maid/settings_screen.dart';
-import 'package:get_maid/tabs_screen.dart';
+import 'file:///C:/Users/Prerana/Desktop/find%20my%20maid/get_maid/lib/screens/category_maids_screen.dart';
+import 'file:///C:/Users/Prerana/Desktop/find%20my%20maid/get_maid/lib/screens/help_screen.dart';
+import 'file:///C:/Users/Prerana/Desktop/find%20my%20maid/get_maid/lib/screens/settings_screen.dart';
+import './screens/tabs_screen.dart';
 import 'package:get_maid/user_login.dart';
 
 

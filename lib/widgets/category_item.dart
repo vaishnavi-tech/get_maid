@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './category_maids_screen.dart';
+import '../screens/category_maids_screen.dart';
 
 class CategoryItem extends StatelessWidget {
   final  String id;
@@ -25,7 +25,9 @@ class CategoryItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       child: Container(
         padding: const EdgeInsets.all(15),
-        child: Text(title, style: Theme.of(context).textTheme.headline6,
+        child: Text(
+          title,
+          style: Theme.of(context).textTheme.headline6,
         ),
         decoration: BoxDecoration(
         gradient: LinearGradient(
