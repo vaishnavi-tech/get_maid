@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
-import 'package:get_maid/user_login.dart';
+import 'package:get_maid/screens/user_login.dart';
 import './screens/category_maids_screen.dart';
+import 'package:flutter/src/widgets/app.dart';
 
 
 void main() {
@@ -35,13 +36,13 @@ class MyApp extends StatelessWidget {
           )
         ),
       ),
-      //home: CategoriesScreen(),
-      initialRoute: '/',
+      home: AuthScreen(),
+      //initialRoute: '/',
          routes: {
-        '/': (ctx) => TabsScreen(),
+       // '/': (ctx) => TabsScreen(),
         CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
-           AuthScreen.routename : (ctx) => AuthScreen(),
+           //AuthScreen.routename : (ctx) => AuthScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
                },
     );

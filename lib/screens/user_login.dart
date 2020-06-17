@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 enum AuthMode { Signup , Login}
 
 class AuthScreen extends StatelessWidget {
-  static const routename = '/auth';
+  //static const routename = '/auth';
 
   @override
   Widget build(BuildContext context) {
@@ -110,9 +110,9 @@ class _AuthCardState extends State<AuthCard>{
       _isLoading = true;
     });
     if(_authMode == AuthMode.Login) {
-      //Log user in
+      Login user ;
     }else{
-      //Sign user up
+      Signup  user;
     }
     setState(() {
       _isLoading = false;
@@ -170,7 +170,7 @@ class _AuthCardState extends State<AuthCard>{
                     // ignore: missing_return
                     if(value.isEmpty || value.length <5){
 
-                      return 'Password is too Short!';
+                      return ('Password is too Short!');
                     }
                   },
                   onSaved: (value){
@@ -184,6 +184,7 @@ class _AuthCardState extends State<AuthCard>{
                     obscureText: true,
                     validator: _authMode == AuthMode.Signup
                         ?(value){
+                      // ignore: missing_return
                       if (value != _passwordController.text){
                         return ('Passwords do not match!');
                       }
@@ -224,4 +225,10 @@ class _AuthCardState extends State<AuthCard>{
     );
 
   }
+}
+
+class Signup {
+}
+
+class Login {
 }
