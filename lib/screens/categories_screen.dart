@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './dummy_data.dart';
+import '../dummy_data.dart';
 //import './category_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -112,7 +112,7 @@ class CategoriesScreen extends StatelessWidget {
             Text('Range of salary is'),
             Text(ml.minimum_salary.toString(),),
             Text('to'),
-            Text(ml.maximum_salary.toStrinG(),),
+            Text(ml.maximum_salary.toString(),),
             ],),
 
                 ],
