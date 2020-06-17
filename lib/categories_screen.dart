@@ -93,16 +93,27 @@ class CategoriesScreen extends StatelessWidget {
         ),
         Card(
         child: Column(children: maidlist.map((ml) {
-          return Card(child:
-          Column (children: <Widget>[
-            Text(ml.title),
-            Text('Range of salary is'),
-            Text(ml.minimum_salary.toString(),),
-            Text('to'),
-            Text(ml.maximum_salary.toString()),
-             ],));
+          return Card
+            (child:Row
+            (children: <Widget>[
+                  container(
+                    child:Text(ml.title),
+                  ),
+            Column(children: <Widget>[
+              Text('Range Of Salary is '),
+              Text(ml.minimum_salary.toString(),),
+              Text('To'),
+              Text(ml.maximum_salary.toString(),),
+            ],),
+         
+                ],
+              ),
+          );
         }).toList(),))
       ],),
     );
   }
+}
+
+container({Text child}) {
 }
