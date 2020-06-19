@@ -8,7 +8,7 @@ import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
 import 'package:get_maid/screens/user_login.dart';
 import './screens/category_maids_screen.dart';
-import 'package:flutter/src/widgets/app.dart';
+//import 'package:flutter/src/widgets/app.dart';
 
 
 void main() {
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           )
         ),
       ),
-      home: categories_maids_screen(),
+      //home: categories_screen(),
       initialRoute: '/',
          routes: {
         '/': (ctx) => TabsScreen(),
