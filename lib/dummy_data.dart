@@ -1,74 +1,63 @@
+
 import 'package:flutter/material.dart';
+
 import './model/category.dart';
-//import 'package:flutter/foundation.dart';
-
-
-const DUMMY_CATEGORIES = const [
-  Category(
-    id: 'c1',
-    title: 'babysitter',
-    color: Colors.purple,
-  ),
-  Category(
-    id: 'c2',
-    title: 'cooking',
-    color: Colors.red,
-  ),
-  Category(
-    id: 'c3',
-    title: 'cleaning home',
-    color: Colors.blue,
-  ),
-  Category(
-    id: 'c4',
-    title: 'elder care',
-    color: Colors.green,
-  ),Category(
-    id: 'c5',
-    title: 'driving',
-    color: Colors.orange,
-  ),Category(
-    id: 'c6',
-    title: 'washing clothes',
-    color: Colors.yellow,
-  ), Category(
-    id:'c7',
-    title: 'One day service',
-    color: Colors.grey,
-  ),Category(
-    id:'c8',
-    title: 'Daily work ',
-    color: Colors.cyan,
-  ),
-
-  Category(
-    id:'c9',
-    title: 'Tailor',
-    color: Colors.purple,
-  ),
-  Category(
-    id:'c10',
-    title: 'Housekeeping Supervisor ',
-    color: Colors.green,
-  ),
-  Category(
-    id:'c11',
-    title: 'Gardener ',
-    color: Colors.deepOrange,
-  ),
-  Category(
-    id:'c12',
-    title: 'Domestic helper ',
-    color: Colors.pink,
-  ),
-  Category(
-    id:'c13',
-    title: 'Chamber maid ',
-    color: Colors.blue,
-  )
+const DUMMY_CATEGORIES = const[
+Category(
+  id: 'c1',
+title: 'Gardener',
+  color:  Colors.black12,
+  description: 'individual',
+),
+    Category(id: 'c2',
+title: 'Babysitter',
+color:  Colors.lightGreen,
+      description: 'individual',
+),
+Category(
+id: 'c3',
+title: 'Cook',
+color:  Colors.grey,
+  description: 'individual',
+),
+Category(id: 'c4',
+title: 'Home Cleaner',
+color:  Colors.transparent,
+  description: 'individual',
+),
+Category(id: 'c5',
+title: 'Elder Caretaker',
+color:  Colors.limeAccent,
+  description: 'individual',
+),
+Category(
+id: 'c6',
+title: 'Driver',
+color:  Colors.lightGreenAccent,
+  description: 'individual',
+),
+Category(
+id: 'c7',
+title: 'Laundry',
+color:  Colors.grey,
+  description: 'individual',
+),
+Category(
+id: 'c8',
+title: 'One Day Service',
+color:  Colors.black38,
+  description: 'individual',
+),
+Category(
+id: 'c9',
+title: 'Household Worker',
+color:  Colors.black54,
+  description: 'individual',
+),
+Category(
+id: 'c10',
+title: 'Nursing',
+color:  Colors.black26,
+  description: 'individual',
+),
 ];
-
-
-
-
-
