@@ -60,4 +60,22 @@ title: 'Nursing',
 color:  Colors.indigoAccent,
   description: 'individual',
 ),
+  Category(
+    id: 'c11',
+    title: 'Chamber Maid',
+    color:  Colors.lightBlueAccent,
+    description: 'individual',
+  ),
+  Category(
+    id: 'c12',
+    title: 'Domestic Helper',
+    color:  Colors.teal,
+    description: 'individual',
+  ),
+  Category(
+    id: 'c13',
+    title: 'Housekeeping Supervisor',
+    color:  Colors.tealAccent,
+    description: 'individual',
+  ),
 ];
