@@ -36,13 +36,13 @@ class MyApp extends StatelessWidget {
           )
         ),
       ),
-      home: AuthScreen(),
-      //initialRoute: '/',
+      home: categories_maids_screen(),
+      initialRoute: '/',
          routes: {
-       // '/': (ctx) => TabsScreen(),
+        '/': (ctx) => TabsScreen(),
         CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
-           //AuthScreen.routename : (ctx) => AuthScreen(),
+           AuthScreen.routename : (ctx) => AuthScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
                },
     );
