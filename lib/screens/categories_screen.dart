@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_maid/dummy_data.dart';
 import '../widgets/category_item.dart';
+//import 'package:get_maid/screens/tabs_screen.dart';
 
 class CategoriesScreen extends StatelessWidget {
   @override
@@ -22,10 +23,10 @@ class CategoriesScreen extends StatelessWidget {
         ))
         .toList(),
           gridDelegate:SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200,
-            childAspectRatio: 3/2,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
+            maxCrossAxisExtent: 500,
+            childAspectRatio: 5/2,
+            crossAxisSpacing: 40,
+            mainAxisSpacing: 40,
           )
 
 
@@ -71,3 +72,4 @@ class CategoriesScreen extends StatelessWidget {
     //);
   }
 }
+//CategoriesScreen(){}

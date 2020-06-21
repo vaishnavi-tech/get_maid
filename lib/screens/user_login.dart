@@ -110,9 +110,9 @@ class _AuthCardState extends State<AuthCard>{
       _isLoading = true;
     });
     if(_authMode == AuthMode.Login) {
-    //  Login user ;
+      Login user ;
     }else{
-     // Signup  user;
+      Signup  user;
     }
     setState(() {
       _isLoading = false;
