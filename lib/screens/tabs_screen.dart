@@ -46,7 +46,7 @@ class _TabsScreenState extends State<TabsScreen> {
           title: Text(_pages[_selectPageIndex]['title']),
           actions: <Widget>[
           IconButton(icon: Icon(Icons.search), onPressed: () => debugPrint('Item searched'),),
-          IconButton(icon: Icon(Icons.add), onPressed: () => debugPrint('Member added'),),
+         // IconButton(icon: Icon(Icons.add), onPressed: () => debugPrint('Member added'),),
           IconButton(icon: Icon(Icons.add_call), onPressed: () => debugPrint('Select member for call'),),
         ],
     ),

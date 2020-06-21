@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 enum AuthMode { Signup , Login}
 
 class AuthScreen extends StatelessWidget {
-  static const routename = '/auth';
+  //static const routename = '/auth';
 
   @override
   Widget build(BuildContext context) {
@@ -110,9 +110,9 @@ class _AuthCardState extends State<AuthCard>{
       _isLoading = true;
     });
     if(_authMode == AuthMode.Login) {
-     // Login user ;
+      Login user ;
     }else{
-      //Signup  user;
+      Signup  user;
     }
     setState(() {
       _isLoading = false;
