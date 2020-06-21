@@ -6,10 +6,8 @@ import 'package:flutter/material.dart';
 import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
-import 'package:get_maid/screens/user_login.dart';
+import './screens/user_login.dart';
 import './screens/category_maids_screen.dart';
-import 'package:flutter/src/widgets/app.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -22,6 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'To find my maid ',
       theme: ThemeData(
+        brightness: Brightness.light,
           primarySwatch: Colors.pink,
         accentColor: Colors.amber,
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
@@ -36,13 +35,13 @@ class MyApp extends StatelessWidget {
           )
         ),
       ),
-      home: AuthScreen(),
-      //initialRoute: '/',
+      //home: AuthScreen(),
+      initialRoute: '/',
          routes: {
-       // '/': (ctx) => TabsScreen(),
+        '/': (ctx) => TabsScreen(),
         CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
-           //AuthScreen.routename : (ctx) => AuthScreen(),
+
            HelpScreen.routeName : (ctx) => HelpScreen(),
                },
     );

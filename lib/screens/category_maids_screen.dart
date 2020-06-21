@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/maid_item.dart';
 
 
 class CategoryMaidsScreen  extends StatelessWidget {
@@ -16,19 +17,8 @@ class CategoryMaidsScreen  extends StatelessWidget {
            backgroundColor: Colors.cyan,
             title: Text(categoryTitle),
      ),
-       body:  Column(
-         children: <Widget>[
-           Card(
-             color: Colors.purpleAccent,
-             child: Container(
-               width: 80,
-               //margin : FontWeight.bold,
-               child: Text('list of maids' ),),
-             elevation : 5,
-           )
-         ],
+       body: MaidItem(),
 
-       ),
     );
     }
    }
