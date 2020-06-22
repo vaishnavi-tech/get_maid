@@ -7,9 +7,9 @@ final  Function addMaid;
     return RaisedButton(
       color: Theme.of(context).primaryColor,
       onPressed: () {
-      addMaid({'id': 'id','name': 'xyz','age':'24','address':'abcd','gender':'x'});
+      addMaid({'title':'xyz'});
       },
-      child: Text('add maid'),
+      child: Text('add maids'),
     );
 
   }

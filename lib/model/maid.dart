@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class Maids extends StatelessWidget {
-
-  final List<Map<String, dynamic>> maids;
+  final List<Map<String,String >> maids;
 
   Maids([this.maids = const [] ]) {
     print('[Maids Widget] Constructor');
@@ -12,21 +11,20 @@ class Maids extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-           Text(maids[index] ['name']),
+           Text(maids[index] ['title']),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               FlatButton(
                 color: Theme.of(context).accentColor,
-                onPressed: () => {},
-                child: Text('apply'),
+                child: Text('details'),
+                onPressed: ()  => Navigator.pushNamed(context, '/maid/'+index.toString()),
+                ),
+               ],
               )
             ],
-          )
-
-        ],
-      ),
-    );
+          ),
+      );
   }
 Widget _buildMaidList() {
   Widget maidCard ;
