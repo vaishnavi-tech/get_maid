@@ -1,22 +1,31 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-//import 'file:///C:/Users/Prerana/Desktop/find%20my%20maid/get_maid/lib/screens/category_maids_screen.dart';
-//import 'file:///C:/Users/Prerana/Desktop/find%20my%20maid/get_maid/lib/screens/help_screen.dart';
-//import 'file:///C:/Users/Prerana/Desktop/find%20my%20maid/get_maid/lib/screens/settings_screen.dart';
 import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
-import './screens/user_login.dart';
 import './screens/category_maids_screen.dart';
-import 'package:flutter/src/widgets/app.dart';
+import './screens/maids_detail.dart';
 
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  List<Map<String, String>>_maids = [];
+
+  void _addMaid( Map<String, String> maid) {
+    setState(() {
+      _maids.add(maid);
+    });
+    print(_maids);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,15 +46,28 @@ class MyApp extends StatelessWidget {
           )
         ),
       ),
-      //home: AuthScreen(),
+     // home: AuthPage(),
       initialRoute: '/',
          routes: {
         '/': (ctx) => TabsScreen(),
-        CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(),
+        CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids, _addMaid),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
-           //
            HelpScreen.routeName : (ctx) => HelpScreen(),
                },
+      onGenerateRoute: (RouteSettings settings) {
+        final List<String> pathElements = settings.name.split('/');
+        if(pathElements[0]!= '') {
+          return null;
+        }
+        if (pathElements[1] =='maid') {
+         final int index = int.parse(pathElements[2]);
+          return MaterialPageRoute(
+            builder: (BuildContext context) => MaidPage(
+                _maids[index]['title']),
+          );
+        }
+        return null;
+      },
     );
   }
 }
