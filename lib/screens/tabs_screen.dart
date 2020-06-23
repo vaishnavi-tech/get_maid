@@ -8,11 +8,7 @@ import 'notifications_screen.dart';
 
 
 class TabsScreen extends StatefulWidget {
-  final Function addMaid;
-  TabsScreen(this.addMaid);
   static const routeName = '/';
-  //final Function addMaid;
-  //TabsScreen(this.addMaid);
   @override
   _TabsScreenState createState() => _TabsScreenState();
 }
@@ -24,7 +20,7 @@ class _TabsScreenState extends State<TabsScreen> {
        'title':'Home',
      },
       {
-        'page' :   ProfileScreen(addMaid),
+        'page' :   ProfileScreen(),
         'title':'Profile',
       },
        {
@@ -86,5 +82,4 @@ class _TabsScreenState extends State<TabsScreen> {
        ),
      );
   }
-
 }

@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:get_maid/screens/registration_maid.dart';
 import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
@@ -48,10 +49,12 @@ class _MyAppState extends State<MyApp> {
      // home: AuthPage(),
       initialRoute: '/',
          routes: {
-        '/': (ctx) => TabsScreen( _addMaid),
+        '/': (ctx) => TabsScreen(),
         CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
+           MaidEntry.routeName : (ctx) => MaidEntry(_addMaid),
+           
          },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');
@@ -69,7 +72,7 @@ class _MyAppState extends State<MyApp> {
       },
       onUnknownRoute: (RouteSettings settings) {
         return  MaterialPageRoute(
-          builder: (ctx) => TabsScreen(_addMaid),
+          builder: (ctx) => TabsScreen(),
         );
     }
     );
