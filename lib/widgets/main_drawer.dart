@@ -57,7 +57,7 @@ class MainDrawer extends StatelessWidget {
                Navigator.of(context).pushReplacementNamed(HelpScreen.routeName);
               }
               ),
-            ],
+        ],
       ),
     );
   }
