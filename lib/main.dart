@@ -6,7 +6,6 @@ import './screens/tabs_screen.dart';
 import './screens/category_maids_screen.dart';
 import './screens/maids_detail.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -17,9 +16,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Map<String, String>>_maids = [];
+  List<Map<String, dynamic>>_maids = [];
 
-  void _addMaid( Map<String, String> maid) {
+  void _addMaid( Map<String, dynamic> maid) {
     setState(() {
       _maids.add(maid);
     });
@@ -49,11 +48,11 @@ class _MyAppState extends State<MyApp> {
      // home: AuthPage(),
       initialRoute: '/',
          routes: {
-        '/': (ctx) => TabsScreen(),
-        CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids, _addMaid),
+        '/': (ctx) => TabsScreen( _addMaid),
+        CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
-               },
+         },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');
         if(pathElements[0]!= '') {
@@ -68,6 +67,11 @@ class _MyAppState extends State<MyApp> {
         }
         return null;
       },
+      onUnknownRoute: (RouteSettings settings) {
+        return  MaterialPageRoute(
+          builder: (ctx) => TabsScreen(_addMaid),
+        );
+    }
     );
   }
 }

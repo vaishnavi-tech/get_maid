@@ -19,8 +19,7 @@ class MaidPage extends StatelessWidget {
            title: Text(title),
        ),
           body: Column(
-             crossAxisAlignment:  CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
+             crossAxisAlignment:CrossAxisAlignment.center,
             children: <Widget>[
              Image.asset('assets/user.png'),
              Container(

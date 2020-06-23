@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class Maids extends StatelessWidget {
-  final List<Map<String,String >> maids;
+  final List<Map<String,dynamic >> maids;
 
   Maids([this.maids = const [] ]) {
     print('[Maids Widget] Constructor');

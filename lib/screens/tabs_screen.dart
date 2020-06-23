@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:get_maid/screens/categories_screen.dart';
 import '../widgets/main_drawer.dart';
 import 'package:get_maid/screens/categories_screen.dart';
 import 'categories_screen.dart';
@@ -9,7 +8,11 @@ import 'notifications_screen.dart';
 
 
 class TabsScreen extends StatefulWidget {
+  final Function addMaid;
+  TabsScreen(this.addMaid);
   static const routeName = '/';
+  //final Function addMaid;
+  //TabsScreen(this.addMaid);
   @override
   _TabsScreenState createState() => _TabsScreenState();
 }
@@ -21,7 +24,7 @@ class _TabsScreenState extends State<TabsScreen> {
        'title':'Home',
      },
       {
-        'page' :   ProfileScreen(),
+        'page' :   ProfileScreen(addMaid),
         'title':'Profile',
       },
        {
@@ -83,4 +86,5 @@ class _TabsScreenState extends State<TabsScreen> {
        ),
      );
   }
+
 }
