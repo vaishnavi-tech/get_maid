@@ -20,6 +20,7 @@ class MaidPage extends StatelessWidget {
        ),
           body: Column(
              crossAxisAlignment:  CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
              Image.asset('assets/user.png'),
              Container(
