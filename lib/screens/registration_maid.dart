@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_maid/screens/category_maids_screen.dart';
 import '../widgets/main_drawer.dart';
 
 class MaidEntry extends StatefulWidget {
@@ -80,6 +81,7 @@ class _MaidEntryState extends State<MaidEntry> {
                   'phnno':phonenumber
                 };
                 widget.addMaid(maid);
+                Navigator.pushReplacementNamed(context, CategoryMaidsScreen.routeName);
               })
         ],
       ),

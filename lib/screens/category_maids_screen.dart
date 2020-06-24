@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../main.dart';
 import '../widgets/maid_item.dart';
 
 
@@ -23,4 +24,21 @@ class CategoryMaidsScreen  extends StatelessWidget {
 
     );
     }
-   }
+
+//  @override
+  //State<StatefulWidget> createState() {
+    /// TODO: implement createState
+    //throw UnimplementedError();
+  //}
+
+ // void setState(Null Function() param0) {}
+   //}
+//abstract class _MyAppState extends State<MyApp>{
+  //List<Map<String,dynamic>>_maids=[];
+  //void _addMaid(Map<String , dynamic>maid){
+    //setState((){
+      //_maids.add(maid);
+    //});
+    //print(_maids);
+  //}
+//}
