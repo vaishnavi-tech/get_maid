@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:get_maid/screens/registration_maid.dart';
 import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
@@ -17,15 +16,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Map<String, dynamic>>_maids = [];
-
-  void _addMaid( Map<String, dynamic> maid) {
+  List<Map<String,dynamic>>_maids=[];
+  void _addMaid(Map<String, dynamic> maid)
+  {
     setState(() {
       _maids.add(maid);
     });
     print(_maids);
   }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,11 +48,11 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
          routes: {
         '/': (ctx) => TabsScreen(),
-        CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,),
+        CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,_addMaid),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
-           MaidEntry.routeName : (ctx) => MaidEntry(_addMaid),
-           
+          // MaidInput.routeName : (ctx) => MaidInput(),
+
          },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');

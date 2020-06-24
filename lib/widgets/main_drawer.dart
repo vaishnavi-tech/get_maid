@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../screens/help_screen.dart';
 import '../screens/settings_screen.dart';
-import '../screens/registration_maid.dart';
+//import '../screens/registration_maid.dart';
 
 class MainDrawer extends StatelessWidget {
  Widget buildListTile( String title, IconData icon, Function tapHandler) {
@@ -58,13 +58,13 @@ class MainDrawer extends StatelessWidget {
                Navigator.of(context).pushReplacementNamed(HelpScreen.routeName);
               }
               ),
-          buildListTile(
-              'register job',
-              Icons.person,
-                  () {
-                Navigator.of(context).pushReplacementNamed(MaidEntry.routeName);
-              }
-          ),
+          //buildListTile(
+            //  'register job',
+           //   Icons.person,
+             //     () {
+              //  Navigator.of(context).pushReplacementNamed(MaidEntry.routeName);
+              //}
+          //),
         ],
       ),
     );
