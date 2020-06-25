@@ -41,26 +41,27 @@ class CategoryItem extends StatelessWidget {
           ),
             ),
         decoration: BoxDecoration(
+          //border: BoxBorder(Colors.black),
         gradient: LinearGradient(
         colors:[
           color.withOpacity(0.7),
          color,
          ],
-         begin: Alignment.topLeft,
-         end: Alignment.bottomRight ,
+         begin: Alignment.bottomCenter,
+         end: Alignment.center ,
           ),
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(10),
          ),
             ),
-        ButtonBar(
-          alignment: MainAxisAlignment.center,
-            children: <Widget>[
-              IconButton(
-                  icon: Icon(Icons.save),
-                  color: Colors.red,
-                  onPressed:() {} )
-            ],
-        )
+        //ButtonBar(
+          //alignment:(MainAxisAlignment.end) ,
+            //children: <Widget>[
+              //IconButton(
+                //  icon: Icon(Icons.save),
+                  //color: Colors.red,
+                  //onPressed:() {} )
+            //],
+        //)
     ],
       ),
 
