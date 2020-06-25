@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
@@ -7,6 +8,7 @@ import './screens/category_maids_screen.dart';
 import './screens/maids_detail.dart';
 
 void main() {
+ // debugPaintSizeEnabled = true;
   runApp(MyApp());
 }
 
@@ -45,9 +47,9 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
      // home: AuthPage(),
-      initialRoute: '/',
+      //initialRoute: '/',
          routes: {
-        '/': (ctx) => TabsScreen(),
+        TabsScreen.routeName: (ctx) => TabsScreen(),
         CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,_addMaid),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
