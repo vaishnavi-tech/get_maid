@@ -34,6 +34,13 @@ class MaidPage extends StatelessWidget {
                child: Text('BACK'),
                onPressed: () => Navigator.pop(context ),
             ),),
+              Container(
+                padding:EdgeInsets.all(10.0),
+                color: Theme.of(context).accentColor,
+                child: RaisedButton(
+                  child: Text('DELETE'),
+                  onPressed: () => Navigator.pop(context ),
+                ),),
         ],
       ),
     ),

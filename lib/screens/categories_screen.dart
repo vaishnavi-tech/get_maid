@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/Prerana/Desktop/find%20my%20maid/get_maid/lib/widgets/dummy_data.dart';
+import 'package:get_maid/widgets/dummy_data.dart';
+//import 'file:///C:/Users/Prerana/Desktop/find%20my%20maid/get_maid/lib/widgets/dummy_data.dart';
 import '../widgets/category_item.dart';
 //import 'package:get_maid/screens/tabs_screen.dart';
 
