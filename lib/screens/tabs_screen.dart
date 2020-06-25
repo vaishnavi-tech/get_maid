@@ -8,7 +8,7 @@ import 'notifications_screen.dart';
 
 
 class TabsScreen extends StatefulWidget {
-  static const routeName = '/';
+  static const routeName = '/tab';
   @override
   _TabsScreenState createState() => _TabsScreenState();
 }
@@ -43,10 +43,6 @@ class _TabsScreenState extends State<TabsScreen> {
     return  Scaffold(
          appBar: AppBar(
           title: Text(_pages[_selectPageIndex]['title']),
-          actions: <Widget>[
-          IconButton(icon: Icon(Icons.search), onPressed: () => debugPrint('Item searched'),),
-          //IconButton(icon: Icon(Icons.add_call), onPressed: () => debugPrint('Select member for call'),),
-        ],
     ),
       drawer: MainDrawer(),
       body: _pages[ _selectPageIndex]['page'],

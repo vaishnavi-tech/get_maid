@@ -10,6 +10,7 @@ class MaidInput extends StatefulWidget {
 
 class _MaidInputState extends State<MaidInput> {
   String titleValue;
+  String address;
 
 @override
 Widget build(BuildContext context) {
@@ -22,18 +23,28 @@ Widget build(BuildContext context) {
         child:ListView(
          children: <Widget>[
              TextField(
-            decoration: InputDecoration(labelText: 'NAME',),
+            decoration: InputDecoration(labelText: 'ENTER YOUR  FULL NAME ',),
            onChanged: (String value){
           setState(() {
            titleValue= value;
          });
     },
   ),
+           TextField(
+             maxLines: 3,
+             decoration: InputDecoration(labelText: ' ENTER YOUR ADDRESS',),
+             onChanged: (String value){
+               setState(() {
+                 address= value;
+               });
+             },
+           ),
            RaisedButton(
               child: Text('save '),
   onPressed: () {
   final Map< String, dynamic> maid = {
   'title': titleValue,
+    'address':address,
   };
   widget.addMaid(maid);
   Navigator.pushReplacementNamed(context, CategoryMaidsScreen.routeName);

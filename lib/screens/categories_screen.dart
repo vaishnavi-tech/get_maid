@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get_maid/dummy_data.dart';
+import 'file:///C:/Users/Prerana/Desktop/find%20my%20maid/get_maid/lib/widgets/dummy_data.dart';
 import '../widgets/category_item.dart';
 //import 'package:get_maid/screens/tabs_screen.dart';
 
@@ -11,6 +11,13 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Maids jobs!!!'),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.search),
+            onPressed: () {},
+
+          )
+        ],
       ),
       body: GridView(
         padding:  const EdgeInsets.all(25),
@@ -25,10 +32,9 @@ class CategoriesScreen extends StatelessWidget {
           gridDelegate:SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 500,
             childAspectRatio: 5/2,
-            crossAxisSpacing: 40,
-            mainAxisSpacing: 40,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
           )
-
 
     ),
     );

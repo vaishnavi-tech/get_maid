@@ -27,12 +27,19 @@ class CategoryItem extends StatelessWidget {
       onTap:  () => selectCategory(context) ,
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
-      child: Container(
-       padding: const EdgeInsets.all(15),
-        child: Text(
-          title,
-          style: Theme.of(context).textTheme.headline6,
-         ),
+      child: Column(
+      children:<Widget> [
+            Container(
+             padding: const EdgeInsets.all(15),
+             child:
+             Text(
+              title,
+              style: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Raleway'
+          ),
+            ),
         decoration: BoxDecoration(
         gradient: LinearGradient(
         colors:[
@@ -44,7 +51,19 @@ class CategoryItem extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(15),
          ),
+            ),
+        ButtonBar(
+          alignment: MainAxisAlignment.center,
+            children: <Widget>[
+              IconButton(
+                  icon: Icon(Icons.save),
+                  color: Colors.red,
+                  onPressed:() {} )
+            ],
+        )
+    ],
       ),
+
     );
   }
 }

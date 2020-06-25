@@ -58,13 +58,13 @@ class MainDrawer extends StatelessWidget {
                Navigator.of(context).pushReplacementNamed(HelpScreen.routeName);
               }
               ),
-          //buildListTile(
-            //  'register job',
-           //   Icons.person,
-             //     () {
-              //  Navigator.of(context).pushReplacementNamed(MaidEntry.routeName);
-              //}
-          //),
+          buildListTile(
+              'Sign out',
+           Icons.power_settings_new,
+                 () {
+               //Navigator.of(context).pushReplacementNamed(MaidEntry.routeName);
+              }
+          ),
         ],
       ),
     );

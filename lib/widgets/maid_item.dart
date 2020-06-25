@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/maid.dart';
+import 'maids/maid.dart';
 import '../widgets/maid_control.dart';
 
 class MaidItem extends StatelessWidget{

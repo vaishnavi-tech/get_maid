@@ -11,6 +11,7 @@ class MaidControl extends StatelessWidget {
           builder: (BuildContext context) =>MaidInput(addMaid)
         )),
          // addMaid({'title':'xyz'});
+
       child:
        Text('REGISTER HERE'),
 

@@ -24,9 +24,9 @@ class _MaidEntryState extends State<MaidEntry> {
        drawer: MainDrawer(),
         body :Container(
           margin: EdgeInsets.all(10.0),
-    child:ListView(
-        children: <Widget>[
-          TextField(
+          child:ListView(
+            children: <Widget>[
+           TextField(
             decoration: InputDecoration(labelText: 'NAME',),
             onChanged: (String value){
               setState(() {
@@ -70,7 +70,7 @@ class _MaidEntryState extends State<MaidEntry> {
             },
           ),
           RaisedButton(
-              child: Text('save changes'),
+              child: Text('save '),
               onPressed: () {
                 final Map< String, dynamic> maid = {
                   'title': titleValue,

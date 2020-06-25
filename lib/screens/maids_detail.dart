@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../widgets/ui_elements/title_default.dart';
 
 class MaidPage extends StatelessWidget {
   final String title;
@@ -24,7 +25,8 @@ class MaidPage extends StatelessWidget {
              Image.asset('assets/user.png'),
              Container(
               padding:EdgeInsets.all(10.0) ,
-              child: Text(title),),
+              child: TitleDefault(title)
+             ),
             Container(
               padding:EdgeInsets.all(10.0),
               color: Theme.of(context).accentColor,
