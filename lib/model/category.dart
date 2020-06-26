@@ -5,16 +5,16 @@ class Category {
   final String title;
   final Color color;
   final String description;
-  //final String imageUrl;
+  final String URL;
+
 
 
   const Category({
     @required this.id,
     this.color,
     @required this.description,
+    this.URL,
+
     @required this.title,
-    //@required this.imageUrl,
-
-
   });
 }

@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
           )
         ),
       ),
-     home: AuthPage(),
+     //home: AuthPage(),
       //initialRoute: '/',
          routes: {
         TabsScreen.routeName: (ctx) => TabsScreen(),

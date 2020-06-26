@@ -166,11 +166,12 @@ class _AuthCardState extends State<AuthCard>{
                   decoration: InputDecoration(labelText: 'Password'),
                   obscureText: true,
                   controller: _passwordController,
-                  validator: ( value ){
+                  validator: (  value ){
                     // ignore: missing_return
                     if(value.isEmpty || value.length <5){
 
-                      return ('Password is too Short!');
+                      // ignore: missing_return
+                      return "Password is too Short!";
                     }
                   },
                   onSaved: (value){

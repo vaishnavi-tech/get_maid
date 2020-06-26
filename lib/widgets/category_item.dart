@@ -9,12 +9,9 @@ class CategoryItem extends StatelessWidget {
   final String title;
   final Color color;
   final String description;
+  final String URL;
 
-  CategoryItem(
-      this.id ,
-      this.title ,
-      this.color,
-      this.description);
+  CategoryItem(this.id , this.title ,this.color, this.description, this.URL);
   
   void selectCategory( BuildContext ctx){
     Navigator.of(ctx).pushNamed(
@@ -32,32 +29,54 @@ class CategoryItem extends StatelessWidget {
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
       child: Column(
-      children:<Widget> [
+        mainAxisAlignment: MainAxisAlignment.center,
+       crossAxisAlignment: CrossAxisAlignment.center,
+
+       children:<Widget> [
             Container(
-             padding: const EdgeInsets.all(15),
+
+              margin: EdgeInsets.all(2),
+              width: 400,
+              height:140 ,
+             padding: const EdgeInsets.all(30),
              child:
              Text(
               title,
               style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
+            fontSize: 28.0,
+            fontWeight: FontWeight.w600,
             fontFamily: 'Raleway'
           ),
             ),
         decoration: BoxDecoration(
+         //border: BoxBorder(Colors.black),
         gradient: LinearGradient(
         colors:[
           color.withOpacity(0.7),
          color,
          ],
-         begin: Alignment.topLeft,
-         end: Alignment.bottomRight ,
+         begin: Alignment.center,
+         end: Alignment.topLeft,
           ),
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(3),
+          shape: BoxShape.rectangle,
+          color: Colors.black,
+          backgroundBlendMode: BlendMode.darken,
+
          ),
             ),
+        //ButtonBar(
+          //alignment:(MainAxisAlignment.end) ,
+            //children: <Widget>[
+              //IconButton(
+                //  icon: Icon(Icons.save),
+                  //color: Colors.red,
+                  //onPressed:() {} )
+            //],
+        //)
     ],
       ),
+
     );
   }
 }
