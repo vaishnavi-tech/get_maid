@@ -9,8 +9,9 @@ class CategoryItem extends StatelessWidget {
   final String title;
   final Color color;
   final String description;
+  final String URL;
 
-  CategoryItem(this.id , this.title ,this.color, this.description);
+  CategoryItem(this.id , this.title ,this.color, this.description, this.URL);
   
   void selectCategory( BuildContext ctx){
     Navigator.of(ctx).pushNamed(
