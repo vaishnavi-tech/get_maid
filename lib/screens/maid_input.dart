@@ -9,11 +9,16 @@ class MaidInput extends StatefulWidget {
 }
 
 class _MaidInputState extends State<MaidInput> {
-  String titleValue;
-  String address;
-  String gender;
-  double age;
-  double phonenumber;
+  final Map<String, dynamic> _formData = {
+    'title': null,
+    'address': null,
+    'gender': null,
+    'age': null,
+    'phoneNumber': null,
+
+  };
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
 @override
 Widget build(BuildContext context) {
@@ -24,70 +29,93 @@ Widget build(BuildContext context) {
       appBar : AppBar(
         title : Text('register'),
    ),
-      body :Container(
+      body : GestureDetector(
+       onTap: () {
+         FocusScope.of(context).requestFocus(FocusNode());
+       },
+
+        child:
+       Container(
          margin: EdgeInsets.all(10.0),
-        child:ListView(
+        child: Form(
+          key: _formKey,
+         child:ListView(
           padding: EdgeInsets.symmetric(horizontal: targetPadding /2),
          children: <Widget>[
-             TextField(
+             TextFormField(
             decoration: InputDecoration(labelText: 'ENTER YOUR  FULL NAME ',),
-           onChanged: (String value){
-          setState(() {
-           titleValue= value;
-         });
-    },
-  ),
-           TextField(
+           validator: (String value){
+              if (value.isEmpty ||value.length < 5) {
+                return 'Name is required and should be 5+ characters long.';
+              }
+           },
+           onSaved: (String value) {
+              _formData['title'] = value;
+           },
+          ),
+           TextFormField(
              maxLines: 3,
              decoration: InputDecoration(labelText: ' ENTER YOUR ADDRESS',),
-             onChanged: (String value){
-               setState(() {
-                 address= value;
-               });
+             validator: (String value){
+               if (value.isEmpty ||value.length < 10) {
+                 return 'Address is required and should be 10+ characters long.';
+               }
+             },
+             onSaved: (String value) {
+               _formData['address'] = value;
              },
            ),
-           TextField(
+           TextFormField(
              decoration: InputDecoration(labelText: 'GENDER'),
-             onChanged: (String value){
-               setState(() {
-                 gender= value;
-               });
+             validator: (String value){
+               if (value.isEmpty ||value.length < 3) {
+                 return 'Gender is required and should be 3+ characters long.';
+               }
+             },
+             onSaved: (String value) {
+               _formData['gender']= value;
              },
            ),
-           TextField(
+           TextFormField(
              decoration: InputDecoration(labelText: 'AGE',),
              keyboardType: TextInputType.number,
-             onChanged: (String value){
-               setState(() {
-                 age=double.parse(value);
-               });
+             validator: (String value){
+               if (value.isEmpty || !RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$').hasMatch(value)) {
+                 return 'Age is required and should be number';
+               }
+             },
+             onSaved: (String value) {
+               _formData['age'] = double.parse(value);
              },
            ),
-           TextField(
+           TextFormField(
              decoration: InputDecoration(labelText: 'PHONE NUMBER',),
              keyboardType: TextInputType.number,
-             onChanged: (String value){
-               setState(() {
-                 phonenumber=double.parse(value);
-               });
+             validator : (String value){
+               if (value.isEmpty ||value.length < 10) {
+                 return 'Phone number is required and should not be less than 10 degits.';
+               }
+             },
+             onSaved: (String value) {
+               _formData['phoneNumber'] =  double.parse(value);
              },
            ),
            RaisedButton(
               child: Text('save '),
   onPressed: () {
-  final Map< String, dynamic> maid = {
-  'title': titleValue,
-    'address':address,
-    'gender':gender,
-    'age' :age,
-    'phnno':phonenumber
-  };
-  widget.addMaid(maid);
+                if(!_formKey.currentState.validate()) {
+                  return;
+                }
+                _formKey.currentState.save();
+
+  widget.addMaid(_formData);
   Navigator.pushReplacementNamed(context, CategoryMaidsScreen.routeName);
   })
   ],
   ),
+        ),
   ),
+      ),
   );
 }
 }

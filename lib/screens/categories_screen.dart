@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_maid/widgets/dummy_data.dart';
-//import 'file:///C:/Users/Prerana/Desktop/find%20my%20maid/get_maid/lib/widgets/dummy_data.dart';
 import '../widgets/category_item.dart';
 //import 'package:get_maid/screens/tabs_screen.dart';
 
@@ -14,8 +13,7 @@ class CategoriesScreen extends StatelessWidget {
         title: Text('Maids jobs!!!'),
         actions: <Widget>[
           IconButton(
-
-              icon: Icon(Icons.search),
+            icon: Icon(Icons.search),
             onPressed: () {},
 
           )
@@ -29,9 +27,8 @@ class CategoriesScreen extends StatelessWidget {
               catData) => CategoryItem(
             catData.id,
             catData.title,
-            catData.color,
             catData.description,
-            catData.URL
+            catData.imageUrl
           ))
               .toList(),
           gridDelegate:SliverGridDelegateWithMaxCrossAxisExtent(

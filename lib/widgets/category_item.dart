@@ -7,11 +7,10 @@ class CategoryItem extends StatelessWidget {
   final List<Category> categories = [];
   final  String id;
   final String title;
-  final Color color;
   final String description;
-  final String URL;
+  final String imageUrl;
 
-  CategoryItem(this.id , this.title ,this.color, this.description, this.URL);
+  CategoryItem(this.id , this.title , this.description, this.imageUrl);
   
   void selectCategory( BuildContext ctx){
     Navigator.of(ctx).pushNamed(
@@ -34,7 +33,6 @@ class CategoryItem extends StatelessWidget {
 
        children:<Widget> [
             Container(
-
               margin: EdgeInsets.all(2),
               width: 400,
               height:140 ,
@@ -49,31 +47,18 @@ class CategoryItem extends StatelessWidget {
           ),
             ),
         decoration: BoxDecoration(
-         //border: BoxBorder(Colors.black),
-        gradient: LinearGradient(
-        colors:[
-          color.withOpacity(0.7),
-         color,
-         ],
-         begin: Alignment.center,
-         end: Alignment.topLeft,
-          ),
-          borderRadius: BorderRadius.circular(3),
-          shape: BoxShape.rectangle,
-          color: Colors.black,
-          backgroundBlendMode: BlendMode.darken,
+         image: DecorationImage(
+           fit: BoxFit.cover,
+           colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.dstATop),
+           image: NetworkImage(imageUrl),),
+
+         // borderRadius: BorderRadius.circular(3),
+          //shape: BoxShape.rectangle,
+          //color: Colors.black,
+          //backgroundBlendMode: BlendMode.darken,
 
          ),
             ),
-        //ButtonBar(
-          //alignment:(MainAxisAlignment.end) ,
-            //children: <Widget>[
-              //IconButton(
-                //  icon: Icon(Icons.save),
-                  //color: Colors.red,
-                  //onPressed:() {} )
-            //],
-        //)
     ],
       ),
 
