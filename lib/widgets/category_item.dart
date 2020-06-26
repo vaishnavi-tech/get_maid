@@ -28,29 +28,40 @@ class CategoryItem extends StatelessWidget {
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
       child: Column(
-      children:<Widget> [
+        mainAxisAlignment: MainAxisAlignment.center,
+       crossAxisAlignment: CrossAxisAlignment.center,
+
+       children:<Widget> [
             Container(
-             padding: const EdgeInsets.all(15),
+
+              margin: EdgeInsets.all(2),
+              width: 400,
+              height:140 ,
+             padding: const EdgeInsets.all(30),
              child:
              Text(
               title,
               style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
+            fontSize: 28.0,
+            fontWeight: FontWeight.w600,
             fontFamily: 'Raleway'
           ),
             ),
         decoration: BoxDecoration(
-          //border: BoxBorder(Colors.black),
+         //border: BoxBorder(Colors.black),
         gradient: LinearGradient(
         colors:[
           color.withOpacity(0.7),
          color,
          ],
-         begin: Alignment.bottomCenter,
-         end: Alignment.center ,
+         begin: Alignment.center,
+         end: Alignment.topLeft,
           ),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(3),
+          shape: BoxShape.rectangle,
+          color: Colors.black,
+          backgroundBlendMode: BlendMode.darken,
+
          ),
             ),
         //ButtonBar(

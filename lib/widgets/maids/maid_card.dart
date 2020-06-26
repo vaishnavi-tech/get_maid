@@ -18,7 +18,7 @@ class MaidCard extends StatelessWidget {
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               IconButton(
-                iconSize: 20.0,
+                iconSize: 50.0,
                 color: Theme.of(context).accentColor,
                 icon: Icon(
                     Icons.info),

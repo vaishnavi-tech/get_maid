@@ -1,15 +1,26 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class TitleDefault extends StatelessWidget {
   final String title;
   TitleDefault(this.title);
   @override
   Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: TextStyle(
-          fontSize: 26.0,
-          fontWeight: FontWeight.bold,
-          fontFamily: 'Lato'),
+    return Container(
+      height: 30,
+        padding:EdgeInsets.all(25) ,
+        child :Text(
+
+          title,
+          style: TextStyle(
+              backgroundColor: Colors.black,
+              height: 10,
+              color: Colors.lightGreenAccent,
+              fontSize: 50,
+              letterSpacing: 25,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Lato'),
+        )
     );
+
   }
 }

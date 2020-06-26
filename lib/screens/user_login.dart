@@ -170,7 +170,8 @@ class _AuthCardState extends State<AuthCard>{
                     // ignore: missing_return
                     if(value.isEmpty || value.length <5){
 
-                      return ('Password is too Short!');
+                      // ignore: missing_return
+                      return "Password is too Short!";
                     }
                   },
                   onSaved: (value){
