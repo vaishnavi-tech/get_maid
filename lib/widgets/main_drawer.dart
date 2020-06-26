@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/help_screen.dart';
 import '../screens/settings_screen.dart';
-//import '../screens/registration_maid.dart';
 
 class MainDrawer extends StatelessWidget {
  Widget buildListTile( String title, IconData icon, Function tapHandler) {

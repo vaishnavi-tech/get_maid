@@ -66,7 +66,12 @@ class _MyAppState extends State<MyApp> {
          final int index = int.parse(pathElements[2]);
           return MaterialPageRoute(
             builder: (BuildContext context) => MaidPage(
-                _maids[index]['title']),
+                _maids[index]['title'],
+              _maids[index]['address'],
+              _maids[index]['age'],
+              _maids[index]['gender'],
+              _maids[index]['phonenumber'],
+            ),
           );
         }
         return null;

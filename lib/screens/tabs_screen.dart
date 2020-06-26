@@ -61,7 +61,7 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
         BottomNavigationBarItem(
           backgroundColor: Theme.of(context).primaryColor,
-          icon: Icon(Icons.person_pin),
+          icon: Icon(Icons.account_circle),
           title: Text('Profile'),
         ),
         BottomNavigationBarItem(

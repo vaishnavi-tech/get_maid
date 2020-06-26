@@ -10,7 +10,11 @@ class CategoryItem extends StatelessWidget {
   final Color color;
   final String description;
 
-  CategoryItem(this.id , this.title ,this.color, this.description);
+  CategoryItem(
+      this.id ,
+      this.title ,
+      this.color,
+      this.description);
   
   void selectCategory( BuildContext ctx){
     Navigator.of(ctx).pushNamed(
@@ -52,18 +56,8 @@ class CategoryItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
          ),
             ),
-        ButtonBar(
-          alignment: MainAxisAlignment.center,
-            children: <Widget>[
-              IconButton(
-                  icon: Icon(Icons.save),
-                  color: Colors.red,
-                  onPressed:() {} )
-            ],
-        )
     ],
       ),
-
     );
   }
 }
