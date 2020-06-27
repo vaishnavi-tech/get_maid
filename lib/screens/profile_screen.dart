@@ -14,6 +14,7 @@ class _profileScreen  extends State<ProfileScreen> {
     'address': null,
     'age': null,
     'phoneNumber': null,
+    'maid/user': null,
 
   };
 
@@ -26,7 +27,7 @@ class _profileScreen  extends State<ProfileScreen> {
     final double targetPadding = deviceWidth - targetWidth;
     return Scaffold(
       appBar : AppBar(
-        title : Text('register'),
+        title : Text('Create Your Profile'),
       ),
       body : GestureDetector(
         onTap: () {
@@ -97,6 +98,17 @@ class _profileScreen  extends State<ProfileScreen> {
                   },
                   onSaved: (String value) {
                     _formData['phoneNumber'] =  double.parse(value);
+                  },
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'ENTER YOU ARE MAID OR CUSTOMER',),
+                  validator: (String value){
+                    if (value.isEmpty ) {
+                      return 'It is mandatory to choose one option';
+                    }
+                  },
+                  onSaved: (String value) {
+                    _formData['maid/user'] = value;
                   },
                 ),
                 RaisedButton(

@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:get_maid/screens/profile_screen.dart';
 import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
@@ -27,6 +28,14 @@ class _MyAppState extends State<MyApp> {
     });
     print(_maids);
   }
+  List<Map<String,dynamic>>user=[];
+  void addUser(Map<String, dynamic> User)
+  {
+    setState(() {
+      user.add(User);
+    });
+    print(user);
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,10 +59,11 @@ class _MyAppState extends State<MyApp> {
      //home: AuthPage(),
       //initialRoute: '/',
          routes: {
-        TabsScreen.routeName: (ctx) => TabsScreen(),
+        TabsScreen.routeName: (ctx) => TabsScreen(addUser),
         CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,_addMaid),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
+           ProfileScreen.routeName:(ctx)=>ProfileScreen(addUser)
           // MaidInput.routeName : (ctx) => MaidInput(),
 
          },
@@ -78,7 +88,7 @@ class _MyAppState extends State<MyApp> {
       },
       onUnknownRoute: (RouteSettings settings) {
         return  MaterialPageRoute(
-          builder: (ctx) => TabsScreen(),
+          builder: (ctx) => TabsScreen(addUser),
         );
     }
     );
