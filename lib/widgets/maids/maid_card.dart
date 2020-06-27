@@ -20,7 +20,7 @@ class MaidCard extends StatelessWidget {
               ),
               child:Icon(Icons.account_circle,size: 40.0),
             ),
-          SizedBox(width: 8.0),
+          SizedBox(width: 6.0),
            Column(
             children: <Widget>[
              Container(
@@ -32,18 +32,18 @@ class MaidCard extends StatelessWidget {
         ),
        ],
        ),
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors:[
-                  Colors.cyanAccent,
-                ],
-                end: Alignment.bottomRight,
-                begin: Alignment.topLeft,
-              ),
-            )  ,
-            child:ButtonBar(
-              alignment: MainAxisAlignment.center,
+          ButtonBar(
+           // decoration: BoxDecoration(
+             // gradient: LinearGradient(
+               // colors:[
+                 // Colors.cyanAccent,
+                //],
+                //end: Alignment.bottomRight,
+                //begin: Alignment.topLeft,
+              //),
+            //)  ,
+            //child:ButtonBar(
+             // alignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
                   iconSize: 40.0,
@@ -59,8 +59,8 @@ class MaidCard extends StatelessWidget {
                 ),
               ],
             ) ,
-          ),
-      ],
+          ],
+
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class Category {
   final String id;
   final String title;
@@ -12,7 +11,7 @@ class Category {
     @required this.id,
     @required this.title,
     @required this.description,
-   @required this. imageUrl,
+    @required this. imageUrl,
 
   });
 }
