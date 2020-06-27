@@ -7,7 +7,6 @@ class MaidInput extends StatefulWidget {
   @override
   _MaidInputState createState() => _MaidInputState();
 }
-
 class _MaidInputState extends State<MaidInput> {
   final Map<String, dynamic> _formData = {
     'title': null,
@@ -15,11 +14,83 @@ class _MaidInputState extends State<MaidInput> {
     'gender': null,
     'age': null,
     'phoneNumber': null,
-
   };
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
+ Widget _buildTitleTextField() {
+   return TextFormField(
+     decoration: InputDecoration(labelText: 'ENTER YOUR  FULL NAME '),
+     validator: ( String value) {
+         if (value.isEmpty || value.length < 5 ) {
+         return 'Name is required and should be 5+ character long';
+       }
+     },
+     onSaved: ( String value){
+         _formData['title']=value;
+     },
+   );
+ }
+  Widget _buildAddressTextField() {
+   return TextFormField(
+     maxLines: 3,
+     decoration: InputDecoration(labelText: ' ENTER YOUR ADDRESS'),
+     validator: ( String value) {
+       if (value.isEmpty || value.length < 10) {
+         return 'Address  is required and should be 10+ character long';
+       }
+     },
+     onSaved: ( String value) {
+       _formData['address'] =value;
+     },
+   );
+ }
+  Widget _buildGenderTextField() {
+   return TextFormField(
+     decoration: InputDecoration(labelText: 'GENDER'),
+     validator: ( String value) {
+       if (value.isEmpty || value.length < 4) {
+         return 'gender is required and should be 3+ character long';
+       }
+     },
+     onSaved: ( String value) {
+       _formData['gender'] =value;
+     },
+   );
+  }
+ Widget _buildAgeTextField() {
+   return TextFormField(
+     decoration: InputDecoration(labelText: 'AGE'),
+     keyboardType: TextInputType.number,
+     validator: ( String value) {
+       if (value.isEmpty || !RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$').hasMatch(value)) {
+         return 'Age is required and should be a number.';
+       }
+     },
+     onSaved: ( String value) {
+       _formData['age'] = double.parse(value);
+     },
+   );
+ }
+ Widget _buildPhoneTextField() {
+   return TextFormField(
+     decoration: InputDecoration(labelText: 'PHONE NUMBER'),
+     validator: ( String value) {
+       if (value.isEmpty || !RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$').hasMatch(value)) {
+         return 'phone number is required and should be number';
+       }
+     },
+     onSaved: ( String value) {
+       _formData['phoneNumber'] =double.parse(value);
+     },
+   );
+ }
+ void _submitForm() {
+   if(!_formKey.currentState.validate()) {
+       return;
+     }
+     _formKey.currentState.save();
+     widget.addMaid(_formData);
+     Navigator.pushReplacementNamed(context, CategoryMaidsScreen.routeName);
+ }
 @override
 Widget build(BuildContext context) {
   final double deviceWidth = MediaQuery.of(context).size.width;
@@ -33,84 +104,22 @@ Widget build(BuildContext context) {
        onTap: () {
          FocusScope.of(context).requestFocus(FocusNode());
        },
-
-        child:
-       Container(
+        child: Container(
          margin: EdgeInsets.all(10.0),
         child: Form(
           key: _formKey,
          child:ListView(
           padding: EdgeInsets.symmetric(horizontal: targetPadding /2),
          children: <Widget>[
-             TextFormField(
-            decoration: InputDecoration(labelText: 'ENTER YOUR  FULL NAME ',),
-           validator: (String value){
-              if (value.isEmpty ||value.length < 5) {
-                return 'Name is required and should be 5+ characters long.';
-              }
-           },
-           onSaved: (String value) {
-              _formData['title'] = value;
-           },
-          ),
-           TextFormField(
-             maxLines: 3,
-             decoration: InputDecoration(labelText: ' ENTER YOUR ADDRESS',),
-             validator: (String value){
-               if (value.isEmpty ||value.length < 10) {
-                 return 'Address is required and should be 10+ characters long.';
-               }
-             },
-             onSaved: (String value) {
-               _formData['address'] = value;
-             },
-           ),
-           TextFormField(
-             decoration: InputDecoration(labelText: 'GENDER'),
-             validator: (String value){
-               if (value.isEmpty ||value.length < 3) {
-                 return 'Gender is required and should be 3+ characters long.';
-               }
-             },
-             onSaved: (String value) {
-               _formData['gender']= value;
-             },
-           ),
-           TextFormField(
-             decoration: InputDecoration(labelText: 'AGE',),
-             keyboardType: TextInputType.number,
-             validator: (String value){
-               if (value.isEmpty || !RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$').hasMatch(value)) {
-                 return 'Age is required and should be number';
-               }
-             },
-             onSaved: (String value) {
-               _formData['age'] = double.parse(value);
-             },
-           ),
-           TextFormField(
-             decoration: InputDecoration(labelText: 'PHONE NUMBER',),
-             keyboardType: TextInputType.number,
-             validator : (String value){
-               if (value.isEmpty ||value.length < 10) {
-                 return 'Phone number is required and should not be less than 10 degits.';
-               }
-             },
-             onSaved: (String value) {
-               _formData['phoneNumber'] =  double.parse(value);
-             },
-           ),
+           _buildTitleTextField(),
+           _buildAddressTextField(),
+           _buildGenderTextField(),
+           _buildAgeTextField(),
+           _buildPhoneTextField(),
            RaisedButton(
               child: Text('save '),
-  onPressed: () {
-                if(!_formKey.currentState.validate()) {
-                  return;
-                }
-                _formKey.currentState.save();
-
-  widget.addMaid(_formData);
-  Navigator.pushReplacementNamed(context, CategoryMaidsScreen.routeName);
-  })
+               onPressed: _submitForm,
+           )
   ],
   ),
         ),

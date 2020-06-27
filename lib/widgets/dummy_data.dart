@@ -1,8 +1,4 @@
-
-import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import '../model/category.dart';
-//import 'maid_overview.dart';
 const DUMMY_CATEGORIES = const[
 Category(
   id: 'c1',

@@ -12,7 +12,7 @@ class Category {
     @required this.id,
     @required this.title,
     @required this.description,
-   @required this. imageUrl,
+    @required this. imageUrl,
 
   });
 }

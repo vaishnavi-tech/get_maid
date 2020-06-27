@@ -6,9 +6,7 @@ class Address extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 6.0,vertical: 2.5),
-      child: Text(
-        address
-      ),
+      child: Text(address),
     );
   }
 }

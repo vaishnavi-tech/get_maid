@@ -68,8 +68,8 @@ class _MyAppState extends State<MyApp> {
             builder: (BuildContext context) => MaidPage(
                 _maids[index]['title'],
               _maids[index]['address'],
-              _maids[index]['age'],
               _maids[index]['gender'],
+              _maids[index]['age'],
               _maids[index]['phonenumber'],
             ),
           );

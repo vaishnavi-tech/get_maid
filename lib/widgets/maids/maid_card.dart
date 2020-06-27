@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import '../ui_elements/title_default.dart';
 import 'address.dart';
+//import 'age.dart';
+//import 'phoneNumber.dart';
+//import 'gender.dart';
 class MaidCard extends StatelessWidget {
   final Map<String,dynamic> maid;
   final int maidIndex;
@@ -23,26 +26,16 @@ class MaidCard extends StatelessWidget {
           SizedBox(width: 8.0),
            Column(
             children: <Widget>[
-             Container(
-               padding: EdgeInsets.all(10.0),
-                child: TitleDefault(maid['title']),
-            ),
+              TitleDefault(maid['title']),
               Address(maid['address']),
+              //  Gender(maid['gender']),
+             // Age(maid['age'].toString()),
+              //PhoneNumber(maid['phoneNumber'].toString()),
         ],
         ),
        ],
        ),
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors:[
-                  Colors.cyanAccent,
-                ],
-                end: Alignment.bottomRight,
-                begin: Alignment.topLeft,
-              ),
-            )  ,
-            child:ButtonBar(
+          ButtonBar(
               alignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
@@ -58,7 +51,6 @@ class MaidCard extends StatelessWidget {
                   onPressed: ()  => Navigator.pushNamed(context, '/maid/'+maidIndex.toString()),
                 ),
               ],
-            ) ,
           ),
       ],
       ),

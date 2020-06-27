@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/ui_elements/title_default.dart';
 import '../widgets/maids/address.dart';
+import '../widgets/maids/gender.dart';
+import '../widgets/maids/age.dart';
+import '../widgets/maids/phoneNumber.dart';
 
 class MaidPage extends StatelessWidget {
   final String title;
@@ -42,9 +45,8 @@ class MaidPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
-                padding:EdgeInsets.all(10.0) ,
-                 child:  Text(
-                     'NAME:',
+                 padding:EdgeInsets.all(10.0) ,
+                 child:  Text('NAME:',
                    style: TextStyle(
                        fontSize: 26.0,
                        fontWeight: FontWeight.bold,
@@ -53,7 +55,7 @@ class MaidPage extends StatelessWidget {
               ),
                 Container(
                  padding:EdgeInsets.all(10.0) ,
-                  child:  Address(title),
+                  child:  TitleDefault(title),
              ),
               ],
             ),
@@ -63,18 +65,16 @@ class MaidPage extends StatelessWidget {
                 children: <Widget>[
                   Container(
                       padding:EdgeInsets.all(10.0) ,
-                      child:  Text(
-                        'ADDRESS :',
+                      child:  Text('ADDRESS :',
                           style: TextStyle(
                           fontSize: 26.0,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Raleway'),
-    ),
+                ),
                   ),
                   Container(
                     padding:EdgeInsets.all(10.0) ,
-                    child:
-                    TitleDefault(address),
+                    child: Address(address),
                   ),
                 ],
               ),
@@ -93,7 +93,7 @@ class MaidPage extends StatelessWidget {
                   ),
                   Container(
                     padding:EdgeInsets.all(10.0) ,
-                    child:Text(gender),
+                    child:Gender(gender),
                   ),
                 ],
               ),
@@ -112,7 +112,7 @@ class MaidPage extends StatelessWidget {
                   ),
                   Container(
                     padding:EdgeInsets.all(10.0) ,
-                    child: Text(age.toString()),
+                    child: Age(age.toString()),
                     // child: ,
                   ),
                 ],
@@ -132,7 +132,7 @@ class MaidPage extends StatelessWidget {
                   ),
                   Container(
                     padding:EdgeInsets.all(10.0) ,
-                   child: Text(phonenumber.toString()),
+                   child: PhoneNumber(phonenumber.toString()),
                    // child: ,
                   ),
                 ],

@@ -7,7 +7,6 @@ import '../widgets/category_item.dart';
 class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Maids jobs!!!'),
@@ -15,7 +14,6 @@ class CategoriesScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () {},
-
           )
         ],
       ),

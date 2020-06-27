@@ -16,7 +16,7 @@ class MaidItem extends StatelessWidget{
                margin: EdgeInsets.all(10.0),
               child: MaidControl(addMaid),
     ),
-         Expanded(child: Maids(maids,))
+         Expanded(child: Maids(maids))
           ],
     );
   }
