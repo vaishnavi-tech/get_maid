@@ -7,6 +7,7 @@ class CategoryItem extends StatelessWidget {
   final List<Category> categories = [];
   final  String id;
   final String title;
+  //final Color color;
   final String description;
   final String imageUrl;
 
@@ -33,6 +34,7 @@ class CategoryItem extends StatelessWidget {
 
        children:<Widget> [
             Container(
+
               margin: EdgeInsets.all(2),
               width: 400,
               height:140 ,
@@ -47,18 +49,19 @@ class CategoryItem extends StatelessWidget {
           ),
             ),
         decoration: BoxDecoration(
-         image: DecorationImage(
-           fit: BoxFit.cover,
-           colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.dstATop),
-           image: NetworkImage(imageUrl),),
-
-         // borderRadius: BorderRadius.circular(3),
+         //border: BoxBorder(Colors.black),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.dstATop),
+            image: NetworkImage(imageUrl),),
+          //borderRadius: BorderRadius.circular(3),
           //shape: BoxShape.rectangle,
           //color: Colors.black,
           //backgroundBlendMode: BlendMode.darken,
 
          ),
             ),
+        
     ],
       ),
 

@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_maid/widgets/dummy_data.dart';
-import '../widgets/category_item.dart';
-//import 'package:get_maid/screens/tabs_screen.dart';
+
+import 'package:get_maid/widgets/category_item.dart';
+//import 'file:///C:/Users/Prerana/Desktop/find%20my%20maid/get_maid/lib/widgets/dummy_data.dart';
+
 
 class CategoriesScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +15,8 @@ class CategoriesScreen extends StatelessWidget {
         title: Text('Maids jobs!!!'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
+
+              icon: Icon(Icons.search),
             onPressed: () {},
           )
         ],
@@ -21,13 +25,14 @@ class CategoriesScreen extends StatelessWidget {
         body:GridView(
 
           padding:  const EdgeInsets.all(25),
-          children: DUMMY_CATEGORIES.map((
+         children: DUMMY_CATEGORIES.map((
               catData) => CategoryItem(
             catData.id,
             catData.title,
+            //catData.color,
             catData.description,
-            catData.imageUrl
-          ))
+           catData.imageUrl
+         ))
               .toList(),
           gridDelegate:SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 800,
