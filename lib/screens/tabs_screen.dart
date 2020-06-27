@@ -23,7 +23,7 @@ class _TabsScreenState extends State<TabsScreen> {
        'title':'Home',
      },
       {
-        'page' :   ProfileScreen(),
+        'page' :   ProfileScreen( ),
         'title':'Profile',
       },
        {
