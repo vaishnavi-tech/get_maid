@@ -4,9 +4,8 @@ import '../widgets/maid_control.dart';
 
 class MaidItem extends StatelessWidget{
   final List<Map<String,dynamic>> maids;
-  final  String category;
  final Function addMaid;
- MaidItem( this.maids,this.category, this.addMaid);
+ MaidItem( this.maids,this.addMaid);
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +14,9 @@ class MaidItem extends StatelessWidget{
           children: [
             Container(
                margin: EdgeInsets.all(10.0),
-              child: MaidControl(addMaid,category),
+              child: MaidControl(addMaid,),
     ),
-         Expanded(child: Maids(maids,addMaid))
+         Expanded(child: Maids(maids))
           ],
     );
   }

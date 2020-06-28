@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_maid/model/category.dart';
@@ -16,13 +18,13 @@ class CategoryItem extends StatelessWidget {
     Navigator.of(ctx).pushNamed(
       CategoryMaidsScreen.routeName,
       arguments: {
-       // 'id':id,
+        'id':id,
         'title': title,
       },
     );
   }
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context ) {
     return InkWell(
       onTap:  () => selectCategory(context) ,
       splashColor: Theme.of(context).primaryColor,
@@ -33,7 +35,6 @@ class CategoryItem extends StatelessWidget {
 
        children:<Widget> [
             Container(
-
               margin: EdgeInsets.all(2),
               width: 400,
               height:140 ,

@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import '../maids/maid_card.dart';
 class Maids extends StatelessWidget {
   final List<Map<String,dynamic >> maids;
-  final Function addMaid;
 
-  Maids([this.maids = const [] ,this.addMaid]) {
+  Maids([this.maids = const []]) {
     print('[Maids Widget] Constructor');
   }
 
@@ -16,7 +15,6 @@ Widget _buildMaidList() {
     maidCard =
         ListView.builder(
           itemBuilder: (BuildContext context,int index) =>MaidCard(maids[index], index),
-
           itemCount: maids.length,
         );
   }  else {
