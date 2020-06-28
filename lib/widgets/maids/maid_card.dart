@@ -7,6 +7,8 @@ import 'address.dart';
 class MaidCard extends StatelessWidget {
   final Map<String,dynamic> maid;
   final int maidIndex;
+
+  //static String routeName;
   MaidCard(this.maid,this.maidIndex);
   @override
   Widget build(BuildContext context) {
@@ -26,8 +28,8 @@ class MaidCard extends StatelessWidget {
           SizedBox(width: 8.0),
            Column(
             children: <Widget>[
-              TitleDefault(maid['title']),
-              Address(maid['address']),
+              TitleDefault(maid['title'],),
+              Address(maid['address'],),
               //  Gender(maid['gender']),
              // Age(maid['age'].toString()),
               //PhoneNumber(maid['phoneNumber'].toString()),

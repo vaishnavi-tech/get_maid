@@ -15,8 +15,8 @@ class CategoryMaidsScreen  extends StatelessWidget {
         .settings
         .arguments as Map<String, dynamic>;
     final categoryTitle = routeArgs['title'];
-    // final categoryId = routeArgs['id'];
-    // final maid = MaidInput.where((maids) {
+    final categoryId = routeArgs['id'];
+    //final maid = MaidInput.where((maids) {
       // return maids.category.contains(categoryTitle);
     //}).toString();
     return Scaffold(
