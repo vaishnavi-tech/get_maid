@@ -9,10 +9,10 @@ import 'notifications_screen.dart';
 
 
 class TabsScreen extends StatefulWidget {
+  final String category;
   final Function addUser;
- // final String category;
-  TabsScreen(this.addUser);
-  //final List<Map<String, dynamic>> maids;
+  TabsScreen(this.addUser,this.category, this.User);
+ final List<Map<String, dynamic>> User;
  
   static const routeName = '/tab';
   @override
@@ -27,7 +27,7 @@ class _TabsScreenState extends State<TabsScreen> {
        'title':'Home',
      },
       {
-        'page' :   ProfileScreen(addUser,),
+        'page' :   ProfileScreen(category, addUser),
         'title':'Profile',
       },
        {
@@ -35,7 +35,7 @@ class _TabsScreenState extends State<TabsScreen> {
          'title':'Notifications',
        },
         {
-          'page' : SearchScreen(),
+          'page' : SearchScreen(adUser , User),
           'title':'Saved',
         },
   ];
@@ -44,6 +44,8 @@ class _TabsScreenState extends State<TabsScreen> {
    static List<Map<String, dynamic>> maids;
 
   static Function get addUser => null;
+
+  static get category => null;
   void _selectPage(int index){
   setState(() {
     _selectPageIndex = index;
