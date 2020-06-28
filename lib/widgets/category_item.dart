@@ -7,7 +7,6 @@ class CategoryItem extends StatelessWidget {
   final List<Category> categories = [];
   final  String id;
   final String title;
-  //final Color color;
   final String description;
   final String imageUrl;
 
@@ -17,7 +16,7 @@ class CategoryItem extends StatelessWidget {
     Navigator.of(ctx).pushNamed(
       CategoryMaidsScreen.routeName,
       arguments: {
-        'id':id,
+       // 'id':id,
         'title': title,
       },
     );
@@ -54,10 +53,7 @@ class CategoryItem extends StatelessWidget {
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.dstATop),
             image: NetworkImage(imageUrl),),
-          //borderRadius: BorderRadius.circular(3),
-          //shape: BoxShape.rectangle,
-          //color: Colors.black,
-          //backgroundBlendMode: BlendMode.darken,
+
 
          ),
             ),
