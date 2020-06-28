@@ -12,13 +12,13 @@ class MaidPage extends StatelessWidget {
  final String address;
    final String gender;
    final double age;
-   final double phonenumber;
+   final double phoneNumber;
   MaidPage(
       this.title,
       this.address,
       this.gender,
       this.age,
-      this.phonenumber,
+      this.phoneNumber,
       );
 
   @override
@@ -132,7 +132,7 @@ class MaidPage extends StatelessWidget {
                   ),
                   Container(
                     padding:EdgeInsets.all(10.0) ,
-                   child: PhoneNumber(phonenumber.toString()),
+                   child: PhoneNumber(phoneNumber.toString()),
                    // child: ,
                   ),
                 ],

@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
      //home: AuthPage(),
       //initialRoute: '/',
          routes: {
-        TabsScreen.routeName: (ctx) => TabsScreen(),
+        TabsScreen.routeName: (ctx) => TabsScreen(_maids),
         CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,_addMaid),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> {
               _maids[index]['address'],
               _maids[index]['gender'],
               _maids[index]['age'],
-              _maids[index]['phonenumber'],
+              _maids[index]['phoneNumber'],
             ),
           );
         }
@@ -78,7 +78,7 @@ class _MyAppState extends State<MyApp> {
       },
       onUnknownRoute: (RouteSettings settings) {
         return  MaterialPageRoute(
-          builder: (ctx) => TabsScreen(),
+          builder: (ctx) => TabsScreen(_maids),
         );
     }
     );

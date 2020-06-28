@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import '../screens/category_maids_screen.dart';
 class MaidInput extends StatefulWidget {
   static const routeName = '/add';
+  final  String category;
   final Function addMaid;
-  MaidInput(this.addMaid);
+  MaidInput( this.category,this.addMaid);
   @override
   _MaidInputState createState() => _MaidInputState();
 }
@@ -13,9 +14,12 @@ class _MaidInputState extends State<MaidInput> {
     'address': null,
     'gender': null,
     'age': null,
-    'phoneNumber': null,
+    'phoneNumber': null
   };
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  var category;
+
  Widget _buildTitleTextField() {
    return TextFormField(
      decoration: InputDecoration(labelText: 'ENTER YOUR  FULL NAME '),
@@ -89,7 +93,7 @@ class _MaidInputState extends State<MaidInput> {
      }
      _formKey.currentState.save();
      widget.addMaid(_formData);
-     Navigator.pushReplacementNamed(context, CategoryMaidsScreen.routeName);
+     Navigator.pushReplacementNamed(context, CategoryMaidsScreen.routeName,arguments: {'title': category,});
  }
 @override
 Widget build(BuildContext context) {
@@ -117,6 +121,7 @@ Widget build(BuildContext context) {
            _buildAgeTextField(),
            _buildPhoneTextField(),
            RaisedButton(
+             color: Theme.of(context).primaryColor,
               child: Text('save '),
                onPressed: _submitForm,
            )
