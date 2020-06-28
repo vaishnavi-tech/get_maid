@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'profile_screen.dart';
+import 'package:get_maid/widgets/user_item.dart';
 
 class SearchScreen  extends StatelessWidget {
   final List<Map<String, dynamic>> User;
