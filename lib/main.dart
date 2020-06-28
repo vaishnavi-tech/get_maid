@@ -22,10 +22,19 @@ class _MyAppState extends State<MyApp> {
   List<Map<String,dynamic>>_maids=[];
   void _addMaid(Map<String, dynamic> maid)
   {
-    setState(() {
-      _maids.add(maid);
-    });
-    print(_maids);
+  setState(() {
+  _maids.add(maid);
+  });
+  print(_maids);
+  }
+  //class _MyAppState extends State<MyApp> {
+  List<Map<String,dynamic>>User=[];
+  void addUser(Map<String, dynamic> user)
+  {
+  setState(() {
+  User.add(user);
+  });
+  print(User);
   }
   @override
   Widget build(BuildContext context) {
@@ -50,7 +59,7 @@ class _MyAppState extends State<MyApp> {
      //home: AuthPage(),
       //initialRoute: '/',
          routes: {
-        TabsScreen.routeName: (ctx) => TabsScreen(_maids),
+        TabsScreen.routeName: (ctx) => TabsScreen(addUser),
         CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,_addMaid),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
@@ -78,7 +87,7 @@ class _MyAppState extends State<MyApp> {
       },
       onUnknownRoute: (RouteSettings settings) {
         return  MaterialPageRoute(
-          builder: (ctx) => TabsScreen(_maids),
+          builder: (ctx) => TabsScreen(addUser),
         );
     }
     );

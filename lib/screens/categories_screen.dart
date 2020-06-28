@@ -7,6 +7,8 @@ import 'package:get_maid/widgets/category_item.dart';
 
 
 class CategoriesScreen extends StatelessWidget {
+ // static String routeName;
+
 
   @override
   Widget build(BuildContext context) {
