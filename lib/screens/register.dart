@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import '../screens/category_maids_screen.dart';
 class Register extends StatefulWidget {
   static const routeName = '/register';
-  //final Function addMaid;
- // MaidInput( this.addMaid);
   @override
   _RegisterState createState() => _RegisterState();
 }
@@ -195,7 +193,6 @@ class _RegisterState extends State<Register> {
     });
 
     }),
-      //title:Text("hi"),
 
     ),); },),),
     ],

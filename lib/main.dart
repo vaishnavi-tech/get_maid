@@ -9,6 +9,7 @@ import './screens/category_maids_screen.dart';
 import './screens/maids_detail.dart';
 //import 'screens/auths.dart';
 import 'package:get_maid/screens/register.dart';
+import './screens/main_register.dart';
 void main() {
  // debugPaintSizeEnabled = true;
   runApp(MyApp());
@@ -67,7 +68,7 @@ class _MyAppState extends State<MyApp> {
           )
         ),
       ),
-     //home: AuthPage(),
+     home:  MainRegister(),
       //initialRoute: '/',
          routes: {
         TabsScreen.routeName: (ctx) => TabsScreen(addUser),
