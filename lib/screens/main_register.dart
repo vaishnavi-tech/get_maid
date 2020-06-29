@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 class MainRegister extends StatefulWidget {
+  static String routeName;
+
   @override
   _MainRegisterState createState() => _MainRegisterState();
 }
@@ -12,7 +14,7 @@ class _MainRegisterState extends State<MainRegister> {
     return DecorationImage(
       fit: BoxFit.cover,
       colorFilter: ColorFilter.mode(
-          Colors.black.withOpacity(0.5),
+          Colors.black.withOpacity(0.3),
           BlendMode.dstATop),
       image: AssetImage('assets/background.jpg'),
     );
@@ -40,9 +42,10 @@ class _MainRegisterState extends State<MainRegister> {
     children: <Widget>[
     Container(
       padding: EdgeInsets.all(5.0),
-      width: 400 ,
-      height: 140 ,
-      child: Text('ARE YOU MAID OR CUSTOMER ?'),
+      width: 400,
+      height: 50 ,
+
+      child: Text('ARE YOU MAID OR CUSTOMER ? Kindly choose one option'),
     ),
       SizedBox(
       height: 10.0,
@@ -56,7 +59,7 @@ class _MainRegisterState extends State<MainRegister> {
     child: Text('Maid'),
     onPressed: () => Navigator.pushReplacementNamed(context, '/register') ,
     ),),
-    SizedBox(width: 10.0,),
+    SizedBox(width: 30.0,),
     Container(
 //padding:EdgeInsets.all(10.0),
     color: Theme.of(context).accentColor,

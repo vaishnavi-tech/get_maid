@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get_maid/screens/main_register.dart';
 import '../screens/category_maids_screen.dart';
 import 'main_register.dart';
+import 'package:http/http.dart' as http;
 
 class Register extends StatefulWidget {
   static const routeName = '/register';
@@ -11,23 +13,43 @@ class Register extends StatefulWidget {
 }
 class _RegisterState extends State<Register> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  List<bool> ans=[false,false,false,false];
-  List<String> text = ["Gardener", "Cook", "Home Cleaner","Driver"];
+ /* Map<String, bool> category = {
+    'Gardener': false,
+    'Cook': false,
+    'Home Cleaner': false,
+    'Driver': false,
+  };*/
   TextEditingController nameTypeController = TextEditingController();
   TextEditingController addressTypeController = TextEditingController();
   TextEditingController ageTypeController = TextEditingController();
   TextEditingController phoneNumberTypeController = TextEditingController();
   TextEditingController genderTypeController = TextEditingController();
-  void _submitForm() {
-    //if(!_formKey.currentState.validate()) {
-      //return;
-    //}
-    print("===================================================");
+  TextEditingController passwordTypeController = TextEditingController();
+
+  Future<void> _submitForm() async {
     print(nameTypeController.text);
     print(addressTypeController.text);
     print(ageTypeController.text.toString());
     print(phoneNumberTypeController.text.toString());
     print(genderTypeController.text);
+
+    //final url= "https://get-maid-app.firebaseio.com/maids.json";
+   //final response = await http.post(
+     //url,
+     //body: jsonEncode(
+       /*{
+         'name': nameTypeController.text,       //good always remember to put .text in controller
+         'address': addressTypeController.text,
+         'age':ageTypeController.text.toString(),
+       ' gender':genderTypeController.text,
+        'phoneNumber':phoneNumberTypeController.text.toString(),
+       'password' : passwordTypeController.text ,
+          },
+     ),
+   );*/
+   //print(json.decode(response.body));
+
+    //print("===================================================");
     _formKey.currentState.save();
     Navigator.pushReplacementNamed(context, CategoryMaidsScreen.routeName);
   }
@@ -160,27 +182,52 @@ class _RegisterState extends State<Register> {
                 ),
                 keyboardType: TextInputType.text,
               ),
-              Row(
-                children: <Widget>[
-                  Container(
-                    padding:EdgeInsets.all(10.0),
-                    color: Theme.of(context).accentColor,
-                    child: RaisedButton(
-                        child: Text('Press the button if you are not logged in'),
-                        onPressed: () => Navigator.pushReplacementNamed(context, MainRegister.routeName)
-                    ),),
-                  SizedBox(width: 15.0,),
-                ],
+              TextFormField(
+                controller: passwordTypeController,
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  labelText: "Password",
+                ),
+                keyboardType: TextInputType.text,
               ),
-            /*  Container(
+         /*  ListView(
+            children: category.keys.map((String key) {
+              return new CheckboxListTile(
+                title: new Text(key),
+                value: category[key],
+                onChanged: (bool value) {
+                  setState(() {
+                    category[key] = value;
+                  });
+                },
+              );
+            }).toList(),
+           ),*/
+
+            /* Container(
                 height: 350.0,
 
                     child: Column(
 
-                     children: text
+                     children:
                     .map((t) => CheckboxListTile(
                      title: Text(t),
-                     value:.
+                     value:
                      onChanged: (val) {
                     setState(() {
 
@@ -190,7 +237,7 @@ class _RegisterState extends State<Register> {
           .toList(),
     ),
              ),*/
-            Row(
+           /* Row(
               children:<Widget>[
 
                   Expanded(
@@ -216,12 +263,25 @@ class _RegisterState extends State<Register> {
                       ),
                   ),
                 ],
-            ),
+            ),*/
                   RaisedButton(
                      color: Theme.of(context).primaryColor,
                     child: Text('save '),
                      onPressed: _submitForm,
-                   )
+                   ),
+              Row(
+                children: <Widget>[
+                  Container(
+                    padding:EdgeInsets.all(10.0),
+                    color: Theme.of(context).accentColor,
+                    child: RaisedButton(
+                        child: Text('Already Registered? Then Log in'),
+                        onPressed: () => Navigator.pushReplacementNamed(context, MainRegister.routeName)
+                    ),),
+                  SizedBox(width: 15.0,),
+                ],
+              ),
+
             ],
           ),
       ),
@@ -230,104 +290,3 @@ class _RegisterState extends State<Register> {
     );
   }
 }
-            /*    Widget _buildAddressTextField() {
-    return TextFormField(
-      maxLines: 3,
-      decoration: InputDecoration(labelText: ' ENTER YOUR ADDRESS'),
-      validator: ( String value) {
-        if (value.isEmpty || value.length < 10) {
-          return 'Address  is required and should be 10+ character long';
-        }
-      },
-      onSaved: ( String value) {
-        _formData['address'] =value;
-      },
-    );
-  }
-  Widget _buildGenderTextField() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'GENDER'),
-      validator: ( String value) {
-        if (value.isEmpty || value.length < 4) {
-          return 'gender is required and should be 3+ character long';
-        }
-      },
-      onSaved: ( String value) {
-        _formData['gender'] =value;
-      },
-    );
-  }
-  Widget _buildAgeTextField() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'AGE'),
-      keyboardType: TextInputType.number,
-      validator: ( String value) {
-        if (value.isEmpty || !RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$').hasMatch(value)) {
-          return 'Age is required and should be a number.';
-        }
-      },
-      onSaved: ( String value) {
-        _formData['age'] = double.parse(value);
-      },
-    );
-  }
-  Widget _buildPhoneTextField() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'PHONE NUMBER'),
-      validator: ( String value) {
-        if (value.isEmpty || !RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$').hasMatch(value)) {
-          return 'phone number is required and should be number';
-        }
-      },
-      onSaved: ( String value) {
-        _formData['phoneNumber'] =double.parse(value);
-      },
-    );
-  }
-  void _submitForm() {
-    if(!_formKey.currentState.validate()) {
-      return;
-    }
-    _formKey.currentState.save();
-    widget.addMaid(_formData);
-    Navigator.pushReplacementNamed(context, CategoryMaidsScreen.routeName);
-  }
-  @override
-  Widget build(BuildContext context) {
-    final double deviceWidth = MediaQuery.of(context).size.width;
-    final double targetWidth = deviceWidth > 550.0 ? 500.0 : deviceWidth * 0.95;
-    final double targetPadding = deviceWidth - targetWidth;
-    return Scaffold(
-      appBar : AppBar(
-        title : Text('register'),
-      ),
-      body : GestureDetector(
-        onTap: () {
-          FocusScope.of(context).requestFocus(FocusNode());
-        },
-        child: Container(
-          margin: EdgeInsets.all(10.0),
-          child: Form(
-            key: _formKey,
-            child:ListView(
-              padding: EdgeInsets.symmetric(horizontal: targetPadding /2),
-              children: <Widget>[
-                _buildTitleTextField(),
-                _buildAddressTextField(),
-                _buildGenderTextField(),
-                _buildAgeTextField(),
-                _buildPhoneTextField(),
-                RaisedButton(
-                  color: Theme.of(context).primaryColor,
-                  child: Text('save '),
-                  onPressed: _submitForm,
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}*/
-
