@@ -173,38 +173,41 @@ class _RegisterState extends State<Register> {
                    });
                    },
     ))
-        .toList(),
+          .toList(),
     ),
              ),*/
             Row(
               children:<Widget>[
 
-    Expanded(
-    child: ListView.builder(
-    itemCount: 4,
-    itemBuilder: (BuildContext context, int index) {
-     return Card(
-    elevation: 6,
-    child: ListTile(
-      title:Text("hi"),
-    leading: Checkbox(
-    value: ans[index],
-    onChanged: (value) {
-    setState(() {
-      ans[index]=value;
-    });
+                  Expanded(
+                      child: ListView.builder(
+                         itemCount: 4,
+                        itemBuilder: (BuildContext context, int index) {
+                         return Card(
+                            elevation: 6,
+                           child: ListTile(
+                               title:Text("hi"),
+                              leading: Checkbox(
+                            value: ans[index],
+                             onChanged: (value) {
+                             setState(() {
+                             ans[index]=value;
+                            });
 
-    }),
+                            }),
       //title:Text("hi"),
-
-    ),); },),),
-    ],
+                           ),
+                         );
+                         },
+                      ),
+                  ),
+                ],
             ),
-    RaisedButton(
-                color: Theme.of(context).primaryColor,
-                child: Text('save '),
-                onPressed: _submitForm,
-              )
+                  RaisedButton(
+                     color: Theme.of(context).primaryColor,
+                    child: Text('save '),
+                     onPressed: _submitForm,
+                   )
             ],
           ),
       ),
