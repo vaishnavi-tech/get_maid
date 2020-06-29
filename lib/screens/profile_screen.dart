@@ -4,13 +4,12 @@ import 'category_maids_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const routeName = '/add';
-  //final  String category;
   final Function addUser;
   ProfileScreen( this.addUser);
   @override
-  _profileScreen createState() =>   _profileScreen();
+  _ProfileScreen createState() =>   _ProfileScreen();
 }
-class   _profileScreen extends State< ProfileScreen > {
+class   _ProfileScreen extends State< ProfileScreen > {
   final Map<String, dynamic> _formData = {
     'title': null,
     'address': null,
@@ -20,20 +19,6 @@ class   _profileScreen extends State< ProfileScreen > {
   };
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  @override
-// ignore: missing_return
-  Widget build(BuildContext context) {
-    final double deviceWidth = MediaQuery.of(context).size.width;
-    final double targetWidth = deviceWidth> 550.0 ? 500.0 : deviceWidth;
-    final double targetPadding = deviceWidth - targetWidth;
-    targetPadding;
-
-
-
-
- //  var category;
-
     Widget _buildTitleTextField() {
       return TextFormField(
         decoration: InputDecoration(labelText: 'ENTER YOUR  FULL NAME '),
@@ -107,5 +92,50 @@ class   _profileScreen extends State< ProfileScreen > {
         },
       );
     }
+  void _submitForm() {
+    if(!_formKey.currentState.validate()) {
+      return;
+    }
+    _formKey.currentState.save();
+    widget.addUser(_formData);
+    Navigator.pushReplacementNamed(context, CategoryMaidsScreen.routeName);
+  }
+@override
+// ignore: missing_return
+Widget build(BuildContext context) {
+  final double deviceWidth = MediaQuery.of(context).size.width;
+  final double targetWidth = deviceWidth> 550.0 ? 500.0 : deviceWidth;
+  final double targetPadding = deviceWidth - targetWidth;
+  return Scaffold(
+    appBar : AppBar(
+      title : Text('register'),
+    ),
+    body : GestureDetector(
+      onTap: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+      },
+      child: Container(
+        margin: EdgeInsets.all(10.0),
+        child: Form(
+          key: _formKey,
+          child:ListView(
+            padding: EdgeInsets.symmetric(horizontal: targetPadding /2),
+            children: <Widget>[
+              _buildTitleTextField(),
+              _buildAddressTextField(),
+              _buildGenderTextField(),
+              _buildAgeTextField(),
+              _buildPhoneTextField(),
+              RaisedButton(
+                color: Theme.of(context).primaryColor,
+                child: Text('save '),
+                onPressed: _submitForm,
+              )
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
   }
 }

@@ -7,8 +7,6 @@ import 'address.dart';
 class MaidCard extends StatelessWidget {
   final Map<String,dynamic> maid;
   final int maidIndex;
-
-  //static String routeName;
   MaidCard(this.maid,this.maidIndex);
   @override
   Widget build(BuildContext context) {

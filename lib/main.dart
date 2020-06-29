@@ -28,13 +28,13 @@ class _MyAppState extends State<MyApp> {
   print(_maids);
   }
   //class _MyAppState extends State<MyApp> {
-  List<Map<String,dynamic>>User=[];
+  List<Map<String,dynamic>>users=[];
   void addUser(Map<String, dynamic> user)
   {
   setState(() {
-  User.add(user);
+  users.add(user);
   });
-  print(User);
+  print(user);
   }
   @override
   Widget build(BuildContext context) {
