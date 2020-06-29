@@ -12,7 +12,7 @@ class CategoryMaidsScreen  extends StatelessWidget {
     if (maids.length > 0) {
       maidCard =
           ListView.builder(
-            itemBuilder: (BuildContext context,int index) =>MaidCard(maids[index]['title'], index),
+            itemBuilder: (BuildContext context,int index) =>MaidCard(maids[index], index),
             itemCount: maids.length,
           );
     }  else {

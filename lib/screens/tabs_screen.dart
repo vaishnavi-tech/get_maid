@@ -9,8 +9,6 @@ import 'notifications_screen.dart';
 
 
 class TabsScreen extends StatefulWidget {
-  final Function addUser;
-  TabsScreen(this.addUser);
 
   static const routeName = '/tab';
   @override

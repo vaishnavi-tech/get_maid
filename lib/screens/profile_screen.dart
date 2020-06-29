@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get_maid/screens/search_screen.dart';
-import '../screens/category_maids_screen.dart';
 class ProfileScreen extends StatefulWidget {
   static const routeName = '/add';
-  final  String category;
   final Function addUser;
-  ProfileScreen( this.category,this.addUser);
+  ProfileScreen (
+      this.addUser);
   @override
-  _UserInputState createState() => _UserInputState();
+  _ProfileScreenState createState() => _ProfileScreenState();
 }
-class _UserInputState extends State<ProfileScreen> {
+class _ProfileScreenState extends State<ProfileScreen> {
   final Map<String, dynamic> _formData = {
     'title': null,
     'address': null,
@@ -93,6 +91,7 @@ class _UserInputState extends State<ProfileScreen> {
   Widget _buildMaidTextField() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'ENTER YOU ARE MAID OR CUSTOMER '),
+      
       validator: ( String value) {
         if (value.isEmpty ) {
           return 'Enter a valid input';
@@ -109,7 +108,7 @@ class _UserInputState extends State<ProfileScreen> {
     }
     _formKey.currentState.save();
     widget.addUser(_formData);
-    Navigator.pushReplacementNamed(context, SearchScreen.routeName,arguments: {'title': category,});
+   // Navigator.pushReplacementNamed(context, SearchScreen.routeName,arguments: {'title': category,});
   }
   @override
   Widget build(BuildContext context) {
@@ -119,6 +118,10 @@ class _UserInputState extends State<ProfileScreen> {
     return Scaffold(
       appBar : AppBar(
         title : Text('Build YOUR Profile'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.edit), onPressed: () => debugPrint('Item searched'),),
+        ],
       ),
       body : GestureDetector(
         onTap: () {
@@ -136,6 +139,7 @@ class _UserInputState extends State<ProfileScreen> {
                 _buildGenderTextField(),
                 _buildAgeTextField(),
                 _buildPhoneTextField(),
+                _buildMaidTextField(),
                 RaisedButton(
                   color: Theme.of(context).primaryColor,
                   child: Text('save '),

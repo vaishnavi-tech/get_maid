@@ -30,23 +30,6 @@ class _MyAppState extends State<MyApp> {
   });
   print(_maids);
   }
-  //class _MyAppState extends State<MyApp> {
-  List<Map<String,dynamic>>users=[];
-  void addUser(Map<String, dynamic> user)
-  {
-  setState(() {
-  users.add(user);
-  });
-  print(user);
-  }
-  List<Map<String,dynamic>>user=[];
-  void adduser(Map<String, dynamic> user)
-  {
-    setState(() {
-      User.add(user);
-    });
-    print(User);
-  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -70,11 +53,10 @@ class _MyAppState extends State<MyApp> {
      home: AuthPage(),
       initialRoute: '/',
          routes: {
-        TabsScreen.routeName: (ctx) => TabsScreen(addUser ,category , User , adduser),
+        TabsScreen.routeName: (ctx) => TabsScreen( ),
         CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,_addMaid),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
-           //SearcgScreen.routename :(ctx)=>SearchScreen(addUser,User)
           // MaidInput.routeName : (ctx) => MaidInput(),
 
          },
@@ -99,7 +81,7 @@ class _MyAppState extends State<MyApp> {
       },
       onUnknownRoute: (RouteSettings settings) {
         return  MaterialPageRoute(
-          builder: (ctx) => TabsScreen(addUser,category , User, adduser),
+          builder: (ctx) => TabsScreen(),
         );
     }
     );
