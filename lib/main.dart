@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:get_maid/screens/auths.dart';
 import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
@@ -20,6 +21,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   List<Map<String,dynamic>>_maids=[];
+
+  String get category => null;
   void _addMaid(Map<String, dynamic> maid)
   {
   setState(() {
@@ -35,6 +38,14 @@ class _MyAppState extends State<MyApp> {
   users.add(user);
   });
   print(user);
+  }
+  List<Map<String,dynamic>>user=[];
+  void adduser(Map<String, dynamic> user)
+  {
+    setState(() {
+      User.add(user);
+    });
+    print(User);
   }
   @override
   Widget build(BuildContext context) {
@@ -56,13 +67,14 @@ class _MyAppState extends State<MyApp> {
           )
         ),
       ),
-     //home: AuthPage(),
-      //initialRoute: '/',
+     home: AuthPage(),
+      initialRoute: '/',
          routes: {
-        TabsScreen.routeName: (ctx) => TabsScreen(addUser),
+        TabsScreen.routeName: (ctx) => TabsScreen(addUser ,category , User , adduser),
         CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,_addMaid),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
+           //SearcgScreen.routename :(ctx)=>SearchScreen(addUser,User)
           // MaidInput.routeName : (ctx) => MaidInput(),
 
          },
@@ -87,7 +99,7 @@ class _MyAppState extends State<MyApp> {
       },
       onUnknownRoute: (RouteSettings settings) {
         return  MaterialPageRoute(
-          builder: (ctx) => TabsScreen(addUser),
+          builder: (ctx) => TabsScreen(addUser,category , User, adduser),
         );
     }
     );
