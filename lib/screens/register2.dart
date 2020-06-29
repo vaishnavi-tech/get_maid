@@ -142,17 +142,10 @@ class _UserRegisterState extends State<UserRegister> {
                        padding:EdgeInsets.all(10.0),
                        color: Theme.of(context).accentColor,
                        child: RaisedButton(
-                         child: Text('BACK'),
-                         onPressed: () => Navigator.pop(context ),
+                         child: Text('Press the button if you are not logged in'),
+                         onPressed: () => Navigator.pushReplacementNamed(context, AuthPage.routeName);
                        ),),
-                     SizedBox(width: 10.0,),
-                     Container(
-                       padding:EdgeInsets.all(10.0),
-                       color: Theme.of(context).accentColor,
-                       child: RaisedButton(
-                         child: Text('DELETE'),
-                         onPressed: () => Navigator.pop(context ),
-                       ),),
+                     SizedBox(width: 15.0,),
                    ],
                  )
                ],
