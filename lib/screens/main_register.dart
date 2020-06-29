@@ -19,72 +19,63 @@ class _MainRegisterState extends State<MainRegister> {
   }
   @override
   Widget build(BuildContext context) {
+    final double deviceWidth = MediaQuery.of(context).size.width;
+    final double targetWidth = deviceWidth > 550.0 ? 500.0 : deviceWidth * 0.95;
     return Scaffold(
       appBar: AppBar(
         title: Text("GET MAID"),
         centerTitle: true,
       ),
       body: Center(
-       child:Container(
-        decoration: BoxDecoration(
-        image: _buildBackgroundImage(),
-        ),
-        padding: EdgeInsets.all(10.0),
-             child: Column(
-          children: <Widget>[
-            TextFormField(
-              controller: nameTypeController,
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                labelText: "Are you maid and customer",
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Row(
-              children: <Widget>[
-                Container(
-                  //padding:EdgeInsets.all(10.0),
-                  color: Theme.of(context).accentColor,
-                  child: RaisedButton(
-                    child: Text('Maid'),
-                    onPressed: () => Navigator.pushReplacementNamed(context, '/register') ,
-                  ),),
-                SizedBox(width: 10.0,),
-                Container(
-                  //padding:EdgeInsets.all(10.0),
-                  color: Theme.of(context).accentColor,
-                  child: RaisedButton(
-                    child: Text('Customer',
-                    style: TextStyle(
-                      color: Colors.black
-                    ),),
-                    onPressed: () => Navigator.pushReplacementNamed(context, '/userRegister') ,
-                  ),),
-              ],
-            )
-
-          ],
-        ),
-
-      ),
-      ),
+       child: Container(
+       decoration: BoxDecoration(
+       image: _buildBackgroundImage(),
+    ),
+    padding: EdgeInsets.all(10.0),
+    child: Center(
+    child: SingleChildScrollView(
+    child: Container(
+    width: targetWidth,
+    child:  Column(
+    children: <Widget>[
+    Container(
+      padding: EdgeInsets.all(5.0),
+      width: 400 ,
+      height: 140 ,
+      child: Text('ARE YOU MAID OR CUSTOMER ?'),
+    ),
+      SizedBox(
+      height: 10.0,
+    ),
+    Row(
+    children: <Widget>[
+    Container(
+//padding:EdgeInsets.all(10.0),
+    color: Theme.of(context).accentColor,
+    child: RaisedButton(
+    child: Text('Maid'),
+    onPressed: () => Navigator.pushReplacementNamed(context, '/register') ,
+    ),),
+    SizedBox(width: 10.0,),
+    Container(
+//padding:EdgeInsets.all(10.0),
+    color: Theme.of(context).accentColor,
+    child: RaisedButton(
+    child: Text('Customer',
+    style: TextStyle(
+    color: Colors.black
+    ),),
+    onPressed: () => Navigator.pushReplacementNamed(context, '/userRegister') ,
+    ),),
+    ],
+    )
+    ],
+    ),
+    ),
+    ),
+    ),
+    ),
+    ),
     );
   }
 }
