@@ -10,7 +10,7 @@ import './screens/category_maids_screen.dart';
 import './screens/maids_detail.dart';
 //import 'screens/auths.dart';
 import 'package:get_maid/screens/register.dart';
-import './screens/main_register.dart';
+import 'package:get_maid/screens/register2.dart';
 void main() {
  // debugPaintSizeEnabled = true;
   runApp(MyApp());
@@ -41,14 +41,7 @@ class _MyAppState extends State<MyApp> {
   });
   print(user);
   }
- // List<Map<String,dynamic>>user=[];
-  //void adduser(Map<String, dynamic> user)
-  //{
-    //setState(() {
-      //User.add(user);
-    //});
-    //print(User);
-  //}
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -69,7 +62,7 @@ class _MyAppState extends State<MyApp> {
           )
         ),
       ),
-     home:  MainRegister(),
+     //home: AuthPage(),
       //initialRoute: '/',
          routes: {
         TabsScreen.routeName: (ctx) => TabsScreen(addUser),
