@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get_maid/screens/main_register.dart';
 import '../screens/category_maids_screen.dart';
+import 'main_register.dart';
+
 class Register extends StatefulWidget {
   static const routeName = '/register';
-  //final Function addMaid;
- // MaidInput( this.addMaid);
+
   @override
   _RegisterState createState() => _RegisterState();
 }
@@ -65,7 +67,7 @@ class _RegisterState extends State<Register> {
                       ),
                       labelText: "Full Name",
                     ),
-                //    keyboardType: TextInputType.number,
+                   keyboardType: TextInputType.text,
                   ),
                   TextFormField(
                     controller: addressTypeController,
@@ -88,7 +90,7 @@ class _RegisterState extends State<Register> {
                       ),
                       labelText: "Address",
                     ),
-                 //   keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.text,
                   ),
               TextFormField(
                 controller: ageTypeController,
@@ -157,6 +159,18 @@ class _RegisterState extends State<Register> {
                   labelText: "Gender",
                 ),
                 keyboardType: TextInputType.text,
+              ),
+              Row(
+                children: <Widget>[
+                  Container(
+                    padding:EdgeInsets.all(10.0),
+                    color: Theme.of(context).accentColor,
+                    child: RaisedButton(
+                        child: Text('Press the button if you are not logged in'),
+                        onPressed: () => Navigator.pushReplacementNamed(context, MainRegister.routeName)
+                    ),),
+                  SizedBox(width: 15.0,),
+                ],
               ),
             /*  Container(
                 height: 350.0,

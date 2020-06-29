@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
      home: MainRegister(),
-      initialRoute: '/',
+      //initialRoute: '/',
          routes: {
         TabsScreen.routeName: (ctx) => TabsScreen(addUser),
            AuthPage.routeName:(ctx)=>AuthPage(),
@@ -72,9 +72,6 @@ class _MyAppState extends State<MyApp> {
            HelpScreen.routeName : (ctx) => HelpScreen(),
            Register.routeName:(ctx)=>Register(),
            UserRegister.routeName:(ctx)=>UserRegister(),
-           //SearcgScreen.routename :(ctx)=>SearchScreen(addUser,User)
-          // MaidInput.routeName : (ctx) => MaidInput(),
-
          },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');
