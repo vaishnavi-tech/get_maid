@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get_maid/screens/auths.dart';
+import 'package:get_maid/screens/register2.dart';
 import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
@@ -76,6 +77,7 @@ class _MyAppState extends State<MyApp> {
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
            Register.routeName:(ctx)=>Register(),
+           UserRegister.routeName:(ctx)=>UserRegister(),
            //SearcgScreen.routename :(ctx)=>SearchScreen(addUser,User)
           // MaidInput.routeName : (ctx) => MaidInput(),
 
