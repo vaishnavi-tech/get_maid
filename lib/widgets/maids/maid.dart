@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../maids/maid_card.dart';
+import 'maid_card.dart';
+
 class Maids extends StatelessWidget {
   final List<Map<String,dynamic >> maids;
 
@@ -14,7 +15,7 @@ Widget _buildMaidList() {
   if (maids.length > 0) {
     maidCard =
         ListView.builder(
-          itemBuilder: (BuildContext context,int index) =>MaidCard(maids[index], index),
+          itemBuilder: (BuildContext context,int index) =>MaidCard(maids[index]['title'], index),
           itemCount: maids.length,
         );
   }  else {
@@ -24,7 +25,7 @@ Widget _buildMaidList() {
 }
   @override
   Widget build(BuildContext context) {
-    print('[Maids Widget] build()');
+       print('[Maids Widget] build()');
    return _buildMaidList();
   }
 }
