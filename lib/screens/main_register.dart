@@ -24,13 +24,13 @@ class _MainRegisterState extends State<MainRegister> {
         title: Text("Are you Maid Or Customer ?"),
         centerTitle: true,
       ),
-      body:Container(
+      body: Center(
+       child:Container(
         decoration: BoxDecoration(
         image: _buildBackgroundImage(),
         ),
         padding: EdgeInsets.all(10.0),
-           child: Center(
-       child: Column(
+             child: Column(
           children: <Widget>[
             TextFormField(
               controller: nameTypeController,
@@ -53,6 +53,9 @@ class _MainRegisterState extends State<MainRegister> {
                 ),
                 labelText: "Full Name",
               ),
+            ),
+            SizedBox(
+              height: 10.0,
             ),
             Row(
               children: <Widget>[
@@ -79,8 +82,9 @@ class _MainRegisterState extends State<MainRegister> {
 
           ],
         ),
+
       ),
-      ),
+      )
     );
   }
 }
