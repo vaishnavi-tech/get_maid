@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'register2.dart';
 class AuthPage extends StatefulWidget {
-  static String routeName;
+  static const routeName ='/authScreen' ;
 
   @override
   _AuthPageState createState() => _AuthPageState();

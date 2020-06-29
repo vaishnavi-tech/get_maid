@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get_maid/screens/auths.dart';
+import 'package:get_maid/screens/main_register.dart';
 import 'package:get_maid/screens/register2.dart';
 import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
@@ -10,7 +11,6 @@ import './screens/category_maids_screen.dart';
 import './screens/maids_detail.dart';
 //import 'screens/auths.dart';
 import 'package:get_maid/screens/register.dart';
-import 'package:get_maid/screens/register2.dart';
 void main() {
  // debugPaintSizeEnabled = true;
   runApp(MyApp());
@@ -62,10 +62,11 @@ class _MyAppState extends State<MyApp> {
           )
         ),
       ),
-     //home: AuthPage(),
-      //initialRoute: '/',
+     home: MainRegister(),
+      initialRoute: '/',
          routes: {
         TabsScreen.routeName: (ctx) => TabsScreen(addUser),
+           AuthPage.routeName:(ctx)=>AuthPage(),
         CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,_addMaid),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
