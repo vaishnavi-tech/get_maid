@@ -37,31 +37,7 @@ class _UserRegisterState extends State<UserRegister> {
            key: _formKey,
              child: ListView(
                children: <Widget>[
-               TextFormField(
-                controller: emailTypeController,
-               decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.deepPurple),
-               borderRadius: BorderRadius.circular(20.0),
-              ),
-               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
-                borderRadius: BorderRadius.circular(20.0),
-             ),
-              errorBorder: OutlineInputBorder(
-               borderSide: BorderSide(color: Colors.red),
-               borderRadius: BorderRadius.circular(20.0),
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                 borderSide: BorderSide(color: Colors.red),
-              borderRadius: BorderRadius.circular(20.0),
-             ),
-               labelText: "Full Name",
-             ),
-               keyboardType: TextInputType.text,
-              ),
-
-              TextFormField(
+                 TextFormField(
                controller: nameTypeController,
                decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
