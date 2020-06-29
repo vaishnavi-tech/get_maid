@@ -8,7 +8,7 @@ import './screens/tabs_screen.dart';
 import './screens/category_maids_screen.dart';
 import './screens/maids_detail.dart';
 //import 'screens/auths.dart';
-
+import 'package:get_maid/screens/register.dart';
 void main() {
  // debugPaintSizeEnabled = true;
   runApp(MyApp());
@@ -39,14 +39,14 @@ class _MyAppState extends State<MyApp> {
   });
   print(user);
   }
-  List<Map<String,dynamic>>user=[];
-  void adduser(Map<String, dynamic> user)
-  {
-    setState(() {
-      User.add(user);
-    });
-    print(User);
-  }
+ // List<Map<String,dynamic>>user=[];
+  //void adduser(Map<String, dynamic> user)
+  //{
+    //setState(() {
+      //User.add(user);
+    //});
+    //print(User);
+  //}
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -67,13 +67,14 @@ class _MyAppState extends State<MyApp> {
           )
         ),
       ),
-     home: AuthPage(),
-      initialRoute: '/',
+     //home: AuthPage(),
+      //initialRoute: '/',
          routes: {
-        TabsScreen.routeName: (ctx) => TabsScreen(addUser ,category , User , adduser),
+        TabsScreen.routeName: (ctx) => TabsScreen(addUser),
         CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,_addMaid),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
+           Register.routeName:(ctx)=>Register(),
            //SearcgScreen.routename :(ctx)=>SearchScreen(addUser,User)
           // MaidInput.routeName : (ctx) => MaidInput(),
 
@@ -99,7 +100,9 @@ class _MyAppState extends State<MyApp> {
       },
       onUnknownRoute: (RouteSettings settings) {
         return  MaterialPageRoute(
-          builder: (ctx) => TabsScreen(addUser,category , User, adduser),
+        //  builder: (ctx) => TabsScreen(addUser),
+          builder: (ctx) =>Register(),
+
         );
     }
     );

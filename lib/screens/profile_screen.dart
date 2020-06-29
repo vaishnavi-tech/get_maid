@@ -3,9 +3,9 @@ import 'package:get_maid/screens/search_screen.dart';
 import '../screens/category_maids_screen.dart';
 class ProfileScreen extends StatefulWidget {
   static const routeName = '/add';
-  final  String category;
+ // final  String category;
   final Function addUser;
-  ProfileScreen( this.category,this.addUser);
+  ProfileScreen(this.addUser);
   @override
   _UserInputState createState() => _UserInputState();
 }
@@ -109,7 +109,7 @@ class _UserInputState extends State<ProfileScreen> {
     }
     _formKey.currentState.save();
     widget.addUser(_formData);
-    Navigator.pushReplacementNamed(context, SearchScreen.routeName,arguments: {'title': category,});
+    //Navigator.pushReplacementNamed(context, SearchScreen.routeName,arguments: {'title': category,});
   }
   @override
   Widget build(BuildContext context) {

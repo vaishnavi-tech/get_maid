@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get_maid/widgets/user_item.dart';
+
 
 class SearchScreen  extends StatelessWidget {
-  final List<Map<String, dynamic>> User;
-  final Function addUser;
-  SearchScreen (this.User,this.addUser);
+ // final List<Map<String, dynamic>> User;
+  //final Function addUser;
+  //SearchScreen (this.User,this.addUser);
   static const routeName = '/categories-maids';
 
 
@@ -28,7 +28,7 @@ class SearchScreen  extends StatelessWidget {
             icon: Icon(Icons.add), onPressed: () => debugPrint('Item searched'),),
         ],
       ),
-      body: UserItem(User,categoryTitle, addUser,),
+      //body: UserItem(User,categoryTitle, addUser,),
 
     );
   }
