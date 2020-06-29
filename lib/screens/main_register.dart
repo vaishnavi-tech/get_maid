@@ -21,7 +21,7 @@ class _MainRegisterState extends State<MainRegister> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Are you Maid Or Customer ?"),
+        title: Text("GET MAID"),
         centerTitle: true,
       ),
       body: Center(
@@ -51,7 +51,7 @@ class _MainRegisterState extends State<MainRegister> {
                   borderSide: BorderSide(color: Colors.red),
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                labelText: "Full Name",
+                labelText: "Are you maid and customer",
               ),
             ),
             SizedBox(
@@ -84,7 +84,7 @@ class _MainRegisterState extends State<MainRegister> {
         ),
 
       ),
-      )
+      ),
     );
   }
 }
