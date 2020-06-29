@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_maid/screens/auths.dart';
-import 'package:get_maid/screens/user_login.dart';
 class UserRegister extends StatefulWidget {
-  static const routeName = '/UserRegister';
+  static const routeName = '/userRegister';
 
   @override
   _UserRegisterState createState() => _UserRegisterState();
@@ -143,7 +142,7 @@ class _UserRegisterState extends State<UserRegister> {
                        color: Theme.of(context).accentColor,
                        child: RaisedButton(
                          child: Text('Press the button if you are not logged in'),
-                         onPressed: () => Navigator.pushReplacementNamed(context, AuthPage.routeName);
+                         onPressed: () => Navigator.pushReplacementNamed(context, AuthPage.routeName)
                        ),),
                      SizedBox(width: 15.0,),
                    ],
