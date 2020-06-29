@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 class MainRegister extends StatefulWidget {
+  static String routeName;
+
   @override
   _MainRegisterState createState() => _MainRegisterState();
 }
@@ -31,8 +33,8 @@ class _MainRegisterState extends State<MainRegister> {
         ),
         padding: EdgeInsets.all(10.0),
              child: Column(
-          children: <Widget>[
-            TextFormField(
+              children: <Widget>[
+                TextFormField(
               controller: nameTypeController,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
@@ -51,14 +53,14 @@ class _MainRegisterState extends State<MainRegister> {
                   borderSide: BorderSide(color: Colors.red),
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                labelText: "Are you maid and customer",
+                labelText: "Are you maid or customer",
               ),
             ),
-            SizedBox(
+               SizedBox(
               height: 10.0,
-            ),
-            Row(
-              children: <Widget>[
+              ),
+               Row(
+               children: <Widget>[
                 Container(
                   //padding:EdgeInsets.all(10.0),
                   color: Theme.of(context).accentColor,
