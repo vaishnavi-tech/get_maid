@@ -4,6 +4,7 @@ import 'package:get_maid/screens/main_register.dart';
 import '../screens/category_maids_screen.dart';
 import 'main_register.dart';
 import 'package:http/http.dart' as http;
+import 'package:get_maid/screens/auths.dart';
 
 class Register extends StatefulWidget {
   static const routeName = '/register';
@@ -205,6 +206,23 @@ class _RegisterState extends State<Register> {
                 ),
                 keyboardType: TextInputType.text,
               ),
+              RaisedButton(
+                color: Theme.of(context).primaryColor,
+                child: Text('save '),
+                onPressed: _submitForm,
+              ),
+              Row(
+                children: <Widget>[
+                  Container(
+                    padding:EdgeInsets.all(10.0),
+                    color: Theme.of(context).accentColor,
+                    child: RaisedButton(
+                        child: Text('Already Registered? Then Log in'),
+                        onPressed: () => Navigator.pushReplacementNamed(context, AuthPage.routeName)
+                    ),),
+                  SizedBox(width: 15.0,),
+                ],
+              ),
          /*  ListView(
             children: category.keys.map((String key) {
               return new CheckboxListTile(
@@ -264,25 +282,9 @@ class _RegisterState extends State<Register> {
                   ),
                 ],
             ),*/
-                  RaisedButton(
-                     color: Theme.of(context).primaryColor,
-                    child: Text('save '),
-                     onPressed: _submitForm,
-                   ),
-              Row(
-                children: <Widget>[
-                  Container(
-                    padding:EdgeInsets.all(10.0),
-                    color: Theme.of(context).accentColor,
-                    child: RaisedButton(
-                        child: Text('Already Registered? Then Log in'),
-                        onPressed: () => Navigator.pushReplacementNamed(context, MainRegister.routeName)
-                    ),),
-                  SizedBox(width: 15.0,),
-                ],
-              ),
 
-            ],
+
+           ],
           ),
       ),
 
