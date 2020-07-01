@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:get_maid/screens/maid_input.dart';
 class MaidControl extends StatelessWidget {
   final Function addMaid;
@@ -17,4 +17,4 @@ class MaidControl extends StatelessWidget {
 
     );
   }
-}
+}*/

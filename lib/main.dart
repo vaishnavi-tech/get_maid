@@ -25,6 +25,8 @@ class _MyAppState extends State<MyApp> {
   List<Map<String,dynamic>>_maids=[];
 
   String get category => null;
+
+  String get title => null;
   void _addMaid(Map<String, dynamic> maid)
   {
   setState(() {
@@ -66,9 +68,9 @@ class _MyAppState extends State<MyApp> {
      //   home: Auth(),
       //initialRoute: '/',
          routes: {
-        TabsScreen.routeName: (ctx) => TabsScreen(addUser),
+        TabsScreen.routeName: (ctx) => TabsScreen(),
            AuthPage.routeName:(ctx)=>AuthPage(),
-        CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(_maids,_addMaid),
+      //  CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(title),
            SettingsScreen.routeName : (ctx) => SettingsScreen(),
            HelpScreen.routeName : (ctx) => HelpScreen(),
            Register.routeName:(ctx)=>Register(),

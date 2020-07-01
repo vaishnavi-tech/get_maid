@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_maid/model/category.dart';
 import '../screens/category_maids_screen.dart';
-
 class CategoryItem extends StatelessWidget {
   final List<Category> categories = [];
   final  String id;
@@ -14,20 +13,28 @@ class CategoryItem extends StatelessWidget {
 
   CategoryItem(this.id , this.title , this.description, this.imageUrl);
   
-  void selectCategory( BuildContext ctx){
-    Navigator.of(ctx).pushNamed(
-      CategoryMaidsScreen.routeName,
-      arguments: {
-        'id':id,
-        'title': title,
-      },
-    );
-  }
   @override
   Widget build(BuildContext context ) {
     return InkWell(
-      onTap:  () => selectCategory(context) ,
-      splashColor: Theme.of(context).primaryColor,
+      /*onTap:  () => {
+      Navigator.of(context).pushNamed(
+      CategoryMaidsScreen.routeName,
+      arguments: {
+      'title':title
+      },
+      ),
+      },*/
+       onTap:()=>
+       { Navigator.push(
+         context,
+         MaterialPageRoute(
+             builder: (context) =>
+                 CategoryMaidsScreen(title:title)
+         ),
+       )
+       },
+
+        splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

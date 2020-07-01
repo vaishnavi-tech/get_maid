@@ -14,7 +14,7 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Maids jobs!!!'),
+        title: Text('Find Maid from these categories!!!'),
         actions: <Widget>[
           IconButton(
 

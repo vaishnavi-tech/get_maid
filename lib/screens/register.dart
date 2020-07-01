@@ -5,7 +5,7 @@ import '../screens/category_maids_screen.dart';
 import 'main_register.dart';
 import 'package:http/http.dart' as http;
 import 'package:get_maid/screens/auths.dart';
-
+import 'checkbox.dart';
 class Register extends StatefulWidget {
   static const routeName = '/register';
 
@@ -14,12 +14,13 @@ class Register extends StatefulWidget {
 }
 class _RegisterState extends State<Register> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
- /* Map<String, bool> category = {
+  Map<String, bool> category = {
     'Gardener': false,
     'Cook': false,
     'Home Cleaner': false,
     'Driver': false,
-  };*/
+  };
+
   TextEditingController nameTypeController = TextEditingController();
   TextEditingController addressTypeController = TextEditingController();
   TextEditingController ageTypeController = TextEditingController();
@@ -28,27 +29,52 @@ class _RegisterState extends State<Register> {
   TextEditingController passwordTypeController = TextEditingController();
 
   Future<void> _submitForm() async {
+   /* category.forEach(key,value){
+
+    }*/
+    List ans=[];
+
+category.forEach((key, value) {
+  print("gfdfdgfdfffffffffffffffffff");
+  if(value==true){
+    ans.add(key);
+  }
+
+});
+    category.keys.map((String key){
+
+      print("fgfbf");
+      print(category[key]);
+
+          if(category[key]==true){
+            ans.add(key);
+          }
+
+    });
+    print("======================");
+    print(ans);
     print(nameTypeController.text);
     print(addressTypeController.text);
     print(ageTypeController.text.toString());
     print(phoneNumberTypeController.text.toString());
     print(genderTypeController.text);
 
-    //final url= "https://get-maid-app.firebaseio.com/maids.json";
-   //final response = await http.post(
-     //url,
-     //body: jsonEncode(
-       /*{
+    final url= "https://get-maid-app.firebaseio.com/maids.json";
+   final response = await http.post(
+     url,
+     body: jsonEncode(
+       {
          'name': nameTypeController.text,       //good always remember to put .text in controller
          'address': addressTypeController.text,
          'age':ageTypeController.text.toString(),
        ' gender':genderTypeController.text,
         'phoneNumber':phoneNumberTypeController.text.toString(),
        'password' : passwordTypeController.text ,
+         'categories':ans,
           },
      ),
-   );*/
-   //print(json.decode(response.body));
+   );
+   print(json.decode(response.body));
 
     //print("===================================================");
     _formKey.currentState.save();
@@ -206,6 +232,20 @@ class _RegisterState extends State<Register> {
                 ),
                 keyboardType: TextInputType.text,
               ),
+              Container( height:350.0,
+                child:  Column(
+                  children: category.keys.map((String key) {
+                    return new CheckboxListTile(
+                      title: new Text(key),
+                      value: category[key],
+                      onChanged: (bool value) {
+                        setState(() {
+                          category[key] = value;
+                        });
+                      },
+                    );
+                  }).toList(),
+                ),),
               RaisedButton(
                 color: Theme.of(context).primaryColor,
                 child: Text('save '),
@@ -223,65 +263,8 @@ class _RegisterState extends State<Register> {
                   SizedBox(width: 15.0,),
                 ],
               ),
-         /*  ListView(
-            children: category.keys.map((String key) {
-              return new CheckboxListTile(
-                title: new Text(key),
-                value: category[key],
-                onChanged: (bool value) {
-                  setState(() {
-                    category[key] = value;
-                  });
-                },
-              );
-            }).toList(),
-           ),*/
 
-            /* Container(
-                height: 350.0,
 
-                    child: Column(
-
-                     children:
-                    .map((t) => CheckboxListTile(
-                     title: Text(t),
-                     value:
-                     onChanged: (val) {
-                    setState(() {
-
-                   });
-                   },
-    ))
-          .toList(),
-    ),
-             ),*/
-           /* Row(
-              children:<Widget>[
-
-                  Expanded(
-                      child: ListView.builder(
-                         itemCount: 4,
-                        itemBuilder: (BuildContext context, int index) {
-                         return Card(
-                            elevation: 6,
-                           child: ListTile(
-                               title:Text("hi"),
-                              leading: Checkbox(
-                            value: ans[index],
-                             onChanged: (value) {
-                             setState(() {
-                             ans[index]=value;
-                            });
-
-                            }),
-      //title:Text("hi"),
-                           ),
-                         );
-                         },
-                      ),
-                  ),
-                ],
-            ),*/
 
 
            ],
