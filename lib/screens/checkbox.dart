@@ -47,7 +47,7 @@ class GetCheckValueState extends State<GetCheckValue> {
                 ),
               )),
         ],
-      ),
+      );
 
   }
 }
