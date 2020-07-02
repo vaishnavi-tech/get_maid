@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'register.dart';
 class AuthPage extends StatefulWidget {
   static const routeName ='/authScreen' ;
 

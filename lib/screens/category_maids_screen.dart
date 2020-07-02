@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'register.dart';
-
-
+import '../widgets/maids/maid_card.dart';
 class CategoryMaidsScreen  extends StatefulWidget {
-
-
   final String title;
   CategoryMaidsScreen ({this.title});  //constructor
   static const routeName = '/categories-maids';
@@ -18,15 +14,7 @@ class CategoryMaidsScreen  extends StatefulWidget {
 class _CategoryMaidsScreenState extends State<CategoryMaidsScreen> {
   List finalmaidlist=[];
   String haikinahi="0";
-  /*Future<void> getmaids() async {
-    final url = "https://get-maid-app.firebaseio.com/maids.json";
-    final response = await http.get(url).then((http.Response response) {
-      print(json.decode(response.body));
-    });
-    //if (widget.title == key ){
 
-      //}
-  }*/
   Future<void> getmaids()async {
     final url = "https://get-maid-app.firebaseio.com/maids.json";
   haikinahi="1";
@@ -60,6 +48,20 @@ class _CategoryMaidsScreenState extends State<CategoryMaidsScreen> {
 
     super.initState();
   }
+
+  Widget _buildMaidList() {
+    Widget maidCard;
+    if(finalmaidlist.length> 0) {
+      maidCard = ListView.builder(
+          itemBuilder: (BuildContext context,int index) =>MaidCard(finalmaidlist[index], index),
+      itemCount: finalmaidlist.length,
+      );
+    }
+    else {
+      maidCard = Container();
+    }
+    return maidCard;
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -72,17 +74,7 @@ class _CategoryMaidsScreenState extends State<CategoryMaidsScreen> {
             icon: Icon(Icons.add), onPressed:getmaids,),
         ],
       ),
-      body:  Column(
-        children: [
-          Container(
-            margin: EdgeInsets.all(10.0),
-          ),
-          Container(
-              child:Text(finalmaidlist[0]['name'].toString()),
-          ),
-
-        ],
-      ),
+      body:  _buildMaidList(),
     );
   }
 }

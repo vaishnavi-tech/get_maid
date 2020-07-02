@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import '../ui_elements/title_default.dart';
-import 'address.dart';
-//import 'age.dart';
-//import 'phoneNumber.dart';
-//import 'gender.dart';
 class MaidCard extends StatelessWidget {
   final Map<String,dynamic> maid;
   final int maidIndex;
@@ -14,7 +9,7 @@ class MaidCard extends StatelessWidget {
       child:Column(
         children: <Widget>[
         Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+         //mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
               padding: EdgeInsets.symmetric(horizontal: 6.0,vertical: 2.5),
@@ -26,34 +21,118 @@ class MaidCard extends StatelessWidget {
           SizedBox(width: 8.0),
            Column(
             children: <Widget>[
-              TitleDefault(maid['title'],),
-              Address(maid['address'],),
-              //  Gender(maid['gender']),
-             // Age(maid['age'].toString()),
-              //PhoneNumber(maid['phoneNumber'].toString()),
+             Container(
+              padding: EdgeInsets.all(10.0),
+               child :Text(
+                 maid['name'].toString(),
+                style: TextStyle(
+              color: Colors.black,
+               fontSize: 26.0,
+             fontWeight: FontWeight.bold,
+              fontFamily: 'Lato'),
+             )
+            ),
+                 Container(
+                   padding: EdgeInsets.symmetric(horizontal: 6.0,vertical: 2.5),
+                         child: Text(maid['address'].toString(),
+                         style: TextStyle(
+                           fontSize: 22.0,
+                         fontWeight: FontWeight.bold,
+                    fontFamily: 'Raleway'),
+                 ),
+                 ),
+               Row(
+               // crossAxisAlignment: CrossAxisAlignment.start,
+                 children: <Widget>[
+                Container(
+                 padding:EdgeInsets.all(10.0) ,
+                  child:  Text('Gender:',
+                  style: TextStyle(
+                    //  fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Raleway'),
+                ),
+              ),
+                Container(
+                 padding: EdgeInsets.all(10.0) ,
+                 child: Text(maid['gender'].toString()),
+               ),
+                 ],
+               ),
+            Row(
+    // crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+              Container(
+                padding:EdgeInsets.all(10.0) ,
+                child:  Text('Age:',
+                  style: TextStyle(
+                     // fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Raleway'),
+                ),
+              ),
+              Container(
+                padding:EdgeInsets.all(10.0) ,
+                child: Text(maid['age'].toString()),
+              ),
+              ],
+            ),
+              Row(
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                Container(
+                 padding:EdgeInsets.all(10.0) ,
+                 child:  Text('Contact:',
+                  style: TextStyle(
+                      //fontSize: 26.0,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Raleway'),
+                ),
+              ),
+                Container(
+                 padding:EdgeInsets.all(10.0) ,
+                 child: Text(maid['phoneNumber'].toString()),
+             ),
+            ],
+           ),
         ],
         ),
        ],
        ),
-          ButtonBar(
-              alignment: MainAxisAlignment.center,
+          Container(
+            child: Row(
               children: <Widget>[
-                IconButton(
-                  iconSize: 40.0,
-                  color: Theme.of(context).accentColor,
-                  icon: Icon(Icons.info),
-                  onPressed: ()  => Navigator.pushNamed(context, '/maid/'+maidIndex.toString()),
+                Container(
+
+                  color: Colors.blue,
+                  child: Text('Apply'),
                 ),
-                IconButton(
-                  iconSize: 40.0,
-                  color: Theme.of(context).accentColor,
-                  icon: Icon(Icons.save),
-                  onPressed: ()  => Navigator.pushNamed(context, '/maid/'+maidIndex.toString()),
+                Container(
+                  color: Colors.pink,
+                  child: Text('save'),
                 ),
               ],
+            ),
           ),
-      ],
+        ],
       ),
     );
   }
 }
+/*ButtonBar(
+alignment: MainAxisAlignment.center,
+children: <Widget>[
+IconButton(
+iconSize: 40.0,
+color: Theme.of(context).accentColor,
+icon: Icon(Icons.info),
+onPressed: ()  => Navigator.pushNamed(context, '/maid/'+maidIndex.toString()),
+),
+IconButton(
+iconSize: 40.0,
+color: Theme.of(context).accentColor,
+icon: Icon(Icons.save),
+onPressed: ()  => Navigator.pushNamed(context, '/maid/'+maidIndex.toString()),
+),
+],
+),*/

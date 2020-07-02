@@ -7,10 +7,8 @@ import 'package:get_maid/screens/register2.dart';
 import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
-import './screens/category_maids_screen.dart';
 import './screens/maids_detail.dart';
 import 'package:get_maid/screens/register.dart';
-import 'package:get_maid/widgets/auth.dart';
 void main() {
  // debugPaintSizeEnabled = true;
   runApp(MyApp());
@@ -21,28 +19,8 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
   List<Map<String,dynamic>>_maids=[];
-
-  String get category => null;
-
-  String get title => null;
-  void _addMaid(Map<String, dynamic> maid)
-  {
-  setState(() {
-  _maids.add(maid);
-  });
-  print(_maids);
-  }
-  //class _MyAppState extends State<MyApp> {
-  List<Map<String,dynamic>>users=[];
-  void addUser(Map<String, dynamic> user)
-  {
-  setState(() {
-  users.add(user);
-  });
-  print(user);
-  }
+class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
