@@ -7,7 +7,6 @@ class Age extends StatelessWidget {
     return Container(
       padding:EdgeInsets.all(10.0) ,
       child: Text(age),
-      // child: ,
     );
   }
 }

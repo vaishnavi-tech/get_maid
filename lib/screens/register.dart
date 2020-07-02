@@ -1,11 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:get_maid/screens/main_register.dart';
 import '../screens/category_maids_screen.dart';
-import 'main_register.dart';
 import 'package:http/http.dart' as http;
 import 'package:get_maid/screens/auths.dart';
-import 'checkbox.dart';
 class Register extends StatefulWidget {
   static const routeName = '/register';
 
@@ -83,13 +80,16 @@ category.forEach((key, value) {
 
   @override
   Widget build(BuildContext context) {
+    final double deviceWidth = MediaQuery.of(context).size.width;
+    final double targetWidth = deviceWidth > 550.0 ? 500.0 : deviceWidth * 0.95;
+    final double targetPadding = deviceWidth - targetWidth;
     return Scaffold(
       appBar: AppBar(
         title: Text("Register"),
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.symmetric(horizontal: targetPadding /2),
         child: Form(
           key: _formKey,
           child: ListView(
