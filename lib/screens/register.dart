@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../screens/category_maids_screen.dart';
 import 'package:http/http.dart' as http;
-import 'package:get_maid/screens/auths.dart';
+//import 'package:get_maid/screens/auths.dart';
+import 'package:get_maid/screens/user_login.dart';
 class Register extends StatefulWidget {
   static const routeName = '/register';
 
@@ -241,7 +242,7 @@ category.forEach((key, value) {
                 ),
                 keyboardType: TextInputType.text,
               ),
-              Container( height:350.0,
+              Container( height:750.0,
                 child:  Column(
                   children: category.keys.map((String key) {
                     return new CheckboxListTile(
@@ -267,7 +268,7 @@ category.forEach((key, value) {
                     color: Theme.of(context).accentColor,
                     child: RaisedButton(
                         child: Text('Already Registered? Then Log in'),
-                        onPressed: () => Navigator.pushReplacementNamed(context, AuthPage.routeName)
+                        onPressed: () => Navigator.pushReplacementNamed(context,  AuthScreen.routeName)
                     ),),
                   SizedBox(width: 15.0,),
                 ],

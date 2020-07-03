@@ -1,16 +1,21 @@
 import 'dart:math';
+import 'package:get_maid/screens/category_maids_screen.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 //import 'package:get_maid/settings.json';
-//import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+//import 'package:provider/provider.dart';
+import 'package:get_maid/widgets/auth.dart';
 enum AuthMode { Signup , Login}
 
 class AuthScreen extends StatelessWidget {
   //static const routename = '/auth';
 
+  static String routeName='/auth';
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     final devicesize = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
@@ -99,7 +104,8 @@ class _AuthCardState extends State<AuthCard>{
   };
   var _isLoading = false;
   final _passwordController = TextEditingController();
-
+   String email;
+   String password;
   Future<void> _submit() async {
     if (!_formKey.currentState.validate()) {
       //Invalid;
@@ -110,9 +116,32 @@ class _AuthCardState extends State<AuthCard>{
       _isLoading = true;
     });
     if(_authMode == AuthMode.Login) {
-      //Login user ;
+      final url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD-_PXf_9HpQgf_GFIO0JjLiWVjL-lGuUM';
+
+      final response = await http.post(
+        url,
+        body: jsonEncode(
+          {
+            'email': email,
+            'password': password,
+            'returnSecureToken': true,
+          },
+        ),
+      );
+     login(_authData['email'] , _authData['password'],);
     }else{
-      //Signup  user;
+      final url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD-_PXf_9HpQgf_GFIO0JjLiWVjL-lGuUM';
+      final response = await http.post(
+        url,
+        body: jsonEncode(
+          {
+            'email': email,
+            'password': password,
+            'returnSecureToken': true,
+          },
+        ),
+      );
+      signup(_authData['email'] , _authData['password'],);
     }
     setState(() {
       _isLoading = false;
@@ -217,6 +246,7 @@ class _AuthCardState extends State<AuthCard>{
                   padding: EdgeInsets.symmetric(horizontal: 30.0 , vertical: 4.0),
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   textColor: Theme.of(context).primaryColor,
+                   // Navigator.pushReplacementNamed(context,  CategoryMaidsScreen.routeName)
                 ),
               ],
             ),
@@ -226,10 +256,18 @@ class _AuthCardState extends State<AuthCard>{
     );
 
   }
+
+  void login(String authData, String authData2) {}
+
+  void signup(String authData, String authData2) {}
+}
+
+/*class Provider {
+  static of(BuildContext context, {bool listen}) {}
 }
 
 class Signup {
 }
 
-class Login {
-}
+class Login {}
+}*/

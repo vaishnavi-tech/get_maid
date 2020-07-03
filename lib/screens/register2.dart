@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_maid/screens/auths.dart';
 import 'dart:convert';
+import 'package:get_maid/screens/user_login.dart';
 import 'package:http/http.dart' as http;
-import 'tabs_screen.dart';
+
 class UserRegister extends StatefulWidget {
   static const routeName = '/userRegister';
 
@@ -164,7 +165,7 @@ class _UserRegisterState extends State<UserRegister> {
                        color: Theme.of(context).accentColor,
                        child: RaisedButton(
                          child: Text('Press the button if you are not logged in'),
-                         onPressed: () => Navigator.pushReplacementNamed(context, AuthPage.routeName)
+                         onPressed: () => Navigator.pushReplacementNamed(context, AuthScreen.routeName)
                        ),),
                      SizedBox(width: 15.0,),
                    ],

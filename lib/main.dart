@@ -8,6 +8,7 @@ import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
 import 'package:get_maid/screens/register.dart';
+import 'package:get_maid/screens/user_login.dart';
 void main() {
  // debugPaintSizeEnabled = true;
   runApp(MyApp());
@@ -19,6 +20,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+ /* @override
+  Widget build(BuildContext context){
+    return MultiProvider(
+      ChangeNotifierProvider.value(
+        value: Auth(),
+      )
+    )
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +61,7 @@ class _MyAppState extends State<MyApp> {
            HelpScreen.routeName : (ctx) => HelpScreen(),
            Register.routeName:(ctx)=>Register(),
            UserRegister.routeName:(ctx)=>UserRegister(),
+           AuthScreen.routeName:(ctx)=>AuthScreen(),
          },
 
       onUnknownRoute: (RouteSettings settings) {
