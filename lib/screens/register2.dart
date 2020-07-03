@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get_maid/screens/auths.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'tabs_screen.dart';
 class UserRegister extends StatefulWidget {
   static const routeName = '/userRegister';
+
 
   @override
   _UserRegisterState createState() => _UserRegisterState();
@@ -12,27 +16,46 @@ class _UserRegisterState extends State<UserRegister> {
   TextEditingController nameTypeController = TextEditingController();
   TextEditingController addressTypeController = TextEditingController();
   TextEditingController phoneNumberTypeController = TextEditingController();
-  void _submitForm() {
-    //if(!_formKey.currentState.validate()) {
-    //return;
-    //}
+  void _submitForm()  async{
+
     print(nameTypeController.text);
     print(emailTypeController.text);
     print(addressTypeController.text);
     print(phoneNumberTypeController.text.toString());
+
+    final url= "https://get-maid-app.firebaseio.com/custmer.json";
+    final response = await http.post(
+      url,
+      body: jsonEncode(
+        {
+          'name': nameTypeController.text,       //good always remember to put .text in controller
+          'address': addressTypeController.text,
+          'email':emailTypeController.text,
+          'phoneNumber':phoneNumberTypeController.text.toString(),
+
+        },
+      ),
+    );
+    print(json.decode(response.body));
+
+    //print("===================================================");
     _formKey.currentState.save();
-    //Navigator.pushReplacementNamed(context, CategoryMaidsScreen.routeName);
+    Navigator.pushReplacementNamed(context,AuthPage.routeName);
   }
+
 
   @override
   Widget build(BuildContext context) {
+    final double deviceWidth = MediaQuery.of(context).size.width;
+    final double targetWidth = deviceWidth > 550.0 ? 500.0 : deviceWidth * 0.95;
+    final double targetPadding = deviceWidth - targetWidth;
     return Scaffold(
         appBar: AppBar(
           title: Text("Customer Registration"),
           centerTitle: true,
         ),
         body: Padding(
-         padding: const EdgeInsets.all(20.0),
+         padding:EdgeInsets.symmetric(horizontal: targetPadding /2),
          child: Form(
            key: _formKey,
              child: ListView(
@@ -60,6 +83,29 @@ class _UserRegisterState extends State<UserRegister> {
               ),
               keyboardType: TextInputType.text,
              ),
+                 TextFormField(
+                   controller: emailTypeController,
+                   decoration: InputDecoration(
+                     enabledBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.deepPurple),
+                       borderRadius: BorderRadius.circular(20.0),
+                     ),
+                     focusedBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.black),
+                       borderRadius: BorderRadius.circular(20.0),
+                     ),
+                     errorBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.indigoAccent),
+                       borderRadius: BorderRadius.circular(20.0),
+                     ),
+                     focusedErrorBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.purple),
+                       borderRadius: BorderRadius.circular(20.0),
+                     ),
+                     labelText: "email",
+                   ),
+                     keyboardType: TextInputType.emailAddress,
+                 ),
               TextFormField(
               controller: addressTypeController,
               decoration: InputDecoration(

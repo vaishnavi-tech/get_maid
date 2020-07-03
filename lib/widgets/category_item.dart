@@ -43,8 +43,8 @@ class CategoryItem extends StatelessWidget {
        children:<Widget> [
             Container(
               margin: EdgeInsets.all(2),
-              width:350,
-              height:110 ,
+              width:400,
+              height:130 ,
              padding: const EdgeInsets.all(30),
              child:
              Text(

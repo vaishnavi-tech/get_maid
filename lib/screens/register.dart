@@ -16,6 +16,15 @@ class _RegisterState extends State<Register> {
     'Cook': false,
     'Home Cleaner': false,
     'Driver': false,
+    'Babysitter' : false,
+    'Elder caretaker':false,
+    'Laundry':false,
+    'One Day Service':false,
+    'Household Worker':false,
+    'Nursing':false,
+    'Chamber Maid':false,
+    'Domestic Helper':false,
+    'Housekeeping Supervisor':false,
   };
 
   TextEditingController nameTypeController = TextEditingController();

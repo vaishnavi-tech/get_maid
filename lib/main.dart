@@ -7,7 +7,6 @@ import 'package:get_maid/screens/register2.dart';
 import './screens/help_screen.dart';
 import './screens/settings_screen.dart';
 import './screens/tabs_screen.dart';
-import './screens/maids_detail.dart';
 import 'package:get_maid/screens/register.dart';
 void main() {
  // debugPaintSizeEnabled = true;
@@ -19,7 +18,6 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-  List<Map<String,dynamic>>_maids=[];
 class _MyAppState extends State<MyApp> {
 
   @override
@@ -54,25 +52,7 @@ class _MyAppState extends State<MyApp> {
            Register.routeName:(ctx)=>Register(),
            UserRegister.routeName:(ctx)=>UserRegister(),
          },
-      onGenerateRoute: (RouteSettings settings) {
-        final List<String> pathElements = settings.name.split('/');
-        if(pathElements[0]!= '') {
-          return null;
-        }
-        if (pathElements[1] =='maid') {
-         final int index = int.parse(pathElements[2]);
-          return MaterialPageRoute(
-            builder: (BuildContext context) => MaidPage(
-                _maids[index]['title'],
-              _maids[index]['address'],
-              _maids[index]['gender'],
-              _maids[index]['age'],
-              _maids[index]['phoneNumber'],
-            ),
-          );
-        }
-        return null;
-      },
+
       onUnknownRoute: (RouteSettings settings) {
         return  MaterialPageRoute(
         //  builder: (ctx) => TabsScreen(addUser),

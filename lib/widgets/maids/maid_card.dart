@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class MaidCard extends StatelessWidget {
   final Map<String,dynamic> maid;
@@ -12,11 +13,12 @@ class MaidCard extends StatelessWidget {
          //mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 6.0,vertical: 2.5),
+             // padding: EdgeInsets.symmetric(horizontal: 6.0,vertical: 2.5),
+              padding: EdgeInsets.all(15.0),
               decoration: BoxDecoration(
                 color: Colors.limeAccent,
               ),
-              child:Icon(Icons.account_circle,size: 40.0),
+              child:Icon(Icons.account_circle,size: 45.0),
             ),
           SizedBox(width: 8.0),
            Column(
@@ -46,7 +48,7 @@ class MaidCard extends StatelessWidget {
                  children: <Widget>[
                 Container(
                  padding:EdgeInsets.all(10.0) ,
-                  child:  Text('Gender:',
+                  child:  Text('gender:',
                   style: TextStyle(
                     //  fontSize: 15.0,
                       fontWeight: FontWeight.bold,
@@ -101,15 +103,48 @@ class MaidCard extends StatelessWidget {
        ),
           Container(
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
+                  width: 120.0,
+                  height: 60.0,
+                  padding: EdgeInsets.all(20.0),
 
                   color: Colors.blue,
-                  child: Text('Apply'),
+                  child: Text('Apply',
+                    style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Raleway'
+                    ),
+                   // textAlign:TextAlign.center ,
+
+                  ),
                 ),
                 Container(
-                  color: Colors.pink,
-                  child: Text('save'),
+                  height:80.0,
+                  width: 80.0,
+                  padding: EdgeInsets.all(20.0),
+
+                  color: Colors.white,
+
+                ),
+                Container(
+                  width: 120.0,
+                  height: 60.0,
+                  padding: EdgeInsets.all(20.0),
+
+                 color: Colors.pink,
+                  child: Text('save',
+                    textAlign:TextAlign.center ,
+                    style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Raleway'
+                    ),
+
+                  ),
                 ),
               ],
             ),

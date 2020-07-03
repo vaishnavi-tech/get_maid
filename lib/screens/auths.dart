@@ -31,13 +31,13 @@ class _AuthPageState extends State<AuthPage> {
       decoration: InputDecoration(
           labelText: 'E-Mail', filled: true, fillColor: Colors.white),
       keyboardType: TextInputType.emailAddress,
-      validator: (String value) {
+     /* validator: (String value) {
         if (value.isEmpty ||
             !RegExp(r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-                .hasMatch(value)) {
+        .hasMatch(value)) {
           return 'Please enter a valid email';
         }
-      },
+      },*/
       onSaved: (String value) {
         _formData['email'] = value;
       },
@@ -49,11 +49,11 @@ class _AuthPageState extends State<AuthPage> {
       decoration: InputDecoration(
           labelText: 'Password', filled: true, fillColor: Colors.white),
       obscureText: true,
-      validator: (String value) {
+   /*   validator: (String value) {
         if (value.isEmpty || value.length < 6) {
           return 'Password invalid';
         }
-      },
+      },*/
       onSaved: (String value) {
         _formData['password'] = value;
       },
