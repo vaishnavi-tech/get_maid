@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get_maid/screens/auths.dart';
+import 'package:get_maid/screens/signup1.dart';
 import 'dart:convert';
-import 'package:get_maid/screens/user_login.dart';
+
 import 'package:http/http.dart' as http;
 
 class UserRegister extends StatefulWidget {
@@ -41,7 +41,7 @@ class _UserRegisterState extends State<UserRegister> {
 
     //print("===================================================");
     _formKey.currentState.save();
-    Navigator.pushReplacementNamed(context,AuthPage.routeName);
+    Navigator.pushReplacementNamed(context,Signup.routeName);
   }
 
 
@@ -158,18 +158,19 @@ class _UserRegisterState extends State<UserRegister> {
                    child: Text('save '),
                    onPressed: _submitForm,
                  ),
-                 Row(
+                 /*Row(
                    children: <Widget>[
                      Container(
                        padding:EdgeInsets.all(10.0),
                        color: Theme.of(context).accentColor,
                        child: RaisedButton(
                          child: Text('Press the button if you are not logged in'),
-                         onPressed: () => Navigator.pushReplacementNamed(context, AuthScreen.routeName)
+                         onPressed: () {}
+                         //=> Navigator.pushReplacementNamed(context,.routeName)
                        ),),
                      SizedBox(width: 15.0,),
                    ],
-                 )
+                 )*/
                ],
              ),
          ),

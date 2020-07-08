@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../screens/help_screen.dart';
-import '../screens/settings_screen.dart';
-
+import 'package:get_maid/widgets/logout..dart';
+import 'logout..dart';
 class MainDrawer extends StatelessWidget {
  Widget buildListTile( String title, IconData icon, Function tapHandler) {
 
@@ -26,6 +25,7 @@ class MainDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Column(
+
         children: <Widget>[
           Container(
             height: 120,
@@ -43,27 +43,8 @@ class MainDrawer extends StatelessWidget {
          ),
           SizedBox(height: 20,
           ),
-          buildListTile(
-              'Settings',
-              Icons.settings,
-              () {
-              Navigator.of(context).pushReplacementNamed(SettingsScreen.routeName);
-              }
-              ),
-          buildListTile(
-              'Help and Feedback',
-              Icons.help_outline,
-              () {
-               Navigator.of(context).pushReplacementNamed(HelpScreen.routeName);
-              }
-              ),
-          buildListTile(
-              'Sign out',
-           Icons.power_settings_new,
-                 () {
-               //Navigator.of(context).pushReplacementNamed(MaidEntry.routeName);
-              }
-          ),
+          Logout(),
+
         ],
       ),
     );

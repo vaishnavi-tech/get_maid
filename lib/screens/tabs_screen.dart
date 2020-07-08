@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get_maid/scoped-models/connected.dart';
+import 'package:scoped_model/scoped_model.dart';
 import '../widgets/main_drawer.dart';
 import 'package:get_maid/screens/categories_screen.dart';
 import 'categories_screen.dart';
 import 'profile_screen.dart';
 import 'search_screen.dart';
-import 'notifications_screen.dart';
+import '../scoped-models/main.dart';
 
 
 
@@ -12,31 +14,23 @@ class TabsScreen extends StatefulWidget {
 
 
   static const routeName = '/tab';
+  final MainModel model;
+  TabsScreen({@required this.model});
   @override
   _TabsScreenState createState() => _TabsScreenState(
   );
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-   final List<Map<String, Object>> _pages = [
-     {
-       'page' : CategoriesScreen(),
-       'title':'Home',
-     },
-      {
-        'page' :   ProfileScreen(),
-        'title':'Profile',
-      },
-       {
-         'page' :  NotificationsScreen(),
-         'title':'Notifications',
-       },
-        {
-          'page' : SearchScreen(),
-          'title':'Saved',
-        },
-  ];
+
+
+
+  List<Map<String, Object>> _pages = [];
    int _selectPageIndex = 0;
+
+  //static MainModel get model => null;
+
+
 
   void _selectPage(int index){
   setState(() {
@@ -82,5 +76,25 @@ class _TabsScreenState extends State<TabsScreen> {
       ],
        ),
      );
+  }
+
+   @override
+  void initState() {
+
+    print(widget.model);
+     _pages = [
+       {
+         'page' : CategoriesScreen(),
+         'title':'Home',
+       },
+       {
+         'page' :    ProfileScreen(widget.model),
+         'title':'Profile',
+       },
+       {
+         'page' : SearchScreen(),
+         'title':'Saved',
+       },
+     ];
   }
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get_maid/scoped-models/main.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../widgets/maids/maid_card.dart';
+import 'package:scoped_model/scoped_model.dart';
 class CategoryMaidsScreen  extends StatefulWidget {
   final String title;
   CategoryMaidsScreen ({this.title});  //constructor
@@ -15,9 +17,12 @@ class CategoryMaidsScreen  extends StatefulWidget {
 class _CategoryMaidsScreenState extends State<CategoryMaidsScreen> {
   List finalmaidlist=[];
 
+
   Future  getmaids()async {
+
+
     final url = "https://get-maid-app.firebaseio.com/maids.json";
-    final response = await http.get(url);
+    final response = await http.get(url);//.then<Null>((http.Response response));
     print("yahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
     print(json.decode(response.body));
@@ -34,6 +39,7 @@ class _CategoryMaidsScreenState extends State<CategoryMaidsScreen> {
                 print('hhijijl');
                 print(value);
                 finalmaidlist.add(value);
+
               }
             }
           }
@@ -63,13 +69,16 @@ class _CategoryMaidsScreenState extends State<CategoryMaidsScreen> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.cyan,
-        title: Text(widget.title),
-      ),
+    return ScopedModelDescendant<MainModel>(builder: (BuildContext context, Widget child, MainModel model) {
+      return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.cyan,
+          title: Text(widget.title),
+        ),
 
-    body: _buildMaidList(),
+        body: _buildMaidList(),
+      );
+    },
     );
   }
 }
