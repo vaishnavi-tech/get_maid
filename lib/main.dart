@@ -4,10 +4,11 @@ import 'package:flutter/rendering.dart';
 import 'package:get_maid/scoped-models/main.dart';
 import 'package:get_maid/screens/category_maids_screen.dart';
 import 'package:get_maid/screens/main_register.dart';
-import 'package:get_maid/screens/profile_screen.dart';
 import 'package:get_maid/screens/register2.dart';
+import 'package:get_maid/screens/settings_screen.dart';
 import 'package:get_maid/screens/signin.dart';
 import 'package:get_maid/screens/signup1.dart';
+import 'package:get_maid/screens/whoaryou.dart';
 import 'package:scoped_model/scoped_model.dart';
 import './screens/tabs_screen.dart';
 
@@ -57,26 +58,30 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
          home:
-           _model.user==null? SignIn():TabsScreen(),
+           _model.user==null? SignIn():TabsScreen(model: model),
 
         //initialRoute: '/',
         routes: {
-          TabsScreen.routeName: (ctx) => TabsScreen(),
+          TabsScreen.routeName: (ctx) => TabsScreen(model: model),
           CategoryMaidsScreen.routeName: (ctx) => CategoryMaidsScreen(),
+          MaidRegister.routeName:(ctx)=>MaidRegister(),
           MainRegister.routeName:(ctx)=>MainRegister(),
           UserRegister.routeName:(ctx)=>UserRegister(),
           Signup.routeName:(ctx)=>Signup(),
+          SettingsScreen.routeName:(ctx)=>SettingsScreen(),
 
-         },
 
-        onGenerateRoute: (settings){
+
+        },
+
+        /*onGenerateRoute: (settings){
           print(settings.arguments);
           return MaterialPageRoute (builder: (ctx) => ProfileScreen(model));
-        },
+        },*/
          onUnknownRoute: (RouteSettings settings) {
           return  MaterialPageRoute(
             //  builder: (ctx) => TabsScreen(addUser),
-            builder: (ctx) =>MainRegister(),
+            builder: (ctx) =>SignIn(),
 
           );
         }

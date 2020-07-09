@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get_maid/scoped-models/main.dart';
 import 'package:get_maid/screens/signup1.dart';
 import 'dart:math';
-import '../model/user_auth.dart';
 import 'package:scoped_model/scoped_model.dart';
 import '../screens/tabs_screen.dart';
+import '../model/user.dart';
 
 
 
@@ -43,20 +43,16 @@ class _SignInState extends State<SignIn> {
             },
                 child: Text('okay')
             ),],);
-      });
-    }
-   // Navigator.pushReplacementNamed(context, '/tab');
+
+  }    );}
   }
+
   @override
   Widget build(BuildContext context) {
     final devicesize = MediaQuery.of(context).size;
     return new Scaffold(
       resizeToAvoidBottomPadding: false,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            child:Stack(
+      body:Stack(
               children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
@@ -100,7 +96,7 @@ class _SignInState extends State<SignIn> {
                             child: Text(
                               'Get_Maid',
                               style: TextStyle(
-                                //color: Theme.of(context).accentTextTheme.title.color.red,
+
                                 fontSize: 45,
                                 fontFamily: 'Anton',
                                 fontWeight: FontWeight.bold,
@@ -182,7 +178,9 @@ class _SignInState extends State<SignIn> {
                                           children: <Widget>[
                                             Text(
                                               'New to get maid app ?',
-                                              style: TextStyle(fontFamily: 'RobotoCondensed'),
+                                              style: TextStyle(fontFamily: 'RobotoCondensed',
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20.0,),
                                             ),
                                             SizedBox(width: 5.0),
                                             InkWell(
@@ -194,6 +192,7 @@ class _SignInState extends State<SignIn> {
                                                 style: TextStyle(
                                                     color: Colors.green,
                                                     fontFamily: 'RobotoCondensed',
+                                                    fontSize: 20.0,
                                                     fontWeight: FontWeight.bold,
                                                     decoration: TextDecoration.underline),
                                               ),
@@ -214,9 +213,7 @@ class _SignInState extends State<SignIn> {
                 )
               ],
             ),
-          ),
-        ],
-      ),
+
     );
   }
 }

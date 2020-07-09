@@ -5,7 +5,7 @@ import '../widgets/main_drawer.dart';
 import 'package:get_maid/screens/categories_screen.dart';
 import 'categories_screen.dart';
 import 'profile_screen.dart';
-import 'search_screen.dart';
+import 'saved_screen.dart';
 import '../scoped-models/main.dart';
 
 
@@ -63,11 +63,7 @@ class _TabsScreenState extends State<TabsScreen> {
           icon: Icon(Icons.account_circle),
           title: Text('Profile'),
         ),
-        BottomNavigationBarItem(
-          backgroundColor: Theme.of(context).primaryColor,
-          icon: Icon(Icons.notifications),
-          title: Text('Notifications'),
-        ),
+
         BottomNavigationBarItem(
           backgroundColor: Theme.of(context).primaryColor,
           icon: Icon(Icons.save),
@@ -92,7 +88,7 @@ class _TabsScreenState extends State<TabsScreen> {
          'title':'Profile',
        },
        {
-         'page' : SearchScreen(),
+         'page' : SavedScreen(),
          'title':'Saved',
        },
      ];

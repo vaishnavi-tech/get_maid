@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get_maid/scoped-models/main.dart';
-import 'package:get_maid/screens/main_register.dart';
-import 'package:get_maid/screens/register2.dart';
 import 'package:get_maid/screens/signin.dart';
-import 'package:get_maid/model/user_auth.dart';
-
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'whoaryou.dart';
+import '../model/user.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 
@@ -31,15 +31,32 @@ class _SignupState extends State<Signup> {
 
     print(_authData['email']);
     print(_authData['password']);
-    final Map<String, dynamic> successInformation =
-    await signUp(_authData['email'], _authData['password']);
-    if (successInformation['success']) {
-      Navigator.pushReplacementNamed(context, SignIn.routeName);
-    } else {
+
+     final url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD-_PXf_9HpQgf_GFIO0JjLiWVjL-lGuUM';
+     var response = await http.post(
+       url,
+       headers: {'Content-Type':'application/json'},
+       body: jsonEncode({
+         'email': _authData['email'],
+         'password': _authData['password'],
+         'returnSecureToken': true,
+       },),
+
+     );
+     var responseData = json.decode(response.body);
+     print("here");
+     print(responseData);
+     Navigator.push(
+         context, MaterialPageRoute(builder: (context) =>  MainRegister()));
+
+     //notifyListeners();
+    // if (responseData['success']) {
+  //    Navigator.pushReplacementNamed(context, SignIn.routeName);
+   /* } else {
       showDialog(context: context, builder: (BuildContext context) {
         return AlertDialog(
           title: Text('AN ERROR OCCURRED'),
-          content: Text(successInformation['message']),
+          content: Text("okay"),
           actions: <Widget>[
             FlatButton(onPressed: () {
               Navigator.of(context).pop();
@@ -49,10 +66,10 @@ class _SignupState extends State<Signup> {
           ],
         );
       }
-      );
-      //  Navigator.pushReplacementNamed(context, SignIn.routeName);
-    }
+    );
+    }*/
   }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -136,17 +153,6 @@ class _SignupState extends State<Signup> {
 
                       ),
                       SizedBox(height: 10.0),
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: 'NICK NAME ',
-                            labelStyle: TextStyle(
-                                fontFamily: 'RobotoCondensed',
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey),
-                            focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.green))),
-                      ),
-                      SizedBox(height: 50.0),
                       if(_isLoading)
                         CircularProgressIndicator()
                       else
@@ -196,75 +202,15 @@ class _SignupState extends State<Signup> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 15.0),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            'Are you maid/customer?',
-                            style: TextStyle(
-                              fontFamily: 'RobotoCondensed',
-                            ),
-                          ),
-                          SizedBox(width: 5.0),
-                          /* InkWell(
-                            onTap: () {
-                              Navigator.of(context).pushNamed(Register.routeName);
-                            },
-                            child: Text('Fill In The Details   ',
-                                style: TextStyle(
-                                    color: Colors.green,
-                                    fontFamily: 'RobotoCondensed',
-                                    fontWeight: FontWeight.bold,
-                                    decoration: TextDecoration.underline)),
-                          )*/
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Container(
-                                  child: RaisedButton(
-                                    color: Theme.of(context).primaryColor,
-                                    child: Text('Maid'),
-                                    onPressed : () => Navigator.pushReplacementNamed(context,  MainRegister.routeName),
-                                  ),
-                                ),
-                                Container(
-                                  height:80.0,
-                                  width: 80.0,
-                                  padding: EdgeInsets.all(20.0),
-                                  color: Colors.white,
-                                ),
-                                Container(
-                                  child: RaisedButton(
-                                    color: Theme.of(context).primaryColor,
-                                    child: Text('Customer'),
-                                    onPressed : () => Navigator.pushReplacementNamed(context,  UserRegister.routeName),
-                                  ),
-                                )
-                              ]
-                          )
-                          /*Container(
-                            child: RaisedButton(
-                              color: Theme.of(context).primaryColor,
-                              child: Text('Maid'),
-                              onPressed : () => Navigator.pushReplacementNamed(context,  Register.routeName),
-                            ),
-                          ),
-                          Container(
-                            child: RaisedButton(
-                              color: Theme.of(context).primaryColor,
-                              child: Text('Customer'),
-                              onPressed : () => Navigator.pushReplacementNamed(context,  UserRegister.routeName),
-                            ),
-                          )*/
+
                         ],
                       )
-                    ],
+              )],
                   )),
 
-            ])
-        ),
-      ),
+      )
+
+
     );
   }
 }

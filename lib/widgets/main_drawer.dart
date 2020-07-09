@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get_maid/screens/settings_screen.dart';
+import 'package:get_maid/screens/tabs_screen.dart';
 import 'package:get_maid/widgets/logout..dart';
 import 'logout..dart';
 class MainDrawer extends StatelessWidget {
+  static const routeName = '/DRAWER';
  Widget buildListTile( String title, IconData icon, Function tapHandler) {
 
    return ListTile(
@@ -43,10 +46,30 @@ class MainDrawer extends StatelessWidget {
          ),
           SizedBox(height: 20,
           ),
+
+          buildListTile(
+              'Settings',
+              Icons.settings,
+                  () {
+                Navigator.of(context).pushReplacementNamed(SettingsScreen.routeName);
+              }
+          ),
+
           Logout(),
+          buildListTile(
+              'Back to home screen',
+              Icons.arrow_back,
+                  () {
+                Navigator.of(context).pushReplacementNamed(TabsScreen.routeName);
+              }
+          ),
+
+
 
         ],
-      ),
+
+
+      )
     );
   }
 }

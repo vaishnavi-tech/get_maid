@@ -58,6 +58,10 @@ flutter:
     - assets/user.png
     - assets/maid.png
     - assets/background.jpg
+    - assets/backprofile.jpg
+    - assets/back.jpg
+    - assets/photo.jpg
+
 
 
   # assets:

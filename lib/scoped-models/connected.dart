@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:scoped_model/scoped_model.dart';
 import '../model/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -8,8 +8,6 @@ import 'package:http/http.dart' as http;
 class ConnectedModel extends Model {
 
 static  User authenticatedUser;
-
-
 
  }
 class UserModel extends ConnectedModel {
@@ -34,8 +32,7 @@ class UserModel extends ConnectedModel {
       body: json.encode(authData),
       headers: {'Content-Type': 'application/json'},
     );
-    print(
-        "===============================================hefrvnjvnfvhfvbsdjvjdnl==================================");
+
     final Map<String, dynamic> responseData = json.decode(response.body);
     print(responseData);
     bool hasError = true;
@@ -44,10 +41,11 @@ class UserModel extends ConnectedModel {
       print(responseData);
       hasError = false;
       message = 'Authentication succeeded!';
-      authenticatedUser = User(
+      ConnectedModel.authenticatedUser = User(
           id: responseData['localId'],
           email: email,
           token: responseData['idToken']);
+
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('token', responseData['idToken']);
       prefs.setString('userEmail', email);
@@ -89,8 +87,6 @@ class UserModel extends ConnectedModel {
       body: json.encode(authData),
       headers: {'Content-Type': 'application/json'},
     );
-    print(
-        "===============================================hefrvnjvnfvhfvbsdjvjdnl==================================");
     final Map<String, dynamic> responseData = json.decode(response.body);
     print(responseData);
     bool hasError = true;
@@ -125,8 +121,9 @@ class MaidModel extends ConnectedModel{
   String age,
   String gender,
   String phoneNumber,
-  String password) async{
-    List ans=[];
+  String password,
+      String email,List ans) async{
+
     final response = await http.post('https://get-maid-app.firebaseio.com/maids.json',
      body: jsonEncode(
        {
@@ -136,9 +133,8 @@ class MaidModel extends ConnectedModel{
          'gender':gender,
          'phoneNumber':phoneNumber.toString(),
          'password' : password ,
+         'email': email,
          'categories':ans,
-         'userEmail':  ConnectedModel.authenticatedUser.email,
-         'userId':   ConnectedModel.authenticatedUser.id
 
        },
      ),
@@ -148,7 +144,14 @@ class MaidModel extends ConnectedModel{
   }
 
 }
+
+
+
+
+
+
 class CustomerModel extends  ConnectedModel {
+
   void registered(String name,
       String address,
       String email,
@@ -161,27 +164,26 @@ class CustomerModel extends  ConnectedModel {
           'address': address,
           'email': email,
           'phoneNumber': phoneNumber.toString(),
-          'userEmail':   ConnectedModel.authenticatedUser.email,
-          'userId':  ConnectedModel.authenticatedUser.id
+          'userEmail': ConnectedModel.authenticatedUser.email,
+          'userId': ConnectedModel.authenticatedUser.id
         },
       ),
     );
     print(json.decode(response.body));
   }
 
-  void getCustomer() async {
-     List finalData = [];
+  Future<List> getCustomer() async {
+    List finalData = [];
+
     var response = await http.get(
         'https://get-maid-app.firebaseio.com/custmer.json');
     var res = json.decode(response.body);
     var maidList = res;
 
     maidList.forEach((key, value) {
-    //  print("hi"+value['email']
       print(ConnectedModel.authenticatedUser.email);
-
-      value.forEach((innerkey, innervalue)  {
-        if(innerkey=='email') {
+      value.forEach((innerkey, innervalue) {
+        if (innerkey == 'email') {
           print(innervalue);
           if (ConnectedModel.authenticatedUser.email == innervalue) {
             finalData.add(value);
@@ -189,11 +191,32 @@ class CustomerModel extends  ConnectedModel {
         }
       });
     });
-    print("=================================here");
+    notifyListeners();
 
-    print
-    (
-    finalData
-    );
-  }
+
+    if(finalData.length==0){
+      var response = await http.get(
+          'https://get-maid-app.firebaseio.com/maids.json');
+      var res = json.decode(response.body);
+      var maidList = res;
+
+      maidList.forEach((key, value) {
+        print(ConnectedModel.authenticatedUser.email);
+
+        value.forEach((innerkey, innervalue) {
+          if (innerkey == 'email') {
+            print(innervalue);
+            if (ConnectedModel.authenticatedUser.email == innervalue) {
+
+              finalData.add(value);
+
+
+            }
+          }
+        });
+      });
     }
+ return  finalData;
+
+  }
+  }

@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 
-class User{
-  final String id;
-  final String email;
-  final String token;
+class Customer{
+
+  static List<dynamic> mysaved=[];
 
 
-  User({
-  @required  this.id ,
-  @required this.email,
-  @required this.token
-});
+
+  
 }

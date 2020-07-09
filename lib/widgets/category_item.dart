@@ -42,6 +42,7 @@ class CategoryItem extends StatelessWidget {
 
        children:<Widget> [
             Container(
+
               margin: EdgeInsets.all(2),
               width:400,
               height:130 ,
@@ -56,7 +57,7 @@ class CategoryItem extends StatelessWidget {
           ),
             ),
         decoration: BoxDecoration(
-         //border: BoxBorder(Colors.black),
+         border: Border.all(color: Colors.black,width: 3.0),
           image: DecorationImage(
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.dstATop),

@@ -1,18 +1,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:get_maid/screens/signin.dart';
-import '../model/user_auth.dart';
 import 'package:scoped_model/scoped_model.dart';
 import '../scoped-models/main.dart';
+import '../model/user.dart';
 
 
-class MainRegister extends StatefulWidget {
+class MaidRegister extends StatefulWidget {
   static const routeName = '/register';
 
   @override
-  _MainRegisterState createState() => _MainRegisterState();
+  _MaidRegisterState createState() => _MaidRegisterState();
 }
-class _MainRegisterState extends State<MainRegister> {
+class _MaidRegisterState extends State<MaidRegister> {
   var _isLoading = false;
   User user;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -38,15 +38,13 @@ class _MainRegisterState extends State<MainRegister> {
   TextEditingController phoneNumberTypeController = TextEditingController();
   TextEditingController genderTypeController = TextEditingController();
   TextEditingController passwordTypeController = TextEditingController();
+  TextEditingController emailTypeController = TextEditingController();
+
 
   Future<void> _submitForm(Function register) async {
-    /* category.forEach(key,value){
-
-    }*/
     List ans=[];
 
     category.forEach((key, value) {
-      print("gfdfdgfdfffffffffffffffffff");
       if(value==true){
         ans.add(key);
       }
@@ -54,8 +52,6 @@ class _MainRegisterState extends State<MainRegister> {
     });
     category.keys.map((String key){
 
-      print("fgfbf");
-      print(category[key]);
 
       if(category[key]==true){
         ans.add(key);
@@ -63,8 +59,6 @@ class _MainRegisterState extends State<MainRegister> {
 
     });
 
-    print("======================");
-    print(ans);
     print(nameTypeController.text);
     print(addressTypeController.text);
     print(ageTypeController.text.toString());
@@ -72,18 +66,18 @@ class _MainRegisterState extends State<MainRegister> {
     print(genderTypeController.text);
     _isLoading=true;
     _formKey.currentState.save();
-
-
-    print("===================================================");
-  register( nameTypeController.text,
+    register( nameTypeController.text,
       addressTypeController.text,
       ageTypeController.text.toString(),
     genderTypeController.text,
     phoneNumberTypeController.text.toString(),
     passwordTypeController.text ,
+      emailTypeController.text,
     ans);
     _isLoading=false;
-   // Navigator.pushReplacementNamed(context,  SignIn.routeName);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) =>  SignIn()));
+
   }
 
   @override
@@ -125,6 +119,29 @@ class _MainRegisterState extends State<MainRegister> {
                   labelText: "Full Name",
                 ),
                 keyboardType: TextInputType.text,
+              ),
+              TextFormField(
+                controller: emailTypeController,
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepPurple),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.indigoAccent),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.purple),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  labelText: "email",
+                ),
+                keyboardType: TextInputType.emailAddress,
               ),
               TextFormField(
                 controller: addressTypeController,
@@ -261,11 +278,11 @@ class _MainRegisterState extends State<MainRegister> {
                        builder:(BuildContext context,
                                   Widget child, MainModel model) {
                       return
-              RaisedButton(
-                color: Theme.of(context).primaryColor,
-                child: Text('save '),
-                onPressed:() => _submitForm(model.register),
-              );
+                    RaisedButton(
+                      color: Theme.of(context).primaryColor,
+                      child: Text('save '),
+                      onPressed:() => _submitForm(model.register),
+                    );
                        },
                   ),
               Container(
@@ -294,19 +311,9 @@ class _MainRegisterState extends State<MainRegister> {
                   ),
                 ),
               ),
-              /* Container(
-                    padding:EdgeInsets.all(10.0),
-                    color: Theme.of(context).accentColor,
-                    child: RaisedButton(
-                        child: Text('Already Registered? Then Log in'),
-                        onPressed: () => Navigator.pushReplacementNamed(context,  MyHomePage.routeName)
-                    ),),
-                  SizedBox(width: 15.0,)*/
-
             ],
           ),
         ),
-
       ),
     );
   }

@@ -22,7 +22,7 @@ class _CategoryMaidsScreenState extends State<CategoryMaidsScreen> {
 
 
     final url = "https://get-maid-app.firebaseio.com/maids.json";
-    final response = await http.get(url);//.then<Null>((http.Response response));
+    final response = await http.get(url);
     print("yahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
     print(json.decode(response.body));
@@ -53,6 +53,7 @@ class _CategoryMaidsScreenState extends State<CategoryMaidsScreen> {
     this.getmaids();
   }
 
+
   Widget _buildMaidList() {
     Widget maidCard;
     if(finalmaidlist.length> 0) {
@@ -70,7 +71,7 @@ class _CategoryMaidsScreenState extends State<CategoryMaidsScreen> {
   Widget build(BuildContext context) {
 
     return ScopedModelDescendant<MainModel>(builder: (BuildContext context, Widget child, MainModel model) {
-      return Scaffold(
+        return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.cyan,
           title: Text(widget.title),

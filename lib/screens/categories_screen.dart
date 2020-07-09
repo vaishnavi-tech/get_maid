@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get_maid/widgets/dummy_data.dart';
 
 import 'package:get_maid/widgets/category_item.dart';
-//import 'file:///C:/Users/Prerana/Desktop/find%20my%20maid/get_maid/lib/widgets/dummy_data.dart';
+
 
 
 class CategoriesScreen extends StatelessWidget {
@@ -31,7 +31,6 @@ class CategoriesScreen extends StatelessWidget {
               catData) => CategoryItem(
             catData.id,
             catData.title,
-            //catData.color,
             catData.description,
            catData.imageUrl
          ))

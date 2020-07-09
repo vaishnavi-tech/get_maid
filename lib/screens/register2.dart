@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get_maid/screens/signup1.dart';
+import 'package:get_maid/screens/signin.dart';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
@@ -17,8 +17,10 @@ class _UserRegisterState extends State<UserRegister> {
   TextEditingController nameTypeController = TextEditingController();
   TextEditingController addressTypeController = TextEditingController();
   TextEditingController phoneNumberTypeController = TextEditingController();
+  TextEditingController ageTypeController = TextEditingController();
+  TextEditingController genderTypeController = TextEditingController();
   void _submitForm()  async{
-
+    _formKey.currentState.save();
     print(nameTypeController.text);
     print(emailTypeController.text);
     print(addressTypeController.text);
@@ -29,19 +31,21 @@ class _UserRegisterState extends State<UserRegister> {
       url,
       body: jsonEncode(
         {
-          'name': nameTypeController.text,       //good always remember to put .text in controller
+          'name': nameTypeController.text,
           'address': addressTypeController.text,
           'email':emailTypeController.text,
           'phoneNumber':phoneNumberTypeController.text.toString(),
+          'age':ageTypeController.text.toString().toString(),
+        'gender':genderTypeController.text,
 
         },
       ),
     );
     print(json.decode(response.body));
 
-    //print("===================================================");
-    _formKey.currentState.save();
-    Navigator.pushReplacementNamed(context,Signup.routeName);
+
+
+    Navigator.pushReplacementNamed(context,SignIn.routeName);
   }
 
 
@@ -153,24 +157,57 @@ class _UserRegisterState extends State<UserRegister> {
               ),
               keyboardType: TextInputType.number,
               ),
+                 TextFormField(
+                   controller: ageTypeController,
+                   decoration: InputDecoration(
+                     enabledBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.blue),
+                       borderRadius: BorderRadius.circular(15.0),
+                     ),
+                     focusedBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.blue),
+                       borderRadius: BorderRadius.circular(15.0),
+                     ),
+                     errorBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.red),
+                       borderRadius: BorderRadius.circular(15.0),
+                     ),
+                     focusedErrorBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.red),
+                       borderRadius: BorderRadius.circular(15.0),
+                     ),
+                     labelText: "Age",
+                   ),
+                   keyboardType: TextInputType.number,
+                 ),
+                 TextFormField(
+                   controller: genderTypeController,
+                   decoration: InputDecoration(
+                     enabledBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.blue),
+                       borderRadius: BorderRadius.circular(15.0),
+                     ),
+                     focusedBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.blue),
+                       borderRadius: BorderRadius.circular(15.0),
+                     ),
+                     errorBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.red),
+                       borderRadius: BorderRadius.circular(15.0),
+                     ),
+                     focusedErrorBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.red),
+                       borderRadius: BorderRadius.circular(15.0),
+                     ),
+                     labelText: "Gender",
+                   ),
+                   keyboardType: TextInputType.text,
+                 ),
                  RaisedButton(
                    color: Theme.of(context).primaryColor,
                    child: Text('save '),
                    onPressed: _submitForm,
                  ),
-                 /*Row(
-                   children: <Widget>[
-                     Container(
-                       padding:EdgeInsets.all(10.0),
-                       color: Theme.of(context).accentColor,
-                       child: RaisedButton(
-                         child: Text('Press the button if you are not logged in'),
-                         onPressed: () {}
-                         //=> Navigator.pushReplacementNamed(context,.routeName)
-                       ),),
-                     SizedBox(width: 15.0,),
-                   ],
-                 )*/
                ],
              ),
          ),
