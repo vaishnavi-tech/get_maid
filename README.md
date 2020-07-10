@@ -50,9 +50,9 @@ Get_Maid is the flutter based app which helps the person to find the maid in eas
 !<img src="https://github.com/preranashelke/get_maid/blob/master/36180c7b-7fd5-4c71-acec-0954513ad2a8.jpg" height = 450/>
 !<img src="https://github.com/preranashelke/get_maid/blob/master/1bb731c3-0f0c-438f-9592-380f0365f7c0.jpg" height = 450/>
 !<img src="https://github.com/preranashelke/get_maid/blob/master/1f9894e0-c82b-408a-af84-dcbdb40d5db6.jpg" height = 450/>
-* GitHub repo link: [Link to repository]!(https://github.com/preranashelke/get_maid)
-* Drive link: [Drive link here]!(https://drive.google.com/file/d/1G6_kM6G92sUs4UPhozEpbKNYWcm1dFXQ/view?usp=sharing)
-* Demo video: [Drive link here]!(https://drive.google.com/file/d/1GAwWDkzzA2KMJeEMtsRtmcMgrg71QY3w/view?usp=sharing)
+* GitHub repo link: ![Link to repository] (https://github.com/preranashelke/get_maid)
+* Drive link: ![Drive link here] (https://drive.google.com/file/d/1G6_kM6G92sUs4UPhozEpbKNYWcm1dFXQ/view?usp=sharing)
+* Demo video: ![Drive link here] (https://drive.google.com/file/d/1GAwWDkzzA2KMJeEMtsRtmcMgrg71QY3w/view?usp=sharing)
 
 ### Tech Stack
 * Languages
