@@ -2,14 +2,14 @@
 ### Team name: CRYPTO WARRIORS
 
 ## Team members
-* NEHA KHAIRNAR - nehak2209pc@gmail.com
-* PRASANNA WAGHMODE - prasannawaghmode@gmail.com
-* PRERNA SHELKE - prernashelke01@gmail.com
-* VAISHNAVI JARWAL - vaishnavijarwal31@gmail.com
+* Neha Khairnar- nehak2209pc@gmail.com
+* Prasanna Waghmode - prasannawaghmode@gmail.com
+* Prerna Shelke - prernashelke01@gmail.com
+* Vaishnavi Jarwal - vaishnavijarwal31@gmail.com
 
 ## Mentors
-* PALAK MANTRY
-* SAIF KAZI
+* Palak Mantry
+* Saif Kazi
 
 ## Table of Contents
 
@@ -36,10 +36,9 @@ MISSION IMPOSSIBLE...
 
 ### Description  
 Get_Maid is the flutter based app having  all the features like registration of both customer and maid, well distinguished categories of all the household chores and the profiles of both maid as well as customer.
-<img src="https://github.com/preranashelke/get_maid/blob/master/180c13e8-d97c-4278-82e7-6b6ad2cac497.jpg
-" height = 450/> 
-<img src="" height = 450/>
-<img src="" height = 450/>
+<img src="https://github.com/preranashelke/get_maid/blob/master/180c13e8-d97c-4278-82e7-6b6ad2cac497.jpg" height = 450/> 
+<img src="https://github.com/preranashelke/get_maid/blob/master/dd84756d-ad45-456d-bfed-70ea05087dff.jpg" height = 450/>
+<img src="https://github.com/preranashelke/get_maid/blob/master/f1bc0abf-bef4-49d3-b5cb-5e0da62f6e0a.jpg" height = 450/>
 
 * GitHub repo link: [Link to repository](https://github.com/preranashelke/get_maid)
 * Drive link: [Drive link here](https://drive.google.com/file/d/1G6_kM6G92sUs4UPhozEpbKNYWcm1dFXQ/view?usp=sharing)
