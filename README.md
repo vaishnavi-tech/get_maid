@@ -35,12 +35,14 @@ We the CRYPTO WARRIORS think that in this world where it is more easier to launc
 MISSION IMPOSSIBLE...
 
 ### Description  
-Get_Maid is the flutter based app having  all the features like registration of both customer and maid, well distinguished categories of all the household chores and the profiles of both maid as well as customer.
+Get_Maid is the flutter based app which helps the person to find the maid in easier way. It has the features like registration of both customer and maid, well distinguished categories of all the household chores and the profiles of both maid as well as customer. The data of maids is extracted from firebase and displayed on the screen and it is also categorised according to the category chosen by the maid. The profile building is done by using the unique id of user to get data of user from the firebase. The customer can save the maid if he wants to appoint that maid by just pressing the save button.
 
 * Screenshots 
 <img src="https://github.com/preranashelke/get_maid/blob/master/180c13e8-d97c-4278-82e7-6b6ad2cac497.jpg" height = 450/> 
 <img src="https://github.com/preranashelke/get_maid/blob/master/dd84756d-ad45-456d-bfed-70ea05087dff.jpg" height = 450/>
 <img src="https://github.com/preranashelke/get_maid/blob/master/f1bc0abf-bef4-49d3-b5cb-5e0da62f6e0a.jpg" height = 450/>
+<img src=">
+<img src=">
 
 * GitHub repo link: [Link to repository](https://github.com/preranashelke/get_maid)
 * Drive link: [Drive link here](https://drive.google.com/file/d/1G6_kM6G92sUs4UPhozEpbKNYWcm1dFXQ/view?usp=sharing)
