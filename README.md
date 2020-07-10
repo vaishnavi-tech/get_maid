@@ -36,7 +36,6 @@ MISSION IMPOSSIBLE...
 
 ### Description  
 Get_Maid is the flutter based app having  all the features like registration of both customer and maid, well distinguished categories of all the household chores and the profiles of both maid as well as customer.
-<img src="https://drive.google.com/file/d/1GC9Uyf3Nz0Qihz5mFM1z41KH7CKneA3e/view?usp=sharing" height = 450/> <img src="https://drive.google.com/file/d/1GLXKSzJn4trxoHvUr2YI4Kje2Q1YEVDX/view?usp=sharing" height = 450/> <img src="https://drive.google.com/file/d/1GRubKN2PcdDAKwPpJ5LtWhjfvQ6TQt_H/view?usp=sharing" height = 450/>
 
 * GitHub repo link: [Link to repository](https://github.com/preranashelke/get_maid)
 * Drive link: [Drive link here](https://drive.google.com/file/d/1G6_kM6G92sUs4UPhozEpbKNYWcm1dFXQ/view?usp=sharing)
