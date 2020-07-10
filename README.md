@@ -25,19 +25,20 @@
 
 
 ## About The Project
-Now-a-days we see that Salon can be called at your doorsteps, Taxi arrives in your yard, Food can be ordered, even plumbers and wireman can be caLLed at your home via app.....!!! and the list goes on
-Yet one of the vital UNIVERRSAL problem is left unmanaged and that is Maid, in our typical language KAMWALIBAI.
+Now-a-days we see that Salon can be called at your doorsteps, Taxi arrives in your yard, Food can be ordered, even plumbers and wireman can be called at your home via app.....!!! and the list goes on
+Yet one of the vital, UNIVERRSAL problem is left unmanaged and that is Maid, in our typical language KAMWALIBAI.
 JUST IMAGINE......!!!
 Won't it be great if maid would come at our doorsteps on a single click? and the most wonderful part would be if we could get the BAI who is skilled at particular work...
-then it can be tougher jobs like baby sitting, nursing, or the other houseold chores.
-WOW..!!! there wont be any arguments neither any 'chik-chik' related to work.
+then it can be tougher jobs like baby sitting, nursing, or the other household chores.
+WOW..!!! there won't be any arguments neither any 'chik-chik' related to work.
 We the CRYPTO WARRIORS think that in this world where it is more easier to launch a MISSILE then to find a KAMWALIBAI vow to take a step to complete this
 MISSION IMPOSSIBLE...
 
 ### Description  
+Get_Maid is the flutter based app having  all the features like registration of both customer and maid, well distinguished categories of all the household choresand the profiles of both maid as well as customer.
 
 * GitHub repo link: [Link to repository](https://github.com/preranashelke/get_maid)
-* Drive link: [Drive link here])
+* Drive link: [Drive link here]
 
 ### Tech Stack
 * Languages
@@ -57,10 +58,10 @@ MISSION IMPOSSIBLE...
 |        |____ios
 |        |____test
 |        |____lib
-|              |____components
 |              |____models
-|              |____screen
-|              |____services
+|              |____scoped models
+|              |____screens
+|              |____widgets
 |___screenshots
 ```
 ## Getting Started
@@ -81,3 +82,7 @@ or
 flutter install
 ```
 ## Future Scope
+* Availability of maid
+* Chat corner for maid and customer
+* Tracking of maid
+
