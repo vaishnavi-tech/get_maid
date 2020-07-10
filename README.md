@@ -26,7 +26,7 @@
 
 ## About The Project
 Now-a-days we see that Salon can be called at your doorsteps, Taxi arrives in your yard, Food can be ordered, even plumbers and wireman can be called at your home via app.....!!! and the list goes on
-Yet one of the vital, UNIVERRSAL problem is left unmanaged and that is Maid, in our typical language KAMWALIBAI.
+Yet one of the vital, UNIVERSAL problem is left unmanaged and that is Maid, in our typical language KAMWALIBAI.
 JUST IMAGINE......!!!
 Won't it be great if maid would come at our doorsteps on a single click? and the most wonderful part would be if we could get the BAI who is skilled at particular work...
 then it can be tougher jobs like baby sitting, nursing, or the other household chores.
@@ -50,7 +50,7 @@ Get_Maid is the flutter based app having  all the features like registration of 
 ### File Structure
 ```
 .
-|___kitchen_mate
+|___get_maid
 |        |____assets
 |        |____images
 |        |____pubspec.yaml
@@ -82,7 +82,6 @@ or
 flutter install
 ```
 ## Future Scope
-* Availability of maid
 * Chat corner for maid and customer
 * Tracking of maid
 
