@@ -84,4 +84,4 @@ flutter install
 ## Future Scope
 * Chat corner for maid and customer
 * Tracking of maid
-
+* Customization of app according to user
