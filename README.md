@@ -35,10 +35,10 @@ We the CRYPTO WARRIORS think that in this world where it is more easier to launc
 MISSION IMPOSSIBLE...
 
 ### Description  
-Get_Maid is the flutter based app having  all the features like registration of both customer and maid, well distinguished categories of all the household choresand the profiles of both maid as well as customer.
+Get_Maid is the flutter based app having  all the features like registration of both customer and maid, well distinguished categories of all the household chores and the profiles of both maid as well as customer.
 
 * GitHub repo link: [Link to repository](https://github.com/preranashelke/get_maid)
-* Drive link: [Drive link here]
+* Drive link: [Drive link here](https://drive.google.com/file/d/1FXxPFlVmOWRhs8bqyb6K1OtxKm689zNZ/view?usp=sharing)
 
 ### Tech Stack
 * Languages
@@ -66,7 +66,7 @@ Get_Maid is the flutter based app having  all the features like registration of 
 ```
 ## Getting Started
 the apk can be installed from 
-[this]()
+[this](https://drive.google.com/file/d/1FXxPFlVmOWRhs8bqyb6K1OtxKm689zNZ/view?usp=sharing)
 else
 ### Prerequisites
 * Flutter SDK
