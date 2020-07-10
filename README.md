@@ -68,7 +68,7 @@ Get_Maid is the flutter based app having  all the features like registration of 
 ## Getting Started
 the apk can be installed from 
 [this](https://drive.google.com/file/d/1FXxPFlVmOWRhs8bqyb6K1OtxKm689zNZ/view?usp=sharing)
-else
+
 ### Prerequisites
 * Flutter SDK
 ### Installation
