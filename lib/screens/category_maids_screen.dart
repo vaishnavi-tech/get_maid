@@ -24,7 +24,7 @@ class _CategoryMaidsScreenState extends State<CategoryMaidsScreen> {
 
     final url = "https://get-maid-app.firebaseio.com/maids.json";
     final response = await http.get(url);
-    print("yahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
 
     print(json.decode(response.body));
     setState(() {
@@ -34,10 +34,10 @@ class _CategoryMaidsScreenState extends State<CategoryMaidsScreen> {
           print(innervalue);
           if (innerkey == 'categories') {
             for (int i = 0; i < innervalue.length; i++) {
-              print("heloo");
+
               print(widget.title);
               if (innervalue[i] == widget.title) {
-                print('hhijijl');
+
                 print(value);
                 finalmaidlist.add(value);
 

@@ -41,7 +41,6 @@ class CategoriesScreen extends StatelessWidget {
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
           )
-
       ),
     );
 
@@ -73,7 +72,7 @@ class CategoriesScreen extends StatelessWidget {
            // Text('Range of salary is'),
             //Text(ml.minimum_salary.toString(),),
             //Text('to'),
-            //Text(ml.maximum_salary.toStrinG(),),
+            //Text(ml.maximum_salary.toString(),),
             //],),
 
               //  ],
