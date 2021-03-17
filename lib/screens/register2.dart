@@ -65,6 +65,10 @@ class _UserRegisterState extends State<UserRegister> {
            key: _formKey,
              child: ListView(
                children: <Widget>[
+                 SizedBox(
+                 width: 100.0,
+                 height: 13.0,
+               ),
                  TextFormField(
                controller: nameTypeController,
                decoration: InputDecoration(
@@ -88,6 +92,10 @@ class _UserRegisterState extends State<UserRegister> {
               ),
               keyboardType: TextInputType.text,
              ),
+                 SizedBox(
+                   width: 100.0,
+                   height: 10.0,
+                 ),
                  TextFormField(
                    controller: emailTypeController,
                    decoration: InputDecoration(
@@ -111,6 +119,10 @@ class _UserRegisterState extends State<UserRegister> {
                    ),
                      keyboardType: TextInputType.emailAddress,
                  ),
+                 SizedBox(
+                   width: 100.0,
+                   height: 10.0,
+                 ),
               TextFormField(
               controller: addressTypeController,
               decoration: InputDecoration(
@@ -132,8 +144,12 @@ class _UserRegisterState extends State<UserRegister> {
               ),
               labelText: "Address",
               ),
-              //   keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               ),
+                 SizedBox(
+                   width: 100.0,
+                   height: 10.0,
+                 ),
               TextFormField(
               controller: phoneNumberTypeController,
               decoration: InputDecoration(
@@ -157,51 +173,63 @@ class _UserRegisterState extends State<UserRegister> {
               ),
               keyboardType: TextInputType.number,
               ),
+                 SizedBox(
+                   width: 100.0,
+                   height: 10.0,
+                 ),
                  TextFormField(
                    controller: ageTypeController,
                    decoration: InputDecoration(
                      enabledBorder: OutlineInputBorder(
-                       borderSide: BorderSide(color: Colors.blue),
+                       borderSide: BorderSide(color: Colors.deepPurple),
                        borderRadius: BorderRadius.circular(15.0),
                      ),
                      focusedBorder: OutlineInputBorder(
-                       borderSide: BorderSide(color: Colors.blue),
+                       borderSide: BorderSide(color: Colors.black),
                        borderRadius: BorderRadius.circular(15.0),
                      ),
                      errorBorder: OutlineInputBorder(
-                       borderSide: BorderSide(color: Colors.red),
+                       borderSide: BorderSide(color: Colors.indigoAccent),
                        borderRadius: BorderRadius.circular(15.0),
                      ),
                      focusedErrorBorder: OutlineInputBorder(
-                       borderSide: BorderSide(color: Colors.red),
+                       borderSide: BorderSide(color: Colors.purple),
                        borderRadius: BorderRadius.circular(15.0),
                      ),
                      labelText: "Age",
                    ),
                    keyboardType: TextInputType.number,
                  ),
+                 SizedBox(
+                   width: 100.0,
+                   height: 10.0,
+                 ),
                  TextFormField(
                    controller: genderTypeController,
                    decoration: InputDecoration(
                      enabledBorder: OutlineInputBorder(
-                       borderSide: BorderSide(color: Colors.blue),
+                       borderSide: BorderSide(color: Colors.deepPurple),
                        borderRadius: BorderRadius.circular(15.0),
                      ),
                      focusedBorder: OutlineInputBorder(
-                       borderSide: BorderSide(color: Colors.blue),
+                       borderSide: BorderSide(color: Colors.black),
                        borderRadius: BorderRadius.circular(15.0),
                      ),
                      errorBorder: OutlineInputBorder(
-                       borderSide: BorderSide(color: Colors.red),
+                       borderSide: BorderSide(color: Colors.indigoAccent),
                        borderRadius: BorderRadius.circular(15.0),
                      ),
                      focusedErrorBorder: OutlineInputBorder(
-                       borderSide: BorderSide(color: Colors.red),
+                       borderSide: BorderSide(color: Colors.purple),
                        borderRadius: BorderRadius.circular(15.0),
                      ),
                      labelText: "Gender",
                    ),
                    keyboardType: TextInputType.text,
+                 ),
+                 SizedBox(
+                   width: 100.0,
+                   height: 10.0,
                  ),
                  RaisedButton(
                    color: Theme.of(context).primaryColor,

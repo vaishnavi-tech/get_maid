@@ -87,6 +87,7 @@ class UserModel extends ConnectedModel {
       body: json.encode(authData),
       headers: {'Content-Type': 'application/json'},
     );
+
     final Map<String, dynamic> responseData = json.decode(response.body);
     print(responseData);
     bool hasError = true;

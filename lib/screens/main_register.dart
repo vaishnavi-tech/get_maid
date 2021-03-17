@@ -66,8 +66,7 @@ class _MaidRegisterState extends State<MaidRegister> {
     print(genderTypeController.text);
     _isLoading=true;
     _formKey.currentState.save();
-    register( nameTypeController.text,
-      addressTypeController.text,
+    register( nameTypeController.text, addressTypeController.text,
       ageTypeController.text.toString(),
     genderTypeController.text,
     phoneNumberTypeController.text.toString(),
@@ -96,6 +95,10 @@ class _MaidRegisterState extends State<MaidRegister> {
           key: _formKey,
           child: ListView(
             children: <Widget>[
+              SizedBox(
+              width: 100.0,
+              height: 13.0,
+            ),
 
               TextFormField(
                 controller: nameTypeController,
@@ -120,28 +123,36 @@ class _MaidRegisterState extends State<MaidRegister> {
                 ),
                 keyboardType: TextInputType.text,
               ),
+              SizedBox(
+                width: 100.0,
+                height: 10.0,
+              ),
               TextFormField(
                 controller: emailTypeController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.deepPurple),
+                    borderSide: BorderSide(color: Colors.blue),
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
+                    borderSide: BorderSide(color: Colors.blue),
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.indigoAccent),
+                    borderSide: BorderSide(color: Colors.red),
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.purple),
+                    borderSide: BorderSide(color: Colors.red),
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                   labelText: "email",
                 ),
                 keyboardType: TextInputType.emailAddress,
+              ),
+              SizedBox(
+                width: 100.0,
+                height: 10.0,
               ),
               TextFormField(
                 controller: addressTypeController,
@@ -166,6 +177,10 @@ class _MaidRegisterState extends State<MaidRegister> {
                 ),
                 keyboardType: TextInputType.text,
               ),
+              SizedBox(
+                width: 100.0,
+                height: 10.0,
+              ),
               TextFormField(
                 controller: ageTypeController,
                 decoration: InputDecoration(
@@ -189,6 +204,10 @@ class _MaidRegisterState extends State<MaidRegister> {
                 ),
                 keyboardType: TextInputType.number,
               ),
+              SizedBox(
+                width: 100.0,
+                height: 10.0,
+              ),
               TextFormField(
                 controller: phoneNumberTypeController,
                 decoration: InputDecoration(
@@ -211,7 +230,12 @@ class _MaidRegisterState extends State<MaidRegister> {
                   labelText: "Phone Number",
                 ),
                 keyboardType: TextInputType.number,
-              ),TextFormField(
+              ),
+              SizedBox(
+                width: 100.0,
+                height: 10.0,
+              ),
+              TextFormField(
                 controller: genderTypeController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
@@ -233,6 +257,10 @@ class _MaidRegisterState extends State<MaidRegister> {
                   labelText: "Gender",
                 ),
                 keyboardType: TextInputType.text,
+              ),
+              SizedBox(
+                width: 100.0,
+                height: 10.0,
               ),
               TextFormField(
                 controller: passwordTypeController,
@@ -256,6 +284,9 @@ class _MaidRegisterState extends State<MaidRegister> {
                   labelText: "Password",
                 ),
                 keyboardType: TextInputType.text,
+              ), SizedBox(
+                width: 100.0,
+                height: 10.0,
               ),
               Container( height:750.0,
                 child:  Column(

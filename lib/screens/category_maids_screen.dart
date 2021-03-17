@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../widgets/maids/maid_card.dart';
 import 'package:scoped_model/scoped_model.dart';
+
 class CategoryMaidsScreen  extends StatefulWidget {
   final String title;
   CategoryMaidsScreen ({this.title});  //constructor
